@@ -24,7 +24,6 @@ html {
 
 body {
   background-color: var(--yellow);
-  font-size: clamp(1.3rem, 2vw, 1.6rem);
   font-family: "Figtree", sans-serif;
   line-height: 1;
 }
@@ -50,14 +49,15 @@ p {
 .blog-preview-card {
   background-color: var(--white);
   padding: 2rem;
+  border: 1px solid var(--gray-950);
   border-radius: 18px;
 
   display: flex;
   flex-direction: column;
   gap: 2rem;
-  flex-basis: 37.5rem;
+  flex-basis: 38.5rem;
 
-  box-shadow: 1rem 1rem 0 rgba(0, 0, 0, 0.9);
+  box-shadow: 10px 10px 0 rgba(0, 0, 0, 0.9);
 }
 
 .blog-img {
@@ -66,19 +66,21 @@ p {
   height: auto;
   border-radius: 16px;
   overflow: hidden;
-  margin-bottom: 1.8rem;
+  margin-bottom: 2rem;
 }
 
 .blog-tag {
   display: inline-block;
+  font-size: clamp(1.1rem, 2vw, 1.2rem);
   font-weight: 800;
-  padding: 0.5rem 1rem;
+  padding: 0.8rem 1.4rem;
   background-color: var(--yellow);
   border-radius: 5px;
   margin-bottom: 1.6rem;
 }
 
 .blog-date {
+  font-size: clamp(1.1rem, 2vw, 1.2rem);
   margin-bottom: 2rem;
 }
 
@@ -86,6 +88,7 @@ p {
 .blog-title:visited {
   text-decoration: none;
   color: var(--gray-950);
+  font-size: clamp(1.6rem, 2vw, 2rem);
   font-weight: 800;
   transition: all 0.3s ease-in;
 }
@@ -97,18 +100,20 @@ p {
 
 .blog-description {
   color: var(--gray-500);
+  font-size: clamp(1.3rem, 2vw, 1.6rem);
   line-height: 1.6;
 }
 
 .blog-author {
   display: flex;
   align-items: center;
-  gap: 1.6rem;
+  column-gap: 1.4rem;
 }
 
 .author-img {
   height: 3.2rem;
 }
 .author {
+  font-size: clamp(1.2rem, 2vw, 1.4rem);
   font-weight: 800;
 }
