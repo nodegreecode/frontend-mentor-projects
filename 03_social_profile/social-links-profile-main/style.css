@@ -1,0 +1,166 @@
+/* COLORS */
+
+:root {
+  --green: hsl(108, 62%, 55%);
+  --white: hsl(0, 0%, 100%);
+  --grey-700: hsl(0, 0%, 20%);
+  --grey-800: hsl(0, 0%, 12%);
+  --grey-900: hsl(0, 0%, 8%);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  line-height: 1;
+}
+
+p {
+  font-size: 1.4rem;
+}
+
+section {
+  background-color: var(--grey-900);
+}
+
+.container {
+  max-width: 112rem;
+  padding: 0 3.2rem;
+  margin: 0 auto;
+}
+
+.center-box {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.social-profile {
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+  flex-basis: 37.5rem;
+  padding: 4rem 2rem;
+  background-color: var(--grey-800);
+  border-radius: 10px;
+}
+
+.profile-data {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2.6rem;
+  color: var(--white);
+}
+
+.user-img {
+  width: 9rem;
+  height: 9rem;
+  border-radius: 50%;
+}
+
+.user-data {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.user-name {
+  font-size: 2.5rem;
+  font-weight: 600;
+}
+
+.user-location {
+  font-weight: 600;
+  color: var(--green);
+}
+
+.user-ocupation {
+  font-weight: 400;
+}
+
+.profile-links {
+  display: flex;
+  justify-content: center;
+}
+
+.social-links-list {
+  list-style: none;
+
+  display: flex;
+  flex-direction: column;
+  gap: 1.8rem;
+}
+
+.social-links-list li {
+  text-align: center;
+}
+
+.social-link:link,
+.social-link:visited {
+  text-decoration: none;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--white);
+
+  display: block;
+  background-color: var(--grey-700);
+  padding: 1.5rem 9rem;
+  border-radius: 7px;
+
+  transition: all 0.3s ease-in-out;
+}
+
+.social-link:hover,
+.social-link:active {
+  cursor: pointer;
+  color: var(--grey-800);
+  transform: scale(1.02);
+  background-color: var(--green);
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.7);
+}
+
+/* MEDIA QUERIES */
+
+@media (max-width: 410px) {
+  p {
+    font-size: 1.2rem;
+  }
+
+  .social-link:link,
+  .social-link:visited {
+    padding: 1.7rem 8.8rem;
+    font-size: 1.2rem;
+  }
+
+  .social-profile {
+    padding: 3rem 1.5rem;
+  }
+}
+
+@media (max-width: 376px) {
+  p {
+    font-size: 1.1rem;
+  }
+
+  .social-profile {
+    padding: 3rem 1.5rem;
+  }
+
+  .social-link:link,
+  .social-link:visited {
+    padding: 1.5rem 7.9rem;
+    font-size: 1.1rem;
+  }
+}
