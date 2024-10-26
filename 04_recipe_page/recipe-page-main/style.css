@@ -1,0 +1,278 @@
+/* COLORS */
+:root {
+  --white: hsl(0, 0%, 100%);
+
+  --stone-100: hsl(30, 54%, 90%);
+  --stone-150: hsl(30, 18%, 87%);
+  --stone-600: hsl(30, 10%, 34%);
+  --stone-900: hsl(24, 5%, 18%);
+
+  --brown-800: hsl(14, 45%, 36%);
+
+  --rose-50: hsl(330, 100%, 98%);
+  --rose-800: hsl(332, 51%, 32%);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: "Outfit", sans-serif;
+  color: var(--stone-600);
+  line-height: 1;
+  background-color: var(--stone-100);
+}
+
+.container {
+  max-width: 112rem;
+  margin: 0 auto;
+  padding: 0 3.2rem;
+}
+
+.main-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 8rem 0;
+}
+
+p {
+  font-size: 1.6rem;
+}
+
+.heading-secondary {
+  color: var(--brown-800);
+  font-family: "Young Serif";
+  font-size: 2.2rem;
+  font-weight: 400;
+  margin-bottom: 2rem;
+}
+
+.lh-m {
+  line-height: 1.5;
+}
+
+ul > li::marker,
+ol > li::marker {
+  color: var(--brown-800);
+  font-weight: 700;
+}
+
+.list-item {
+  font-size: 1.6rem;
+  padding-left: 1.2rem;
+}
+
+.tag-bd {
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+
+.recipe {
+  flex-basis: 72rem;
+  background-color: var(--white);
+  border-radius: 12px;
+  padding: 4rem;
+
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+}
+
+/* INTRO SECTION */
+.recipe-intro {
+  display: flex;
+  flex-direction: column;
+  gap: 2.6rem;
+}
+
+.intro-img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.intro-title {
+  font-family: "Young Serif";
+  font-size: 3.2rem;
+  font-weight: 400;
+  color: var(--stone-900);
+}
+
+/* PREPARATION-TIME SECTION */
+.recipe-preparation-time {
+  background-color: var(--rose-50);
+  border-radius: 10px;
+  padding: 3.2rem;
+}
+
+.preparation-title {
+  color: var(--rose-800);
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+}
+
+.preparation-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+
+  padding-left: 2rem;
+}
+
+.preparation-list li::marker {
+  color: var(--rose-800);
+}
+
+/* INGREDIENTS SECTION */
+.recipe-ingredients {
+  border-bottom: 1px solid var(--stone-150);
+}
+
+.ingredients-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+
+  padding-left: 1.8rem;
+  margin-bottom: 3.2rem;
+}
+
+/* INSTRUCTIONS SECTION */
+.recipe-instructions {
+  border-bottom: 1px solid var(--stone-150);
+}
+
+.instrtuctions-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+
+  padding-left: 1.8rem;
+  margin-bottom: 3.2rem;
+}
+
+/* NUTRITION SECTION */
+
+.nutrition-text {
+  margin-bottom: 2rem;
+}
+
+table {
+  font-size: 1.6rem;
+
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  border-bottom: 1px solid var(--stone-150);
+  text-align: left;
+  padding: 1.2rem 2.4rem;
+}
+
+tr:last-child td {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+tr > th:first-child {
+  font-weight: 400;
+}
+
+tr > th:last-child,
+tr > td:last-child {
+  color: var(--brown-800);
+  font-weight: 700;
+}
+
+/* MEDIA QEURIES */
+@media (max-width: 520px) {
+  .container {
+    padding: 0;
+  }
+
+  .main-content {
+    padding: 0;
+  }
+
+  .recipe {
+    position: relative;
+    border-radius: 0;
+
+    padding: 4rem 3rem;
+  }
+
+  .recipe-intro {
+    padding-top: 23rem;
+  }
+
+  .intro-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    border-radius: 0;
+  }
+
+  .recipe-preparation-time {
+    padding: 2.2rem;
+  }
+
+  .list-item {
+    padding-right: 1.2rem;
+  }
+
+  .preparation-list {
+    list-style: none;
+    gap: 1rem;
+
+    padding-left: 0.7rem;
+  }
+
+  .align-center {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    padding-left: 0;
+  }
+
+  .align-center::before {
+    content: "•";
+    font-size: 2.8rem;
+    color: var(--rose-800);
+  }
+}
+
+@media (max-width: 490px) {
+  .recipe-intro {
+    padding-top: 21rem;
+  }
+}
+
+@media (max-width: 440px) {
+  .recipe-intro {
+    padding-top: 19rem;
+  }
+}
+
+@media (max-width: 390px) {
+  .recipe-intro {
+    padding-top: 16.5rem;
+  }
+}
+
+@media (max-width: 350px) {
+  .recipe-intro {
+    padding-top: 15rem;
+  }
+}
