@@ -1,0 +1,22 @@
+@use "../utils/variables";
+.btn {
+  border: none;
+  border-radius: 10px;
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: variables.$white;
+  margin-top: auto;
+  padding: 0.875rem;
+  transition: all 0.3s;
+}
+
+.btn--add-to-card {
+  display: flex;
+  justify-content: center;
+  gap: 0.875rem;
+  background-color: variables.$dark-cyan;
+
+  &:hover {
+    background-color: variables.$very-dark-cyan;
+  }
+}

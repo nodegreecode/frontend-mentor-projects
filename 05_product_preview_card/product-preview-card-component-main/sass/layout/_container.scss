@@ -1,0 +1,22 @@
+@use "../utils/mixins";
+
+.container {
+  max-width: 70rem;
+  padding: 0 2rem;
+  margin: 0 auto;
+
+  @include mixins.respond-phone {
+    padding: 2.5rem 1.25rem;
+  }
+}
+
+.center-box {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  @include mixins.respond-phone {
+    align-items: flex-start;
+  }
+}

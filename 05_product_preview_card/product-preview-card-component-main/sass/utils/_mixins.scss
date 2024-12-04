@@ -1,0 +1,6 @@
+// MEDIA QUEARIES
+@mixin respond-phone {
+  @media (max-width: 639px) {
+    @content;
+  }
+}

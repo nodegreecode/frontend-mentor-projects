@@ -1,0 +1,47 @@
+@use "../utils/variables";
+
+// GRID SYSTEM 4pt
+/*
+
+ 0.125rem - 2px   
+ 0.25rem - 4px
+ 0.375rem - 6px
+ 0.5rem - 8px
+ 0.625rem - 10px
+ 0.75rem - 12px
+ 0.875rem - 14px
+ 1rem - 16px
+ 1.25rem - 20px
+ 1.5rem - 24px
+ 1.75rem - 28px
+ 2rem - 32px
+ 2.25rem - 36px
+ 2.5rem - 40px
+ 2.75rem - 44px
+ 3rem - 48px
+ 3.25rem - 52px
+ 3.5rem - 56px
+
+*/
+body {
+  background-color: variables.$cream;
+  line-height: 1;
+  color: variables.$dark-grayish-blue;
+}
+
+p {
+  font-size: 0.875rem;
+}
+
+.montserrat-primary {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+.fraunces-secondary {
+  font-family: "Fraunces", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+}
