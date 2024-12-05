@@ -5,7 +5,19 @@
   padding: 0 2rem;
   margin: 0 auto;
 
-  @include mixins.respond-phone {
+  @include mixins.respond(tablet-port) {
+    padding: 5rem;
+  }
+
+  @include mixins.respond(phone-l) {
+    padding: 3.5rem;
+  }
+
+  @include mixins.respond(phone-m) {
+    padding: 3rem;
+  }
+
+  @include mixins.respond(phone-s) {
     padding: 2.5rem 1.25rem;
   }
 }
@@ -16,7 +28,7 @@
   justify-content: center;
   align-items: center;
 
-  @include mixins.respond-phone {
+  @include mixins.respond(tablet-port) {
     align-items: flex-start;
   }
 }

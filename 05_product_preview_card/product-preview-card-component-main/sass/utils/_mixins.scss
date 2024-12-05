@@ -1,6 +1,33 @@
 // MEDIA QUEARIES
-@mixin respond-phone {
-  @media (max-width: 639px) {
-    @content;
+
+@mixin respond($breakpoint) {
+  @if ($breakpoint == phone-s) {
+    @media (max-width: 443px) {
+      @content;
+    }
+  }
+
+  @if ($breakpoint == phone-m) {
+    @media (max-width: 490px) {
+      @content;
+    }
+  }
+
+  @if ($breakpoint == phone-l) {
+    @media (max-width: 522px) {
+      @content;
+    }
+  }
+
+  @if ($breakpoint == tablet-port) {
+    @media (max-width: 638px) {
+      @content;
+    }
+  }
+
+  @if ($breakpoint == tablet-land) {
+    @media (max-width: 900px) {
+      @content;
+    }
   }
 }
