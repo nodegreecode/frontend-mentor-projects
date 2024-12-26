@@ -1,0 +1,73 @@
+@use "../utils/variables";
+@use "../utils/mixins";
+
+// CARD-SECTION
+.card-section {
+  padding: 5rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5rem;
+
+  @include mixins.respond-desktop() {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 5.6rem;
+  }
+
+  @include mixins.respond-tablet() {
+    grid-template-columns: repeat(1, 1fr);
+    padding: 4.8rem;
+  }
+
+  @include mixins.respond-phone() {
+    padding: 9.6rem 2.4rem 2.4rem 2.4rem;
+    gap: 3.8rem;
+  }
+
+  &__content {
+    max-width: 55rem;
+
+    @include mixins.respond-phone() {
+      width: 100%;
+    }
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  &__title {
+    font-size: 3.5rem;
+    font-weight: 300;
+    color: variables.$color-neutral-very-dark-blue;
+
+    @include mixins.respond-phone() {
+      font-size: 2.4rem;
+      text-align: center;
+    }
+
+    &--b {
+      color: variables.$color-neutral-very-dark-blue;
+      font-size: 3.5rem;
+      font-weight: 700;
+      letter-spacing: 0.02rem;
+
+      @include mixins.respond-phone() {
+        font-size: 2.4rem;
+        text-align: center;
+      }
+    }
+  }
+
+  &__description {
+    text-align: center;
+    line-height: 1.7;
+    padding: 1rem 2rem;
+
+    @include mixins.respond-phone() {
+      padding: 0.5rem;
+    }
+  }
+}

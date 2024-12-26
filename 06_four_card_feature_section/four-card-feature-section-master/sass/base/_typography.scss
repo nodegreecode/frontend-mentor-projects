@@ -1,0 +1,20 @@
+@use "../utils/variables";
+
+// TYPOGRAPHY
+body {
+  font-size: variables.$font-size-base;
+  font-family: "Poppins", sans-serif;
+  line-height: 1;
+
+  color: variables.$color-neutral-grayish-blue;
+
+  display: flex;
+  flex-direction: column;
+  gap: 4.8rem;
+}
+
+.text-center {
+  justify-self: center;
+  align-self: center;
+  text-align: center;
+}

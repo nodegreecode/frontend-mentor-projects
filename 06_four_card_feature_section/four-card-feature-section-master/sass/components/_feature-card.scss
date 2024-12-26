@@ -1,0 +1,61 @@
+@use "../utils/variables";
+@use "../utils/mixins";
+
+// FEATURE CARD
+.feature-card {
+  padding: 3.4rem;
+  border-radius: 5px;
+  box-shadow: 3px 9px 15px rgba(72, 81, 134, 0.3);
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 4.8rem;
+
+  @include mixins.respond-desktop() {
+    gap: 4rem;
+  }
+
+  @include mixins.respond-tablet() {
+    padding: 2.8rem;
+    gap: 3.8rem;
+  }
+
+  @include mixins.respond-phone() {
+    gap: 2.8rem;
+  }
+
+  &__title {
+    padding-bottom: 2rem;
+    color: variables.$color-neutral-very-dark-blue;
+  }
+
+  &__description {
+    line-height: 1.6;
+  }
+
+  &--border-seagreen {
+    border-top: 3px solid lightseagreen;
+  }
+
+  &--border-red {
+    border-top: 3px solid variables.$color-primary-red;
+  }
+
+  &--yellow {
+    border-top: 3px solid gold;
+  }
+
+  &--border-blue {
+    border-top: 3px solid blue;
+  }
+
+  &__image {
+    height: 100%;
+    align-self: end;
+    & img {
+      width: 60px;
+      height: 60px;
+    }
+  }
+}

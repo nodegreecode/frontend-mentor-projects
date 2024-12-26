@@ -1,0 +1,22 @@
+// MIXINS
+@mixin customRow($start, $end) {
+  grid-row: #{$start} / #{$end};
+}
+
+@mixin respond-desktop {
+  @media (max-width: 1245px) {
+    @content;
+  }
+}
+
+@mixin respond-tablet {
+  @media (max-width: 818px) {
+    @content;
+  }
+}
+
+@mixin respond-phone {
+  @media (max-width: 546px) {
+    @content;
+  }
+}

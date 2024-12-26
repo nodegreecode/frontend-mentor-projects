@@ -1,0 +1,96 @@
+@use "../utils/mixins";
+
+// CONTAINER
+.container {
+  max-width: 120rem;
+  margin: 0 auto;
+}
+
+// GRID CONTAINER
+.grid-container {
+  display: grid;
+  column-gap: 3.2rem;
+  row-gap: 3.2rem;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+
+  @include mixins.respond-desktop() {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include mixins.respond-tablet() {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  &__item {
+    padding: 2rem;
+  }
+}
+
+// COLUMN SYSTEM
+
+.col-1-of-2 {
+  @include mixins.respond-desktop() {
+    grid-column: 1/2;
+  }
+}
+
+.col-2-of-3 {
+  grid-column: 2/3;
+  @include mixins.respond-tablet() {
+    grid-column: 1/2;
+  }
+}
+
+.col-3-of-3 {
+  grid-column: 3/4;
+
+  @include mixins.respond-desktop() {
+    grid-column: 1/2;
+  }
+
+  @include mixins.respond-tablet() {
+    grid-column: 1/2;
+  }
+}
+
+// GRID ROWS
+.supervisor-row {
+  @include mixins.customRow(2, 4);
+
+  @include mixins.respond-desktop() {
+    @include mixins.customRow(1, 3);
+  }
+
+  @include mixins.respond-tablet() {
+    @include mixins.customRow(1, 2);
+  }
+}
+
+.team-builder-row {
+  @include mixins.customRow(1, 3);
+
+  @include mixins.respond-tablet() {
+    @include mixins.customRow(2, 3);
+  }
+}
+
+.karma-row {
+  @include mixins.customRow(3, 5);
+
+  @include mixins.respond-tablet() {
+    @include mixins.customRow(3, 4);
+  }
+}
+
+.calculator-row {
+  @include mixins.customRow(2, 4);
+
+  @include mixins.respond-desktop() {
+    @include mixins.customRow(3, 5);
+  }
+
+  @include mixins.respond-tablet() {
+    @include mixins.customRow(4, 5);
+  }
+}
