@@ -12,6 +12,7 @@ body {
   font-size: 1.5rem;
   font-family: "Poppins", sans-serif;
   line-height: 1;
+  background-color: hsl(0, 0%, 98%);
   color: hsl(229, 6%, 66%);
   display: flex;
   flex-direction: column;
