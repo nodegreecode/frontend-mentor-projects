@@ -1,0 +1,21 @@
+@use "../utils/mixins";
+
+//GRID
+.testimonial {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+
+  @include mixins.respond-desktop() {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 1fr min-content auto;
+  }
+
+  @include mixins.respond-tablet-port() {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(5, min-content);
+  }
+
+  column-gap: 2.8rem;
+  row-gap: 2.8rem;
+}

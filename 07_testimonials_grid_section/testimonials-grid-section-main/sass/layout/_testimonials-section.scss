@@ -1,0 +1,20 @@
+@use "../utils/variables";
+@use "../utils/mixins";
+
+//TESTIMONIALS SECTION
+.testimonials {
+  background-color: variables.$light-grayish-blue;
+  padding: 9.4rem;
+
+  @include mixins.respond-tablet-land() {
+    padding: 7.8rem;
+  }
+
+  @include mixins.respond-tablet-port() {
+    padding: 6.2rem;
+  }
+
+  @include mixins.respond-phone() {
+    padding: 3rem;
+  }
+}
