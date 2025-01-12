@@ -1,0 +1,19 @@
+@use "variables";
+@use "mixins";
+
+// HELPER CLASSES
+.popup-wrapper {
+  position: relative;
+}
+
+.hidden {
+  display: none;
+}
+
+.btn-backgroundcolor-pressed {
+  background-color: variables.$desaturated-dark-blue;
+}
+
+.icon-backgroundcolor-pressed {
+  color: variables.$light-grayish-blue;
+}

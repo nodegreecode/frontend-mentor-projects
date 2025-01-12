@@ -1,0 +1,68 @@
+@use "../utils/variables";
+@use "../utils/mixins";
+
+// CONTAINER
+.container {
+  max-width: 112rem;
+  margin: 0 auto;
+  padding: 0 5.6rem;
+
+  @include mixins.respond-tablet-land() {
+    padding: 0 2.4rem;
+  }
+}
+.center-box {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flex-container-row {
+  display: flex;
+}
+
+.flex-container-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-gap-s {
+  gap: 1.5rem;
+
+  @include mixins.respond-tablet-land() {
+    gap: 1.5rem;
+  }
+
+  @include mixins.respond-phone() {
+    gap: 1.5rem;
+  }
+}
+
+.flex-gap-m {
+  gap: 2rem;
+}
+
+.flex-gap-l {
+  gap: 5.6rem;
+}
+
+.container-row-justify-center {
+  justify-content: center;
+}
+
+.container-row-justify-between {
+  justify-content: space-between;
+}
+
+.container-row-align-center {
+  align-items: center;
+}
+
+.container-column-justify-center {
+  align-items: center;
+}
+
+.container-column-align-center {
+  justify-content: center;
+}

@@ -1,0 +1,12 @@
+// MIXINS
+@mixin respond-tablet-land {
+  @media (max-width: 900px) {
+    @content;
+  }
+}
+
+@mixin respond-phone {
+  @media (max-width: 440px) {
+    @content;
+  }
+}

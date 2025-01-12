@@ -1,0 +1,345 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: "Manrope", sans-serif;
+  line-height: 1;
+}
+
+section {
+  background-color: hsl(210, 46%, 95%);
+}
+
+.container {
+  max-width: 112rem;
+  margin: 0 auto;
+  padding: 0 5.6rem;
+}
+@media (max-width: 900px) {
+  .container {
+    padding: 0 2.4rem;
+  }
+}
+
+.center-box {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flex-container-row {
+  display: flex;
+}
+
+.flex-container-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-gap-s {
+  gap: 1.5rem;
+}
+@media (max-width: 900px) {
+  .flex-gap-s {
+    gap: 1.5rem;
+  }
+}
+@media (max-width: 440px) {
+  .flex-gap-s {
+    gap: 1.5rem;
+  }
+}
+
+.flex-gap-m {
+  gap: 2rem;
+}
+
+.flex-gap-l {
+  gap: 5.6rem;
+}
+
+.container-row-justify-center {
+  justify-content: center;
+}
+
+.container-row-justify-between {
+  justify-content: space-between;
+}
+
+.container-row-align-center {
+  align-items: center;
+}
+
+.container-column-justify-center {
+  align-items: center;
+}
+
+.container-column-align-center {
+  justify-content: center;
+}
+
+/****************************** COMPONENT ********************************/
+.article-preview {
+  max-width: 69rem;
+  background-color: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+}
+@media (max-width: 900px) {
+  .article-preview {
+    flex-direction: column;
+    max-width: 37.5rem;
+    height: 65vh;
+  }
+}
+@media (max-width: 440px) {
+  .article-preview {
+    height: 60vh;
+  }
+}
+.article-preview__image-box {
+  flex-basis: 40%;
+  background-image: url("../images/drawers.jpg");
+  background-size: cover;
+}
+@media (max-width: 900px) {
+  .article-preview__image-box {
+    position: static;
+    flex-basis: 45%;
+  }
+}
+.article-preview__content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  flex-basis: 60%;
+  padding: 3.4rem;
+  font-size: 1.3rem;
+}
+@media (max-width: 900px) {
+  .article-preview__content {
+    gap: 4.6rem;
+    flex-basis: 55%;
+    padding: 4.2rem 4rem 3.6rem 4rem;
+  }
+}
+@media (max-width: 440px) {
+  .article-preview__content {
+    gap: 3.6rem;
+    padding: 4.2rem 3.6rem 2.6rem 3.6rem;
+  }
+}
+.article-preview__title {
+  font-weight: 700;
+  color: hsl(217, 19%, 35%);
+  line-height: 1.3;
+}
+@media (max-width: 900px) {
+  .article-preview__title {
+    font-size: 1.7rem;
+    line-height: 1.5;
+  }
+}
+@media (max-width: 440px) {
+  .article-preview__title {
+    font-size: 1.5rem;
+  }
+}
+.article-preview__description {
+  font-weight: 500;
+  color: hsl(214, 17%, 51%);
+  line-height: 1.5;
+}
+@media (max-width: 900px) {
+  .article-preview__description {
+    line-height: 1.6;
+  }
+}
+.article-preview__actions {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  transform: translate(-34px, -34px);
+  z-index: 20;
+}
+@media (max-width: 900px) {
+  .article-preview__actions {
+    transform: translate(-50px, -36px);
+  }
+}
+@media (max-width: 440px) {
+  .article-preview__actions {
+    transform: translate(-36px, -25px);
+  }
+}
+.article-preview__author {
+  gap: 1.5rem;
+}
+
+.author__image {
+  width: 40px;
+  height: 40px;
+  border-radius: 100px;
+}
+.author__name {
+  color: hsl(217, 19%, 35%);
+  font-weight: 700;
+  padding-bottom: 0.6rem;
+}
+.author__date {
+  font-weight: 500;
+  color: hsl(214, 17%, 51%);
+}
+
+.actions__button {
+  background-color: hsl(210, 46%, 95%);
+  width: 35px;
+  height: 35px;
+  border-radius: 100px;
+  border: none;
+  transition: background-color 0.3s ease;
+}
+@media (max-width: 440px) {
+  .actions__button {
+    width: 32px;
+    height: 32px;
+  }
+}
+.actions__icon {
+  color: hsl(214, 17%, 51%);
+}
+.actions__social-share {
+  color: hsl(214, 17%, 51%);
+  background-color: hsl(217, 19%, 35%);
+  padding: 1.7rem 3.4rem;
+  border-radius: 10px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translate(29%, 250%);
+}
+@media (max-width: 900px) {
+  .actions__social-share {
+    gap: 1rem;
+    top: unset;
+    bottom: 0;
+    width: 100%;
+    padding: 4rem 3.8rem;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    transform: translate(0, 0);
+  }
+}
+@media (max-width: 440px) {
+  .actions__social-share {
+    gap: 1rem;
+    width: 100%;
+    padding: 2.8rem 3.4rem;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    transform: translate(0, 0);
+  }
+}
+.actions__social-share::after {
+  content: "";
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  background-color: hsl(217, 19%, 35%);
+  top: 8px;
+  left: 95px;
+  transform: translate(50%, 70%) rotate(45deg);
+  z-index: -1;
+}
+@media (max-width: 440px) {
+  .actions__social-share::after {
+    display: none;
+  }
+}
+
+.social-share__title {
+  text-transform: uppercase;
+  font-size: 1.3rem;
+  letter-spacing: 5px;
+}
+@media (max-width: 900px) {
+  .social-share__title {
+    font-size: 1.4rem;
+  }
+}
+@media (max-width: 440px) {
+  .social-share__title {
+    font-size: 1.2rem;
+  }
+}
+.social-share__platform-list {
+  list-style: none;
+}
+@media (max-width: 900px) {
+  .social-share__platform-list {
+    gap: 1.5rem;
+  }
+}
+@media (max-width: 440px) {
+  .social-share__platform-list {
+    gap: 1.3rem;
+  }
+}
+
+.platform__link:link {
+  display: inline-block;
+  position: inherit;
+  width: 18px;
+  height: 18px;
+}
+.platform__link:hover img {
+  transform: scale(1.1);
+}
+.platform__icon {
+  width: 18px;
+  height: 18px;
+  transition: all 0.3s ease-in-out;
+}
+@media (max-width: 900px) {
+  .platform__icon {
+    width: 22px;
+    height: 22px;
+  }
+}
+@media (max-width: 440px) {
+  .platform__icon {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+.popup-wrapper {
+  position: relative;
+}
+
+.hidden {
+  display: none;
+}
+
+.btn-backgroundcolor-pressed {
+  background-color: hsl(214, 17%, 51%);
+}
+
+.icon-backgroundcolor-pressed {
+  color: hsl(210, 46%, 95%);
+}
+
+/*# sourceMappingURL=style.css.map */
