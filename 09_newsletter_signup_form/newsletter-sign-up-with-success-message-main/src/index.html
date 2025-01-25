@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
+
+    <link rel="stylesheet" href="../dist/css/style.css" />
+
+    <script defer src="./js/app.js"></script>
+
+    <title>
+      Frontend Mentor | Newsletter sign-up form with success message
+    </title>
+
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+    <style>
+      .attribution {
+        font-size: 11px;
+        text-align: center;
+      }
+      .attribution a {
+        color: hsl(228, 45%, 44%);
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <section class="newsletter">
+        <div class="container center-box">
+          <div class="newsletter__container">
+            <div class="newsletter__inner-container">
+              <div class="newsletter__form-box">
+                <form
+                  class="newsletter__signup-form"
+                  autocomplete="off"
+                  novalidate
+                >
+                  <div class="signup-form__form-group gap-l-desktop">
+                    <h1 class="signup-form__heading">Stay updated!</h1>
+                    <p class="signup-form__features-description">
+                      Join 60,000+ product managers receiving monthly updates
+                      on:
+                    </p>
+                    <ul class="signup-form__features-list">
+                      <li class="features-list__item">
+                        Product discovery and building what matters
+                      </li>
+                      <li class="features-list__item">
+                        Measuring to ensure updates are a success
+                      </li>
+                      <li class="features-list__item">And much more!</li>
+                    </ul>
+                  </div>
+
+                  <div class="signup-form__form-group gap-m-desktop">
+                    <div class="">
+                      <label class="signup-form__label" for="email"
+                        >Email address</label
+                      >
+                      <span
+                        class="signup-form__error-message"
+                        aria-live="polite"
+                        id="email-error"
+                        >Valid email required</span
+                      >
+                      <input
+                        class="signup-form__email"
+                        type="email"
+                        id="email"
+                        name="email"
+                        autocomplete="off"
+                        placeholder="email@company.com"
+                      />
+                    </div>
+
+                    <button class="signup-form__btn" type="submit">
+                      Subscribe to monthly newsletter
+                    </button>
+                  </div>
+                </form>
+              </div>
+
+              <div class="newsletter__image-box">
+                <img
+                  class="newsletter__image"
+                  src="./assets/images/illustration-sign-up-desktop.svg"
+                  alt="picture"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <footer>
+        <!-- Sign-up form start -->
+
+        <!-- Sign-up form end -->
+
+        <!-- Success message start -->
+
+        Thanks for subscribing! A confirmation email has been sent to
+        ash@loremcompany.com. Please open it and click the button inside to
+        confirm your subscription. Dismiss message
+
+        <!-- Success message end -->
+
+        <div class="attribution">
+          Challenge by
+          <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+            >Frontend Mentor</a
+          >. Coded by
+          <a
+            href="https://www.linkedin.com/in/anatolii-vasylenko-402014219/"
+            target="_blank"
+            >Anatolii Vasylenko</a
+          >.
+        </div>
+      </footer>
+    </main>
+  </body>
+</html>

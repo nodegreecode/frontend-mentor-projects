@@ -1,0 +1,150 @@
+@font-face {
+  font-family: "Roboto";
+  src: url("../../src/assets/fonts/Roboto-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Roboto";
+  src: url("../../src/assets/fonts/Roboto-Bold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body,
+input {
+  font-size: 1.6rem;
+  font-family: "Roboto", sans-serif;
+  line-height: 1;
+}
+
+main {
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.container {
+  max-width: 112rem;
+  margin: 0 auto;
+}
+
+.center-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.gap-l-desktop {
+  gap: 3.2rem;
+}
+
+.gap-m-desktop {
+  gap: 2rem;
+}
+
+.gap-s-desktop {
+  gap: 1.5rem;
+}
+
+.newsletter {
+  padding: 2rem;
+  background-color: hsl(235, 18%, 26%);
+}
+.newsletter__container {
+  width: 100%;
+  max-width: 84rem;
+  height: 58rem;
+  border-radius: 33px;
+  box-shadow: 0 60px 40px -30px rgba(0, 0, 0, 0.27);
+  position: relative;
+  background-color: hsl(0, 0%, 100%);
+}
+.newsletter__inner-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: calc(100% - 4.2rem);
+  height: calc(100% - 4.2rem);
+}
+.newsletter__form-box {
+  width: 55%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.newsletter__signup-form {
+  width: 100%;
+  max-width: 36rem;
+  height: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+.newsletter__image-box {
+  width: 45%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 55%;
+}
+.newsletter__image {
+  width: 100%;
+  height: 100%;
+}
+
+.signup-form__heading {
+  font-size: 4.2rem;
+  font-weight: 700;
+}
+.signup-form__features-description {
+  font-weight: 400;
+}
+.signup-form__features-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+.signup-form__form-group {
+  display: flex;
+  flex-direction: column;
+}
+.signup-form__label {
+  font-size: 1.3rem;
+  font-weight: 900;
+  color: hsl(234, 29%, 20%);
+  display: inline-block;
+  padding-bottom: 0.8rem;
+}
+.signup-form__email {
+  width: 100%;
+}
+.signup-form__error-message {
+  font-size: 1.3rem;
+  font-weight: 900;
+  color: hsl(4, 100%, 67%);
+  display: inline-block;
+}
+.signup-form__btn {
+  width: 100%;
+}
+
+.features-list__item {
+  font-weight: 400;
+}
+
+/*# sourceMappingURL=style.css.map */
