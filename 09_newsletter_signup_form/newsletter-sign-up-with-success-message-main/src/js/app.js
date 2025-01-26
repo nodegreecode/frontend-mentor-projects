@@ -4,6 +4,7 @@ const from = document.getElementById("form");
 const emailInput = document.getElementById("email");
 const newsletter = document.querySelector(".newsletter__container");
 const successMessage = document.querySelector(".success-message");
+const confirmationEmail = document.getElementById("confirmation-email");
 const formGroupWrapper = document.getElementById("form-group-wrapper");
 const successMessageDismissBtn = document.querySelector(
   ".success-message__btn"
@@ -18,6 +19,7 @@ const validateForm = (e) => {
 
   if (email && isValid.test(email)) {
     newsletter.classList.add("hidden");
+    confirmationEmail.textContent = email;
     successMessage.classList.remove("hidden");
   } else {
     formGroupWrapper.classList.add("error");
