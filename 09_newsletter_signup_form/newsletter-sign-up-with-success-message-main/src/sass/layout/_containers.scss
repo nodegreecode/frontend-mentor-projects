@@ -1,0 +1,36 @@
+@use "../utils/mixins";
+
+/* CONTAINER */
+main {
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.container {
+  max-width: 112rem;
+  margin: 0 auto;
+}
+
+.center-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+
+  @include mixins.respon-tablet() {
+    height: auto;
+  }
+}
+
+.gap-l-desktop {
+  gap: 3.2rem;
+}
+
+.gap-m-desktop {
+  gap: 2rem;
+}
+
+.gap-s-desktop {
+  gap: 1.5rem;
+}
