@@ -1,0 +1,132 @@
+/* VARIABLES */
+
+$blue: hsl(246, 80%, 60%);
+
+$light-red-work: hsl(15, 100%, 70%);
+$soft-blue-play: hsl(195, 74%, 62%);
+$light-red-study: hsl(348, 100%, 68%);
+$lime-green-exercise: hsl(145, 58%, 55%);
+$violet-social: hsl(264, 64%, 52%);
+$soft-orange-self-care: hsl(43, 84%, 65%);
+
+$very-dark-blue: hsl(226, 43%, 10%);
+$dark-blue: hsl(235, 46%, 20%);
+$desaturated-blue: hsl(235, 45%, 61%);
+$pale-blue: hsl(236, 100%, 87%);
+$white: hsl(0, 0%, 100%);
+
+$fs-primary: 1.8rem;
+
+/* MIXINS MEDIA QUERY*/
+@mixin respond-phone() {
+  @media (max-width: 520px) {
+    @content;
+  }
+}
+
+/* GLOBAL RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: sans-serif;
+  line-height: 1;
+  font-size: $fs-primary;
+}
+
+/* DEVELOPMENT TEMPT CSS */
+section {
+  background-color: beige;
+}
+footer {
+  background-color: bisque;
+  padding: 4rem;
+}
+
+/* CONTAINER GRID GRID ITEMS */
+.container {
+  max-width: 112rem;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.grid {
+  display: grid;
+  gap: 2rem;
+}
+
+.grid-item {
+  border-radius: 18px;
+}
+
+/* COMPONENT */
+.dashboard {
+  background-color: $very-dark-blue;
+
+  &__header {
+    background-color: $blue;
+    border-radius: 18px;
+
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+
+    padding: 3rem;
+
+    & img {
+      width: 8rem;
+      height: 8rem;
+      border: 3px solid $white;
+      border-radius: 100px;
+
+      @include respond-phone() {
+        width: 7rem;
+        height: 7rem;
+      }
+    }
+  }
+
+  &__nav {
+    background-color: $dark-blue;
+    border-radius: 18px;
+    padding: 3rem;
+  }
+}
+
+.header {
+  &__content {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__report {
+    color: $pale-blue;
+    @include respond-phone() {
+      font-size: 1.2rem;
+    }
+  }
+
+  &__title {
+    color: $white;
+    @include respond-phone() {
+      font-size: 2.4rem;
+    }
+  }
+}
+
+.nav-list {
+  list-style: none;
+  display: flex;
+  justify-content: space-evenly;
+
+  &__item > a:link {
+    text-decoration: none;
+  }
+}
