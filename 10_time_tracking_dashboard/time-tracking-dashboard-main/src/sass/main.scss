@@ -16,8 +16,17 @@ $pale-blue: hsl(236, 100%, 87%);
 $white: hsl(0, 0%, 100%);
 
 $fs-primary: 1.8rem;
+$fw-sm: 300;
+$fw-md: 400;
+$fw-lg: 500;
 
 /* MIXINS MEDIA QUERY*/
+@mixin respond-tablet() {
+  @media (max-width: 970px) {
+    @content;
+  }
+}
+
 @mixin respond-phone() {
   @media (max-width: 520px) {
     @content;
@@ -36,15 +45,55 @@ html {
 }
 
 body {
-  font-family: sans-serif;
+  font-family: "Rubik", sans-serif;
   line-height: 1;
   font-size: $fs-primary;
 }
 
-/* DEVELOPMENT TEMPT CSS */
-section {
-  background-color: beige;
+/* HELPERS */
+
+.outer-sides {
+  display: flex;
+
+  align-items: center;
+
+  &--left {
+    justify-content: flex-start;
+  }
+
+  &--right {
+    justify-content: flex-end;
+  }
 }
+
+.dots {
+  width: 0.4rem;
+  height: 0.4rem;
+  background-color: $pale-blue;
+  border-radius: 50%;
+  position: relative;
+  right: 0.7rem;
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    width: 0.4rem;
+    height: 0.4rem;
+    border-radius: 50%;
+    background-color: $pale-blue;
+    top: 0;
+  }
+
+  &::before {
+    left: -0.7rem;
+  }
+
+  &::after {
+    left: 0.7rem;
+  }
+}
+
 footer {
   background-color: bisque;
   padding: 4rem;
@@ -54,16 +103,60 @@ footer {
 .container {
   max-width: 112rem;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 7rem 2rem;
 }
 
 .grid {
   display: grid;
-  gap: 2rem;
+  height: 50rem;
+  gap: 2.4rem;
+
+  grid-template-columns: repeat(4, 1fr);
+
+  @include respond-tablet() {
+    grid-template-columns: repeat(2, 1fr);
+    height: auto;
+  }
+
+  @include respond-phone() {
+    grid-template-columns: 1fr;
+  }
 }
 
 .grid-item {
-  border-radius: 18px;
+  position: relative;
+
+  &__header {
+    min-width: 20rem;
+    height: 100%;
+
+    grid-row: 1/3;
+
+    @include respond-tablet() {
+      grid-column: 1/3;
+      grid-row: 1/2;
+      min-height: 21rem;
+    }
+
+    @include respond-phone() {
+      grid-column: 1/1;
+
+      min-width: 30rem;
+      min-height: 21rem;
+    }
+  }
+
+  &__box {
+    min-width: 20rem;
+    min-height: 20rem;
+
+    overflow: hidden;
+
+    @include respond-phone() {
+      min-width: 30rem;
+      min-height: 17rem;
+    }
+  }
 }
 
 /* COMPONENT */
@@ -75,10 +168,30 @@ footer {
     border-radius: 18px;
 
     display: flex;
-    align-items: center;
-    gap: 2rem;
+    flex-direction: column;
+
+    gap: 4rem;
 
     padding: 3rem;
+
+    width: 100%;
+    min-height: 35rem;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+
+    @include respond-tablet() {
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      min-height: 14rem;
+    }
+
+    @include respond-phone() {
+      min-height: 14rem;
+    }
 
     & img {
       width: 8rem;
@@ -95,8 +208,103 @@ footer {
 
   &__nav {
     background-color: $dark-blue;
-    border-radius: 18px;
-    padding: 3rem;
+    border-radius: 0 0 18px 18px;
+    padding: 4.9rem 3rem 3rem 3rem;
+
+    width: 100%;
+    min-height: 17rem;
+
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    @include respond-tablet() {
+      min-height: 9rem;
+      padding: 5.2rem 2rem 2.7rem 2rem;
+      flex-direction: row;
+      align-items: flex-end;
+    }
+
+    @include respond-phone() {
+      min-height: 9rem;
+      flex-direction: row;
+      align-items: flex-end;
+    }
+  }
+
+  &__section {
+    width: 100%;
+    height: 100%;
+  }
+
+  &__section-image-box {
+    border-radius: 18px 18px 0 0;
+    padding: 4rem;
+
+    width: 100%;
+    height: 5rem;
+
+    &--work {
+      background-color: $light-red-work;
+    }
+
+    &--play {
+      background-color: $soft-blue-play;
+    }
+
+    &--study {
+      background-color: $light-red-study;
+    }
+
+    &--exercise {
+      background-color: $lime-green-exercise;
+    }
+
+    &--social {
+      background-color: $violet-social;
+    }
+
+    &--self-care {
+      background-color: $soft-orange-self-care;
+    }
+
+    & img {
+      width: 8rem;
+      height: auto;
+
+      position: absolute;
+      top: 0;
+      right: 0;
+      transform: translate(-25%, -12%);
+    }
+  }
+
+  &__section-content-box {
+    padding: 2.4rem;
+    border-radius: 16px;
+    background-color: $dark-blue;
+    color: $white;
+
+    width: 100%;
+    height: 19rem;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+    @include respond-tablet() {
+      height: 16rem;
+    }
+
+    @include respond-phone() {
+      height: 12rem;
+    }
   }
 }
 
@@ -104,6 +312,10 @@ footer {
   &__content {
     display: flex;
     flex-direction: column;
+    gap: 0.5rem;
+    @include respond-tablet() {
+      gap: 1rem;
+    }
   }
 
   &__report {
@@ -115,6 +327,8 @@ footer {
 
   &__title {
     color: $white;
+    font-weight: $fw-sm;
+    line-height: 1.2;
     @include respond-phone() {
       font-size: 2.4rem;
     }
@@ -122,11 +336,61 @@ footer {
 }
 
 .nav-list {
+  width: 100%;
   list-style: none;
   display: flex;
-  justify-content: space-evenly;
+  flex-direction: column;
+  gap: 2rem;
 
-  &__item > a:link {
+  &__item a:link,
+  &__item a:visited {
     text-decoration: none;
+    color: $blue;
+  }
+
+  &__item a:hover,
+  &__item a:active {
+    color: $white;
+  }
+
+  &__item.active a:link,
+  &__item.active a:visited {
+    color: $white;
+  }
+
+  @include respond-tablet() {
+    flex-direction: row;
+    gap: unset;
+    justify-content: space-around;
+  }
+}
+
+.section-content {
+  &__title {
+    font-size: 1.8rem;
+    font-weight: $fw-md;
+  }
+
+  &__options a {
+    &:link {
+    }
+
+    &:hover .dots,
+    &:hover .dots:after,
+    &:hover .dots:before {
+      background-color: $white;
+      transform: scale(1.2);
+    }
+  }
+
+  &__current-time {
+    font-size: 3rem;
+    font-weight: $fw-sm;
+  }
+
+  &__previous-time {
+    font-size: 1.4rem;
+    font-weight: $fw-sm;
+    color: $pale-blue;
   }
 }

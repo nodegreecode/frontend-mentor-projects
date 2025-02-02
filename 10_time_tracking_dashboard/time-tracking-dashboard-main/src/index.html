@@ -13,7 +13,12 @@
     />
 
     <title>Frontend Mentor | Time tracking dashboard</title>
-
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="../dist/css/style.css" />
 
     <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
@@ -31,7 +36,7 @@
     <main class="dashboard">
       <div class="container">
         <div class="grid">
-          <div class="grid-item">
+          <div class="grid-item grid-item__header">
             <header class="dashboard__header">
               <img src="./assets/images/image-jeremy.png" alt="" />
               <div class="header__content">
@@ -42,81 +47,180 @@
             <nav class="dashboard__nav">
               <ul class="nav-list">
                 <li class="nav-list__item"><a href="#">Daily</a></li>
-                <li class="nav-list__item"><a href="#">Weekly</a></li>
+                <li class="nav-list__item active"><a href="#">Weekly</a></li>
                 <li class="nav-list__item"><a href="#">Monthly</a></li>
               </ul>
             </nav>
           </div>
           <!-- WORK -->
-          <section class="grid-item dashboard__section-work">
-            <img src="./assets/images/icon-work.svg" alt="picture of a bag" />
-            <div>
-              <div>
-                <h2>Work</h2>
-                <a href="#">...</a>
+          <section class="grid-item grid-item__box dashboard__section">
+            <div
+              class="dashboard__section-image-box dashboard__section-image-box--work"
+            >
+              <img src="./assets/images/icon-work.svg" alt="picture of a bag" />
+            </div>
+
+            <div class="dashboard__section-content-box">
+              <h2 class="section-content__title outer-sides outer-sides--left">
+                Work
+              </h2>
+              <div
+                class="section-content__options outer-sides outer-sides--right"
+              >
+                <a href="#"><div class="dots"></div></a>
               </div>
-              <p>32hrs</p>
-              <p>Last Week - 36hrs</p>
+              <p
+                class="section-content__current-time outer-sides outer-sides--left"
+              >
+                32hrs
+              </p>
+              <p
+                class="section-content__previous-time outer-sides outer-sides--right"
+              >
+                Last Week - 36hrs
+              </p>
             </div>
           </section>
           <!-- PLAY -->
-          <section class="grid-item dashboard__section-play">
-            <img src="./assets/images/icon-play.svg" alt="" />
-            <div>
-              <div>
-                <h2></h2>
-                <a href="#">...</a>
+          <section class="grid-item grid-item__box dashboard__section">
+            <div
+              class="dashboard__section-image-box dashboard__section-image-box--play"
+            >
+              <img src="./assets/images/icon-play.svg" alt="" />
+            </div>
+            <div class="dashboard__section-content-box">
+              <h2 class="section-content__title outer-sides outer-sides--left">
+                Play
+              </h2>
+              <div
+                class="section-content__options outer-sides outer-sides--right"
+              >
+                <a href="#"><div class="dots"></div></a>
               </div>
-              <p></p>
-              <p></p>
+              <p
+                class="section-content__current-time outer-sides outer-sides--left"
+              >
+                10hrs
+              </p>
+              <p
+                class="section-content__previous-time outer-sides outer-sides--right"
+              >
+                Last Week - 8hrs
+              </p>
             </div>
           </section>
           <!-- STUDY -->
-          <section class="grid-item dashboard__section-study">
-            <img src="./assets/images/icon-study.svg" alt="" />
-            <div>
-              <div>
-                <h2></h2>
-                <a href="#">...</a>
+          <section class="grid-item grid-item__box dashboard__section">
+            <div
+              class="dashboard__section-image-box dashboard__section-image-box--study"
+            >
+              <img src="./assets/images/icon-study.svg" alt="" />
+            </div>
+
+            <div class="dashboard__section-content-box">
+              <h2 class="section-content__title outer-sides outer-sides--left">
+                Study
+              </h2>
+              <div
+                class="section-content__options outer-sides outer-sides--right"
+              >
+                <a href="#"><div class="dots"></div></a>
               </div>
-              <p></p>
-              <p></p>
+              <p
+                class="section-content__current-time outer-sides outer-sides--left"
+              >
+                4hrs
+              </p>
+              <p
+                class="section-content__previous-time outer-sides outer-sides--right"
+              >
+                Last Week - 7hrs
+              </p>
             </div>
           </section>
           <!-- EXERCISE -->
-          <section class="grid-item dashboard__section-exercise">
-            <img src="./assets/images/icon-exercise.svg" alt="" />
-            <div>
-              <div>
-                <h2></h2>
-                <a href="#">...</a>
+          <section class="grid-item grid-item__box dashboard__section">
+            <div
+              class="dashboard__section-image-box dashboard__section-image-box--exercise"
+            >
+              <img src="./assets/images/icon-exercise.svg" alt="" />
+            </div>
+
+            <div class="dashboard__section-content-box">
+              <h2 class="section-content__title outer-sides outer-sides--left">
+                Exercise
+              </h2>
+              <div
+                class="section-content__options outer-sides outer-sides--right"
+              >
+                <a href="#"><div class="dots"></div></a>
               </div>
-              <p></p>
-              <p></p>
+              <p
+                class="section-content__current-time outer-sides outer-sides--left"
+              >
+                4hrs
+              </p>
+              <p
+                class="section-content__previous-time outer-sides outer-sides--right"
+              >
+                Last Week - 5hrs
+              </p>
             </div>
           </section>
           <!-- SOCIAL -->
-          <section class="grid-item dashboard__section-social">
-            <img src="./assets/images/icon-social.svg" alt="" />
-            <div>
-              <div>
-                <h2></h2>
-                <a href="#">...</a>
+          <section class="grid-item grid-item__box dashboard__section">
+            <div
+              class="dashboard__section-image-box dashboard__section-image-box--social"
+            >
+              <img src="./assets/images/icon-social.svg" alt="" />
+            </div>
+            <div class="dashboard__section-content-box">
+              <h2 class="section-content__title outer-sides outer-sides--left">
+                Social
+              </h2>
+              <div
+                class="section-content__options outer-sides outer-sides--right"
+              >
+                <a href="#"><div class="dots"></div></a>
               </div>
-              <p></p>
-              <p></p>
+              <p
+                class="section-content__current-time outer-sides outer-sides--left"
+              >
+                5hrs
+              </p>
+              <p
+                class="section-content__previous-time outer-sides outer-sides--right"
+              >
+                Last Week - 10hrs
+              </p>
             </div>
           </section>
           <!-- SELF CARE -->
-          <section class="grid-item dashboard__section-self-care">
-            <img src="./assets/images/icon-self-care.svg" alt="" />
-            <div>
-              <div>
-                <h2></h2>
-                <a href="#">...</a>
+          <section class="grid-item grid-item__box dashboard__section">
+            <div
+              class="dashboard__section-image-box dashboard__section-image-box--self-care"
+            >
+              <img src="./assets/images/icon-self-care.svg" alt="" />
+            </div>
+            <div class="dashboard__section-content-box">
+              <h2 class="section-content__title outer-sides outer-sides--left">
+                Self Care
+              </h2>
+              <div
+                class="section-content__options outer-sides outer-sides--right"
+              >
+                <a href="#"><div class="dots"></div></a>
               </div>
-              <p></p>
-              <p></p>
+              <p
+                class="section-content__current-time outer-sides outer-sides--left"
+              >
+                2hrs
+              </p>
+              <p
+                class="section-content__previous-time outer-sides outer-sides--right"
+              >
+                Last Week - 2hrs
+              </p>
             </div>
           </section>
         </div>
