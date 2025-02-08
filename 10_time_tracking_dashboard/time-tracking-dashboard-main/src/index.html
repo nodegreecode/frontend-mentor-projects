@@ -20,6 +20,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="../dist/css/style.css" />
+    <script src="./js/main.js" defer type="module"></script>
 
     <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
     <style>
@@ -36,6 +37,7 @@
     <main class="dashboard">
       <div class="container">
         <div class="grid">
+          <!-- HEADER -->
           <div class="grid-item grid-item__header">
             <header class="dashboard__header">
               <img src="./assets/images/image-jeremy.png" alt="" />
@@ -70,11 +72,13 @@
                 <a href="#"><div class="dots"></div></a>
               </div>
               <p
+                id="currentTimeWork"
                 class="section-content__current-time outer-sides outer-sides--left"
               >
                 32hrs
               </p>
               <p
+                id="previousTimeWork"
                 class="section-content__previous-time outer-sides outer-sides--right"
               >
                 Last Week - 36hrs
@@ -98,11 +102,13 @@
                 <a href="#"><div class="dots"></div></a>
               </div>
               <p
+                id="currentTimePlay"
                 class="section-content__current-time outer-sides outer-sides--left"
               >
                 10hrs
               </p>
               <p
+                id="previousTimePlay"
                 class="section-content__previous-time outer-sides outer-sides--right"
               >
                 Last Week - 8hrs
@@ -127,11 +133,13 @@
                 <a href="#"><div class="dots"></div></a>
               </div>
               <p
+                id="currentTimeStudy"
                 class="section-content__current-time outer-sides outer-sides--left"
               >
                 4hrs
               </p>
               <p
+                id="previousTimeStudy"
                 class="section-content__previous-time outer-sides outer-sides--right"
               >
                 Last Week - 7hrs
