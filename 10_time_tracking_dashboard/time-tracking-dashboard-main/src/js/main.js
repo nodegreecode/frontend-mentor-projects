@@ -10,6 +10,8 @@ const previousTimePlay = document.getElementById("previousTimePlay");
 const currentTimeStudy = document.getElementById("currentTimeStudy");
 const previousTimeStudy = document.getElementById("previousTimeStudy");
 
+const container = document.getElementById("activityContainer");
+
 const availableActivitiesList = [
   "Work",
   "Play",
@@ -138,3 +140,20 @@ const init = function () {
 };
 
 init();
+
+const appendItem = function (item) {
+  container.innerHTML += `
+    <h2 class="section-content__title outer-sides outer-sides--left">
+      ${item.title}
+    </h2>
+    <div class="section-content__options outer-sides outer-sides--right">
+      <a href="#"><div class="dots"></div></a>
+    </div>
+    <p id="currentTimeWork" class="section-content__current-time outer-sides outer-sides--left">
+      ${item.currentTime}hrs
+    </p>
+    <p  id="previousTimeWork" class="section-content__previous-time outer-sides outer-sides--right">
+      Last Week - ${previousTime}hrs
+    </p>
+  `;
+};
