@@ -1,0 +1,193 @@
+@use "../utils/variables";
+@use "../utils/mixins";
+
+/* COMPONENT */
+.dashboard {
+  background-color: variables.$very-dark-blue;
+
+  &__header {
+    background-color: variables.$blue;
+    border-radius: 18px;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 4rem;
+
+    padding: 3rem;
+
+    width: 100%;
+    min-height: 35rem;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+
+    @include mixins.respond-tablet() {
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      min-height: 14rem;
+    }
+
+    @include mixins.respond-phone() {
+      min-height: 14rem;
+    }
+
+    & img {
+      width: 8rem;
+      height: 8rem;
+      border: 3px solid variables.$white;
+      border-radius: 100px;
+
+      @include mixins.respond-phone() {
+        width: 7rem;
+        height: 7rem;
+      }
+    }
+  }
+
+  &__nav {
+    background-color: variables.$dark-blue;
+    border-radius: 0 0 18px 18px;
+    padding: 4.9rem 3rem 3rem 3rem;
+
+    width: 100%;
+    min-height: 17rem;
+
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    @include mixins.respond-tablet() {
+      min-height: 9rem;
+      padding: 5.2rem 2rem 2.7rem 2rem;
+      flex-direction: row;
+      align-items: flex-end;
+    }
+
+    @include mixins.respond-phone() {
+      min-height: 9rem;
+      flex-direction: row;
+      align-items: flex-end;
+    }
+  }
+
+  &__section {
+    width: 100%;
+    height: 100%;
+  }
+
+  &__section-image-box {
+    border-radius: 18px 18px 0 0;
+    padding: 4rem;
+
+    width: 100%;
+    height: 5rem;
+
+    &--work {
+      background-color: variables.$light-red-work;
+    }
+
+    &--play {
+      background-color: variables.$soft-blue-play;
+    }
+
+    &--study {
+      background-color: variables.$light-red-study;
+    }
+
+    &--exercise {
+      background-color: variables.$lime-green-exercise;
+    }
+
+    &--social {
+      background-color: variables.$violet-social;
+    }
+
+    &--selfcare {
+      background-color: variables.$soft-orange-self-care;
+    }
+
+    & img {
+      width: 8rem;
+      height: auto;
+
+      position: absolute;
+      top: 0;
+      right: 0;
+      transform: translate(-25%, -12%);
+    }
+  }
+
+  &__section-content-box {
+    padding: 2.4rem;
+    border-radius: 16px;
+    background-color: variables.$dark-blue;
+    color: variables.$white;
+
+    width: 100%;
+    height: 19rem;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+    @include mixins.respond-tablet() {
+      height: 16rem;
+    }
+
+    @include mixins.respond-phone() {
+      height: 12rem;
+    }
+  }
+}
+
+.section-content {
+  &__title {
+    font-size: 1.8rem;
+    font-weight: variables.$fw-md;
+
+    @include mixins.respond-desktop() {
+      align-items: flex-start;
+    }
+  }
+
+  &__options {
+    @include mixins.respond-desktop() {
+      align-items: flex-start;
+    }
+  }
+
+  &__current-time {
+    font-size: 3rem;
+    font-weight: variables.$fw-sm;
+
+    @include mixins.respond-desktop() {
+      font-size: 5rem;
+      grid-column: 1/3;
+
+      align-items: flex-end;
+    }
+  }
+
+  &__previous-time {
+    font-size: 1.4rem;
+    font-weight: variables.$fw-sm;
+    color: variables.$pale-blue;
+
+    @include mixins.respond-desktop() {
+      grid-column: 1/3;
+      grid-row: 3/4;
+
+      justify-content: flex-start;
+    }
+  }
+}

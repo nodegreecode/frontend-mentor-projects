@@ -1,0 +1,62 @@
+@use "../utils/variables";
+@use "../utils/mixins";
+
+/* CONTAINER GRID GRID ITEMS */
+.container {
+  max-width: 112rem;
+  margin: 0 auto;
+  padding: 7rem 2rem;
+}
+
+.grid {
+  display: grid;
+  height: 50rem;
+  gap: 2.4rem;
+
+  grid-template-columns: repeat(4, 1fr);
+
+  @include mixins.respond-tablet() {
+    grid-template-columns: repeat(2, 1fr);
+    height: auto;
+  }
+
+  @include mixins.respond-phone() {
+    grid-template-columns: 1fr;
+  }
+}
+
+.grid-item {
+  position: relative;
+
+  &__header {
+    min-width: 20rem;
+    height: 100%;
+
+    grid-row: 1/3;
+
+    @include mixins.respond-tablet() {
+      grid-column: 1/3;
+      grid-row: 1/2;
+      min-height: 21rem;
+    }
+
+    @include mixins.respond-phone() {
+      grid-column: 1/1;
+
+      min-width: 30rem;
+      min-height: 21rem;
+    }
+  }
+
+  &__box {
+    min-width: 20rem;
+    min-height: 20rem;
+
+    overflow: hidden;
+
+    @include mixins.respond-phone() {
+      min-width: 30rem;
+      min-height: 17rem;
+    }
+  }
+}

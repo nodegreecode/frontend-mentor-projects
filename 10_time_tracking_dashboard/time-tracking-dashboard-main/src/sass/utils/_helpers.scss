@@ -1,0 +1,59 @@
+@use "variables";
+
+/* HELPERS */
+.outer-sides {
+  display: flex;
+
+  align-items: center;
+
+  &--left {
+    justify-content: flex-start;
+  }
+
+  &--right {
+    justify-content: flex-end;
+  }
+}
+
+.dots {
+  width: 0.4rem;
+  height: 0.4rem;
+  background-color: variables.$pale-blue;
+  border-radius: 50%;
+  position: relative;
+  right: 0.7rem;
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    width: 0.4rem;
+    height: 0.4rem;
+    border-radius: 50%;
+    background-color: variables.$pale-blue;
+    top: 0;
+  }
+
+  &::before {
+    left: -0.7rem;
+  }
+
+  &::after {
+    left: 0.7rem;
+  }
+}
+
+/* STYLING */
+div.hover {
+  background-color: variables.$light-blue;
+  cursor: pointer;
+}
+
+a.hover .dots,
+a.hover .dots::before,
+a.hover .dots::after {
+  background-color: variables.$white;
+  width: 0.5rem;
+  height: 0.5rem;
+  cursor: pointer;
+}

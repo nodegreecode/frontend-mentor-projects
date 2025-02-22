@@ -2,14 +2,12 @@
 
 /* VARIABLES */
 const container = document.getElementById("container");
-const timePeriods = document.querySelectorAll(".nav-list__item");
 const navList = document.querySelector(".nav-list");
+const navLinks = document.querySelectorAll(".nav-list__link");
 
 let activeLink;
 let linkParent;
 let currentTimeframe;
-
-timePeriods.forEach((link) => console.log(link.textContent));
 
 /* MODEL - FETCH DATA */
 const fetchData = async function () {
@@ -33,14 +31,15 @@ const appendItem = function (item, timeframe) {
   const activityTag = item.title.toLowerCase().replace(/\s+/g, "");
   const activityContainer = document.createElement("section");
   activityContainer.classList.add(
-    "grid-item.grid-item__box.dashboard__section"
+    "grid-item",
+    "grid-item__box",
+    "dashboard__section"
   );
   activityContainer.innerHTML += `
-            <section class="grid-item grid-item__box dashboard__section">
             <div
               class="dashboard__section-image-box dashboard__section-image-box--${activityTag}"
             >
-              <img src="./assets/images/icon-${activityTag}.svg" alt="picture of a bag" />
+              <img src="./assets/images/icon-${activityTag}.svg" alt="activity icon" />
             </div>
 
             <div id="activityContainer" class="dashboard__section-content-box">
@@ -50,7 +49,7 @@ const appendItem = function (item, timeframe) {
               <div
                 class="section-content__options outer-sides outer-sides--right"
               >
-                <a href="#"><div class="dots"></div></a>
+                <a href="#" class="options__link"><div class="dots"></div></a>
               </div>
               <p
                 class="section-content__current-time outer-sides outer-sides--left"
@@ -62,11 +61,9 @@ const appendItem = function (item, timeframe) {
               >
                 Last Week - ${item.timeframes[timeframe].previous}hrs
               </p>
-            </div>
-          </section>
+            </div> 
   `;
-
-  container.insertAdjacentElement("beforebegin", activityContainer);
+  container.insertAdjacentElement("beforeend", activityContainer);
 };
 
 /* POPULATE DOM WITH ACTIVITIES */
@@ -74,14 +71,46 @@ const populateDOM = function (activitiesList, timeframe, callbackFunction) {
   activitiesList.forEach((activity) => callbackFunction(activity, timeframe));
 };
 
+/* UPDATE DOM - REMOVE ACTIVITIES */
+const updateDOM = function () {
+  const items = document.querySelectorAll(".grid-item__box");
+  items.forEach((item) => item.remove());
+};
+
 /* CONTROLLER - CONTROLL TIMEFRAMES */
 const controlActivitiesTime = function () {
-  navList.addEventListener("click", (e) => {
-    activeLink = e.target;
-    linkParent = activeLink.parentElement;
-    linkParent.classList.toggle("active");
+  navList.addEventListener("click", function (e) {
+    if (e.target.classList.contains("nav-list__link")) {
+      e.preventDefault();
 
-    populateDOM(dataList, e.target.textContent.toLowerCase(), appendItem);
+      navLinks.forEach(function (link) {
+        link.parentElement.classList.remove("active");
+      });
+
+      e.target.parentElement.classList.add("active");
+
+      updateDOM();
+      populateDOM(dataList, e.target.textContent.toLowerCase(), appendItem);
+    }
+  });
+};
+
+/* MANAGE HOVER STYLING */
+const contentHoveringStyle = function () {
+  container.addEventListener("mouseover", function (e) {
+    if (e.target.classList.contains("dashboard__section-content-box")) {
+      e.target.classList.add("hover");
+    } else if (e.target.classList.contains("dots")) {
+      e.target.parentElement.classList.add("hover");
+    }
+  });
+
+  container.addEventListener("mouseout", function (e) {
+    if (e.target.classList.contains("dashboard__section-content-box")) {
+      e.target.classList.remove("hover");
+    } else if (e.target.classList.contains("dots")) {
+      e.target.parentElement.classList.remove("hover");
+    }
   });
 };
 
@@ -89,6 +118,7 @@ const controlActivitiesTime = function () {
 const init = function () {
   currentTimeframe = controlActivitiesTime();
   populateDOM(dataList, "weekly", appendItem);
+  contentHoveringStyle();
 };
 
 /* RUN APPLICATION */

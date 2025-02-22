@@ -1,0 +1,18 @@
+/* MIXINS MEDIA QUERY*/
+@mixin respond-desktop() {
+  @media (min-width: 971px) {
+    @content;
+  }
+}
+
+@mixin respond-tablet() {
+  @media (max-width: 970px) {
+    @content;
+  }
+}
+
+@mixin respond-phone() {
+  @media (max-width: 520px) {
+    @content;
+  }
+}
