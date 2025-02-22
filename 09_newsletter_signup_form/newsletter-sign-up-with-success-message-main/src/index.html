@@ -14,7 +14,7 @@
 
     <link rel="stylesheet" href="../dist/css/style.css" />
 
-    <script defer src="./js/app.js"></script>
+    <script defer src="../dist/js/app.js"></script>
 
     <title>
       Frontend Mentor | Newsletter sign-up form with success message
@@ -35,6 +35,7 @@
     <main>
       <section class="newsletter">
         <div class="container center-box">
+          <!-- NEWSLETTER -->
           <div class="newsletter__container">
             <div class="newsletter__inner-container">
               <div class="newsletter__form-box">
@@ -42,6 +43,7 @@
                   class="newsletter__signup-form"
                   autocomplete="off"
                   novalidate
+                  id="form"
                 >
                   <div class="signup-form__form-group gap-l-desktop">
                     <h1 class="signup-form__heading">Stay updated!</h1>
@@ -51,26 +53,50 @@
                     </p>
                     <ul class="signup-form__features-list">
                       <li class="features-list__item">
-                        Product discovery and building what matters
+                        <img
+                          class="features-list__item-icon"
+                          src="./assets/images/icon-list.svg"
+                          alt="white check icon on tomato circle background"
+                        />
+                        <p class="features-list__item-text">
+                          Product discovery and building what matters
+                        </p>
                       </li>
                       <li class="features-list__item">
-                        Measuring to ensure updates are a success
+                        <img
+                          class="features-list__item-icon"
+                          src="./assets/images/icon-list.svg"
+                          alt="white check icon on tomato circle background"
+                        />
+                        <p class="features-list__item-text">
+                          Measuring to ensure updates are a success
+                        </p>
                       </li>
-                      <li class="features-list__item">And much more!</li>
+                      <li class="features-list__item">
+                        <img
+                          class="features-list__item-icon"
+                          src="./assets/images/icon-list.svg"
+                          alt="white check icon on tomato circle background"
+                        />
+                        <p class="features-list__item-text">And much more!</p>
+                      </li>
                     </ul>
                   </div>
 
                   <div class="signup-form__form-group gap-m-desktop">
-                    <div class="">
-                      <label class="signup-form__label" for="email"
-                        >Email address</label
-                      >
-                      <span
-                        class="signup-form__error-message"
-                        aria-live="polite"
-                        id="email-error"
-                        >Valid email required</span
-                      >
+                    <div class="form-group__wrapper" id="form-group-wrapper">
+                      <div class="flex-container-row margin-sb">
+                        <label class="signup-form__label" for="email"
+                          >Email address</label
+                        >
+                        <span
+                          class="signup-form__error-message"
+                          aria-live="polite"
+                          id="email-error"
+                          >Valid email required</span
+                        >
+                      </div>
+
                       <input
                         class="signup-form__email"
                         type="email"
@@ -78,10 +104,11 @@
                         name="email"
                         autocomplete="off"
                         placeholder="email@company.com"
+                        required
                       />
                     </div>
 
-                    <button class="signup-form__btn" type="submit">
+                    <button class="signup-form__btn btn" type="submit">
                       Subscribe to monthly newsletter
                     </button>
                   </div>
@@ -89,41 +116,65 @@
               </div>
 
               <div class="newsletter__image-box">
-                <img
-                  class="newsletter__image"
-                  src="./assets/images/illustration-sign-up-desktop.svg"
-                  alt="picture"
-                />
+                <picture>
+                  <source
+                    class="newsletter__image"
+                    srcset="./assets/images/illustration-sign-up-mobile.svg"
+                    media="(max-width:850px)"
+                  />
+                  <img
+                    class="newsletter__image"
+                    src="./assets/images/illustration-sign-up-desktop.svg"
+                    alt="signup abstract illustration"
+                  />
+                </picture>
               </div>
+            </div>
+          </div>
+          <!-- SUCCESS MESSAGE -->
+          <div class="success-message hidden">
+            <div class="success-message__container">
+              <img
+                class="success-message__image"
+                src="./assets/images/icon-list.svg"
+                alt=""
+              />
+              <h2 class="success-message__title">Thanks for subscribing!</h2>
+              <p class="success-message__message">
+                A confirmation email has been sent to
+                <span
+                  class="success-message__confirmation-email"
+                  id="confirmation-email"
+                ></span
+                >. Please open it and click the button inside to confirm your
+                subscription.
+              </p>
+              <button class="success-message__btn btn">Dismiss message</button>
             </div>
           </div>
         </div>
       </section>
-      <footer>
-        <!-- Sign-up form start -->
-
-        <!-- Sign-up form end -->
-
-        <!-- Success message start -->
-
-        Thanks for subscribing! A confirmation email has been sent to
-        ash@loremcompany.com. Please open it and click the button inside to
-        confirm your subscription. Dismiss message
-
-        <!-- Success message end -->
-
-        <div class="attribution">
-          Challenge by
-          <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
-            >Frontend Mentor</a
-          >. Coded by
-          <a
-            href="https://www.linkedin.com/in/anatolii-vasylenko-402014219/"
-            target="_blank"
-            >Anatolii Vasylenko</a
-          >.
-        </div>
-      </footer>
     </main>
+    <footer class="footer">
+      <!-- Sign-up form start -->
+
+      <!-- Sign-up form end -->
+
+      <!-- Success message start -->
+
+      <!-- Success message end -->
+
+      <div class="attribution">
+        Challenge by
+        <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+          >Frontend Mentor</a
+        >. Coded by
+        <a
+          href="https://www.linkedin.com/in/anatolii-vasylenko-402014219/"
+          target="_blank"
+          >Anatolii Vasylenko</a
+        >.
+      </div>
+    </footer>
   </body>
 </html>

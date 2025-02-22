@@ -1,0 +1,15 @@
+@use "../utils/variables";
+@use "../utils/mixins";
+
+/* FOOTER */
+.footer {
+  height: 5rem;
+  padding: 2rem;
+  background-color: variables.$charcoal-grey;
+  color: variables.$white;
+
+  @include mixins.respon-tablet() {
+    background-color: variables.$white;
+    color: variables.$dark-slate-grey;
+  }
+}

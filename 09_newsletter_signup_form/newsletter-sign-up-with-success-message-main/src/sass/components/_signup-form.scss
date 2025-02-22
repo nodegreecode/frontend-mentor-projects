@@ -1,0 +1,237 @@
+@use "../utils/variables";
+@use "../utils/mixins";
+
+/* COMPONENT */
+/* NEWSLETTER SIGNUP FORM */
+.newsletter {
+  padding: 2rem;
+  background-color: variables.$charcoal-grey;
+
+  @include mixins.respon-tablet() {
+    padding: 0;
+    background-color: unset;
+  }
+
+  &__container {
+    width: 100%;
+    max-width: 84rem;
+    height: 58rem;
+    border-radius: 33px;
+    box-shadow: 0 60px 40px -30px rgba($color: #000000, $alpha: 0.27);
+    position: relative;
+
+    background-color: variables.$white;
+
+    @include mixins.respon-tablet() {
+      position: static;
+      box-shadow: none;
+      height: 100%;
+    }
+  }
+
+  &__inner-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: calc(100% - 4.2rem);
+    height: calc(100% - 4.2rem);
+
+    @include mixins.respon-tablet() {
+      position: static;
+      display: grid;
+      gap: 2rem;
+
+      top: unset;
+      left: unset;
+      transform: translate(0, 0);
+      width: 100%;
+      height: 100%;
+    }
+
+    @include mixins.respond-phone() {
+      position: static;
+
+      gap: 2rem;
+
+      top: unset;
+      left: unset;
+      transform: translate(0, 0);
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  &__form-box {
+    width: 55%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    @include mixins.respon-tablet() {
+      width: 100%;
+      position: static;
+      padding-bottom: 4rem;
+    }
+
+    @include mixins.respond-phone() {
+      width: 100%;
+      position: static;
+    }
+  }
+
+  &__signup-form {
+    width: 100%;
+    max-width: 36rem;
+    height: 100%;
+    margin: 0 auto;
+    color: variables.$dark-slate-grey;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+
+    @include mixins.respon-tablet() {
+      max-width: 46rem;
+      gap: 3.2rem;
+    }
+
+    @include mixins.respond-phone() {
+      padding: 2rem;
+      gap: 4rem;
+    }
+  }
+
+  &__image-box {
+    width: 45%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 55%;
+
+    @include mixins.respon-tablet() {
+      width: 100%;
+      position: static;
+      grid-row: 1/2;
+    }
+
+    @include mixins.respond-phone() {
+      top: unset;
+      left: unset;
+    }
+  }
+
+  &__image {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.signup-form {
+  &__heading {
+    font-size: 5.6rem;
+    font-weight: variables.$fw-bold;
+
+    @include mixins.respond-phone() {
+      font-size: 4.2rem;
+    }
+  }
+
+  &__features-description {
+    font-size: 1.6rem;
+    font-weight: variables.$fw-regular;
+    line-height: 1.5;
+  }
+
+  &__features-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    font-weight: variables.$fw-regular;
+  }
+
+  &__form-group {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__label {
+    font-size: 1.3rem;
+    font-weight: variables.$fw-bold;
+    color: variables.$dark-slate-grey;
+    display: inline-block;
+    padding-bottom: 0.8rem;
+  }
+
+  &__email {
+    width: 100%;
+    padding: 1.4rem;
+    border: 1px solid variables.$grey;
+    border-radius: 8px;
+    outline: none;
+    font-size: 1.6rem;
+    color: variables.$dark-slate-grey;
+    transition: border-color 0.3s ease;
+
+    &::placeholder {
+      font-family: "Roboto", sans-serif;
+      font-size: 1.6rem;
+      color: variables.$grey;
+      opacity: 0.8;
+      transition: all 0.3s ease;
+    }
+
+    &:focus {
+      border-color: variables.$charcoal-grey;
+      box-shadow: 0 0 10px rgba(36, 39, 66, 0.5);
+
+      &::placeholder {
+        opacity: 1;
+      }
+    }
+  }
+
+  &__error-message {
+    font-size: 1.3rem;
+    font-weight: variables.$fw-bold;
+    color: variables.$tomato;
+    display: none;
+  }
+
+  &__btn {
+    width: 100%;
+    border: none;
+    border-radius: 8px;
+    padding: 1.8rem;
+    background-color: variables.$dark-slate-grey;
+    color: variables.$white;
+  }
+}
+
+.features-list {
+  &__item {
+    display: flex;
+    gap: 1.2rem;
+    align-items: center;
+
+    @include mixins.respond-phone() {
+      align-items: flex-start;
+    }
+  }
+
+  &__item-icon {
+    width: 2rem;
+    height: 2rem;
+  }
+
+  &__item-text {
+    font-size: 1.6rem;
+    font-weight: variables.$fw-regular;
+
+    @include mixins.respond-phone() {
+      line-height: 1.5;
+    }
+  }
+}

@@ -1,0 +1,48 @@
+@use "./variables";
+
+/* ERROR STYLING */
+.form-group {
+  &__wrapper {
+    &.error .signup-form__error-message {
+      display: inline-block;
+    }
+
+    &.error .signup-form__email {
+      border-color: variables.$tomato;
+      background-color: rgba(255, 98, 87, $alpha: 0.15);
+    }
+
+    &.error .signup-form__email::placeholder {
+      color: variables.$tomato;
+    }
+  }
+}
+
+/* HELPER CLASSES */
+.hidden {
+  display: none;
+}
+
+.btn {
+  font-size: 1.6rem;
+  font-weight: variables.$fw-bold;
+}
+
+.btn:hover {
+  background-color: variables.$charcoal-grey;
+  transform: translateY(-2%);
+}
+
+.btn:active {
+  background-color: variables.$dark-slate-grey;
+  box-shadow: 0 0 10px rgba(36, 39, 66, 0.7);
+  transform: translateY(1%);
+}
+
+.flex-container-row {
+  display: flex;
+}
+
+.margin-sb {
+  justify-content: space-between;
+}

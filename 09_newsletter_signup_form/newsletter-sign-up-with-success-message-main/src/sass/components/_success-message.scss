@@ -1,0 +1,66 @@
+@use "../utils/variables";
+@use "../utils/mixins";
+
+/* SUCCESS MESSAGE */
+.success-message {
+  max-width: 50rem;
+  height: 50rem;
+  background-color: variables.$white;
+  padding: 6rem;
+  border-radius: 20px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  @include mixins.respon-tablet() {
+    height: 100vh;
+  }
+
+  &__container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: variables.$dark-slate-grey;
+
+    @include mixins.respon-tablet() {
+      justify-content: unset;
+      gap: 3rem;
+    }
+  }
+
+  &__image {
+    width: 60px;
+    height: 60px;
+  }
+
+  &__title {
+    font-size: 5.4rem;
+  }
+
+  &__message {
+    font-size: 1.6rem;
+    line-height: 1.5;
+    font-weight: variables.$fw-regular;
+  }
+
+  &__confirmation-email {
+    font-weight: variables.$fw-bold;
+  }
+
+  &__btn {
+    border: none;
+    border-radius: 8px;
+    padding: 2rem;
+    background-color: variables.$dark-slate-grey;
+    color: variables.$white;
+
+    transition: all 0.3s ease;
+
+    @include mixins.respon-tablet() {
+      margin-top: auto;
+    }
+  }
+}

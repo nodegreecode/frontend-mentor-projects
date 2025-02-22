@@ -1,0 +1,12 @@
+/* MIXINS MEDIA QUERIES */
+@mixin respon-tablet() {
+  @media (max-width: 850px) {
+    @content;
+  }
+}
+
+@mixin respond-phone() {
+  @media (max-width: 622px) {
+    @content;
+  }
+}
