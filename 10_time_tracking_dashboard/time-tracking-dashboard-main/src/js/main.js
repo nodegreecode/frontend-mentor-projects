@@ -42,7 +42,7 @@ const appendItem = function (item, timeframe) {
               <img src="./assets/images/icon-${activityTag}.svg" alt="activity icon" />
             </div>
 
-            <div id="activityContainer" class="dashboard__section-content-box">
+            <div class="dashboard__section-content-box">
               <h2 class="section-content__title outer-sides outer-sides--left">
               ${item.title}
               </h2>
