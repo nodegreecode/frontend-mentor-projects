@@ -3,7 +3,12 @@
 
 /* COMPONENT */
 .dashboard {
+  height: 100vh;
   background-color: variables.$very-dark-blue;
+
+  @include mixins.respond-tablet() {
+    height: auto;
+  }
 
   &__header {
     background-color: variables.$blue;

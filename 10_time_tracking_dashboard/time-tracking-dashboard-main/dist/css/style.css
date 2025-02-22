@@ -134,7 +134,13 @@ footer {
 
 /* COMPONENT */
 .dashboard {
+  height: 100vh;
   background-color: hsl(226, 43%, 10%);
+}
+@media (max-width: 970px) {
+  .dashboard {
+    height: auto;
+  }
 }
 .dashboard__header {
   background-color: hsl(246, 80%, 60%);
