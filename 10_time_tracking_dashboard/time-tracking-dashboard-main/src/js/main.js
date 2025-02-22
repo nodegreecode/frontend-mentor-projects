@@ -49,7 +49,7 @@ const appendItem = function (item, timeframe) {
               <div
                 class="section-content__options outer-sides outer-sides--right"
               >
-                <a href="#" class="options__link"><div class="dots"></div></a>
+                <a href="#" data-text="activity options" class="options__link"><div class="dots"></div></a>
               </div>
               <p
                 class="section-content__current-time outer-sides outer-sides--left"
