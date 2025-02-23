@@ -57,6 +57,16 @@ main {
   flex-direction: column;
   gap: 2rem;
 }
+@media (max-width: 900px) {
+  .tip-calculator__content {
+    flex-direction: row;
+  }
+}
+@media (max-width: 900px) {
+  .tip-calculator__form {
+    padding: 2rem;
+  }
+}
 .tip-calculator__tips {
   display: none;
 }
@@ -87,6 +97,11 @@ main {
   background-color: hsl(183, 100%, 15%);
   padding: 4rem 2rem 2rem 2rem;
   border-radius: 10px;
+}
+@media (max-width: 900px) {
+  .tip-calculator__display {
+    width: 100%;
+  }
 }
 
 .display__container {

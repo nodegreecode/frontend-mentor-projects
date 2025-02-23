@@ -24,6 +24,11 @@ body {
 }
 
 /* MIXINS */
+@mixin respond-tablet() {
+  @media (max-width: 900px) {
+    @content;
+  }
+}
 
 /* CONTAINER */
 main {
@@ -71,10 +76,18 @@ main {
     display: flex;
     flex-direction: column;
     gap: 2rem;
+
+    @include respond-tablet() {
+      flex-direction: row;
+    }
   }
 
   &__form {
     //background-color: bisque;
+
+    @include respond-tablet() {
+      padding: 2rem;
+    }
   }
 
   &__tips {
@@ -112,6 +125,10 @@ main {
     background-color: $very-dark-cyan;
     padding: 4rem 2rem 2rem 2rem;
     border-radius: 10px;
+
+    @include respond-tablet() {
+      width: 100%;
+    }
   }
 }
 
