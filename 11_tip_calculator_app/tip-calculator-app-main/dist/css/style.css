@@ -148,10 +148,14 @@ main {
   font-size: 2.4rem;
   font-weight: 700;
   color: hsl(183, 100%, 15%);
+  text-align: right;
   padding: 0.9rem;
   border: none;
   border-radius: 5px;
   background-color: hsl(189, 41%, 97%);
+}
+.form-input::placeholder {
+  text-align: left;
 }
 
 .input {
