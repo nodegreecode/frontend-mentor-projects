@@ -9,7 +9,7 @@
       rel="icon"
       type="image/png"
       sizes="32x32"
-      href="./images/favicon-32x32.png"
+      href="./assets/images/favicon-32x32.png"
     />
 
     <title>Frontend Mentor | Tip calculator app</title>
@@ -20,6 +20,8 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="../dist/css/style.css" />
+    <!--<script src="../src/js/app.js" type="module" defer></script> -->
+    <script src="./js/controller.js" type="module" defer></script>
     <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
     <style>
       .attribution {
@@ -33,148 +35,193 @@
   </head>
   <body>
     <main>
-      <div class="container">
-        <div class="center-box">
-          <section class="tip-calculator">
-            <div class="tip-calculator__heading">
-              <h1 class="tip-calculator__title">
-                Spli
-                <br />
-                tter
-              </h1>
-            </div>
-            <div class="tip-calculator__content">
-              <form action="" class="tip-calculator__form">
-                <div class="form-group">
-                  <label class="form-label" for="bill">Bill </label>
-                  <input
-                    class="form-input"
-                    type="text"
-                    id="bill"
-                    name="bill"
-                    placeholder="$"
-                  />
-                </div>
-                <div class="form-group">
-                  <p class="form-label">Select Tip %</p>
-                  <div class="form-radio-group">
-                    <div class="form-radio-group__item">
-                      <input
-                        class="tip-calculator__tips"
-                        type="radio"
-                        id="option1"
-                        name="options"
-                        value="5"
+      <!-- Calculator Section -->
+      <section class="tip-calculator">
+        <div class="container">
+          <div class="center-box">
+            <!--Calculator Container-->
+            <div class="tip-calculator__container">
+              <div class="tip-calculator__header">
+                <!-- <h1 class="tip-calculator__title">
+                  Spli
+                  <br />
+                  tter
+                </h1> -->
+                <img
+                  class="tip-calculator__logo"
+                  src="../src/assets/images/logo.svg"
+                  alt=""
+                />
+              </div>
+              <!-- Calculator Body -->
+              <!--Calculator Content-->
+              <div class="tip-calculator__content">
+                <form action="" class="tip-calculator__form">
+                  <div class="form-group">
+                    <label class="form-label" for="bill">Bill </label>
+                    <div class="input-wrapper">
+                      <img
+                        class="input-wrapper__dollar"
+                        src="../src/assets/images/icon-dollar.svg"
+                        alt="dollar icon"
                       />
-                      <label class="tip-calculator__tips-btn" for="option1"
-                        >5%</label
-                      >
-                    </div>
-                    <div class="form-radio-group__item">
                       <input
-                        class="tip-calculator__tips"
-                        type="radio"
-                        id="option2"
-                        name="options"
-                        value="10"
-                      />
-                      <label class="tip-calculator__tips-btn" for="option2"
-                        >10%</label
-                      >
-                    </div>
-                    <div class="form-radio-group__item">
-                      <input
-                        class="tip-calculator__tips"
-                        type="radio"
-                        id="option3"
-                        name="options"
-                        value="15"
-                      />
-                      <label class="tip-calculator__tips-btn" for="option3"
-                        >15%</label
-                      >
-                    </div>
-                    <div class="form-radio-group__item">
-                      <input
-                        class="tip-calculator__tips"
-                        type="radio"
-                        id="option4"
-                        name="options"
-                        value="25"
-                      />
-                      <label class="tip-calculator__tips-btn" for="option4"
-                        >25%</label
-                      >
-                    </div>
-                    <div class="form-radio-group__item">
-                      <input
-                        class="tip-calculator__tips"
-                        type="radio"
-                        id="option5"
-                        name="options"
-                        value="50"
-                      />
-                      <label class="tip-calculator__tips-btn" for="option5"
-                        >50%</label
-                      >
-                    </div>
-                    <div class="form-radio-group__item">
-                      <input
-                        class="form-input tip-calculator__tips-btn--custom"
+                        class="form-input"
                         type="text"
-                        id="option6"
-                        name="options"
-                        placeholder="Custom"
+                        id="bill"
+                        name="bill"
+                        placeholder="0"
                       />
-                      <!--  <label for="option6">Custom</label> -->
                     </div>
                   </div>
-                </div>
-                <div class="form-group">
-                  <label class="form-label" for="people"
-                    >Number of People</label
-                  >
-                  <input class="form-input" type="text" id="people" />
-                </div>
-              </form>
-              <div class="tip-calculator__display">
-                <div class="display__container">
-                  <div class="display__box">
-                    <div class="display__box-item">
-                      <p class="display__category">Tip Amount</p>
-                      <span class="display__per-person">/ person</span>
-                    </div>
-                    <div>
-                      <p class="display__category-value">$4.27</p>
+                  <div class="form-group">
+                    <p class="form-label">Select Tip %</p>
+                    <div class="form-radio-group">
+                      <div class="form-radio-group__item">
+                        <input
+                          class="tip-calculator__tips"
+                          type="radio"
+                          id="option1"
+                          name="options"
+                          value="5"
+                        />
+                        <label class="tip-calculator__tips-btn" for="option1"
+                          >5%</label
+                        >
+                      </div>
+                      <div class="form-radio-group__item">
+                        <input
+                          class="tip-calculator__tips"
+                          type="radio"
+                          id="option2"
+                          name="options"
+                          value="10"
+                        />
+                        <label class="tip-calculator__tips-btn" for="option2"
+                          >10%</label
+                        >
+                      </div>
+                      <div class="form-radio-group__item">
+                        <input
+                          class="tip-calculator__tips"
+                          type="radio"
+                          id="option3"
+                          name="options"
+                          value="15"
+                        />
+                        <label class="tip-calculator__tips-btn" for="option3"
+                          >15%</label
+                        >
+                      </div>
+                      <div class="form-radio-group__item">
+                        <input
+                          class="tip-calculator__tips"
+                          type="radio"
+                          id="option4"
+                          name="options"
+                          value="25"
+                        />
+                        <label class="tip-calculator__tips-btn" for="option4"
+                          >25%</label
+                        >
+                      </div>
+                      <div class="form-radio-group__item">
+                        <input
+                          class="tip-calculator__tips"
+                          type="radio"
+                          id="option5"
+                          name="options"
+                          value="50"
+                        />
+                        <label class="tip-calculator__tips-btn" for="option5"
+                          >50%</label
+                        >
+                      </div>
+                      <div class="form-radio-group__item">
+                        <input
+                          class="form-input tip-calculator__tips-btn--custom"
+                          type="text"
+                          id="option6"
+                          name="options"
+                          placeholder="Custom"
+                        />
+                        <!--  <label for="option6">Custom</label> -->
+                      </div>
                     </div>
                   </div>
-                  <div class="display__box">
-                    <div class="display__box-item">
-                      <p class="display__category">Total</p>
-                      <span class="display__per-person">/ person</span>
-                    </div>
-                    <div>
-                      <p class="display__category-value">$32.27</p>
+                  <div class="form-group">
+                    <label class="form-label" for="people"
+                      >Number of People</label
+                    >
+                    <div class="input-wrapper">
+                      <img
+                        class="input-wrapper__person"
+                        src="../src/assets/images/icon-person.svg"
+                        alt="person icon"
+                      />
+                      <input
+                        class="form-input"
+                        type="text"
+                        id="people"
+                        placeholder="0"
+                      />
                     </div>
                   </div>
-                  <input
-                    class="input display__reset-button"
-                    type="button"
-                    value="Reset"
-                  />
+                </form>
+                <!--Calculator Result Display-->
+                <div class="tip-calculator__result-display">
+                  <div class="display__container">
+                    <div class="display__box">
+                      <div class="display__box-item">
+                        <p class="display__category">Tip Amount</p>
+                        <span class="display__per-person">/ person</span>
+                      </div>
+                      <div>
+                        <p class="display__category-value" id="tip-amount">
+                          $0.00
+                        </p>
+                      </div>
+                    </div>
+                    <div class="display__box">
+                      <div class="display__box-item">
+                        <p class="display__category">Total</p>
+                        <span class="display__per-person">/ person</span>
+                      </div>
+                      <div>
+                        <p
+                          class="display__category-value"
+                          id="total-per-person"
+                        >
+                          $0.00
+                        </p>
+                      </div>
+                    </div>
+                    <input
+                      class="input display__reset-button"
+                      type="button"
+                      value="Reset"
+                      id="reset-button"
+                    />
+                  </div>
                 </div>
               </div>
             </div>
-          </section>
+          </div>
         </div>
-      </div>
+      </section>
     </main>
-
-    <div class="attribution">
-      Challenge by
-      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
-        >Frontend Mentor</a
-      >. Coded by <a href="#">Your Name Here</a>.
-    </div>
+    <footer>
+      <div class="attribution">
+        Challenge by
+        <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+          >Frontend Mentor</a
+        >. Coded by
+        <a
+          href="https://www.linkedin.com/in/anatolii-vasylenko-402014219/"
+          target="_blank"
+          >Anatolii Vasylenko</a
+        >.
+      </div>
+    </footer>
   </body>
 </html>
