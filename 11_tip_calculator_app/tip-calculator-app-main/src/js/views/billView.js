@@ -38,8 +38,8 @@ class BillView extends View {
       } else if (error === "customTipsInputIsValid") {
         this._toggleError(
           errors[error],
-          this._customTipsInput,
-          this._personsErrorMessage
+          this._customTipsInput
+          //this._personsErrorMessage
         );
       } else if (error === "personsInputIsValid") {
         this._toggleError(
