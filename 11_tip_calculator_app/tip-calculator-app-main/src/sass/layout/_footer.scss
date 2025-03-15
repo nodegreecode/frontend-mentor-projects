@@ -1,0 +1,11 @@
+@use "../utils/variables";
+
+/* FOOTER */
+footer {
+  padding: 2.4rem 2rem;
+  background-color: variables.$light-grayish-cyan;
+
+  & a {
+    text-decoration: none;
+  }
+}

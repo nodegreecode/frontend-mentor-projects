@@ -1,0 +1,165 @@
+@use "../utils/variables";
+@use "../utils/mixins";
+@use "../layout/grid";
+
+/* COMPONENT */
+.tip-calculator {
+  background-color: variables.$light-grayish-cyan;
+
+  &__container {
+    display: flex;
+    gap: 3rem;
+    flex-direction: column;
+  }
+
+  &__header {
+    padding: 4rem 0;
+    display: flex;
+    justify-content: center;
+  }
+
+  /*&__title {
+      font-size: 2.4rem;
+      font-weight: 700;
+      text-align: center;
+      text-transform: uppercase;
+      line-height: 1.5;
+      letter-spacing: 0.7rem;
+      color: $dark-grayish-cyan;
+    }*/
+
+  &__content {
+    width: 100%;
+    padding: 2.4rem;
+    border-radius: 20px 20px 0 0;
+    background-color: variables.$white;
+
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
+    @include mixins.respond-phone-portrait() {
+      height: 85vh;
+    }
+
+    @include mixins.respond-phone() {
+      border-radius: 20px;
+    }
+
+    @include mixins.respond-tablet-port() {
+      max-width: 82rem;
+      height: auto;
+      flex-direction: row;
+      border-radius: 20px;
+    }
+  }
+
+  &__form {
+    width: 100%;
+
+    @include mixins.respond-tablet-port() {
+      width: 50%;
+      padding: 2rem;
+    }
+  }
+
+  &__tips {
+    display: none;
+  }
+
+  &__tips-btn {
+    display: block;
+    padding: 1.4rem 2rem;
+    background-color: variables.$very-dark-cyan;
+    color: variables.$white;
+    font-size: 2rem;
+    text-align: center;
+    border-radius: 5px;
+
+    &:hover {
+      color: variables.$very-dark-cyan;
+      background-color: variables.$strong-cyan;
+    }
+
+    &--custom {
+      width: 100%;
+
+      &::placeholder {
+        font-family: "Space Mono";
+        font-size: 2.2rem;
+        font-weight: 700;
+        color: variables.$dark-grayish-cyan !important;
+        text-align: center;
+      }
+    }
+  }
+
+  &__result-display {
+    width: 100%;
+
+    background-color: variables.$very-dark-cyan;
+    padding: 4rem 2rem 2rem 2rem;
+    border-radius: 10px;
+
+    @include mixins.respond-tablet-port() {
+      width: 50%;
+      padding: 3.8rem;
+    }
+  }
+}
+
+.display {
+  &__container {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    height: 100%;
+
+    @include mixins.respond-tablet-port() {
+      gap: 5rem;
+    }
+  }
+
+  &__box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__box-item {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  &__reset-button {
+    font-size: 1.8rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: variables.$very-dark-cyan;
+    background-color: variables.$strong-cyan;
+
+    @include mixins.respond-tablet-port() {
+      margin-top: auto;
+    }
+  }
+
+  &__category {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: variables.$white;
+  }
+
+  &__per-person {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: variables.$dark-grayish-cyan;
+  }
+
+  &__category-value {
+    font-size: 3.2rem;
+    font-weight: 700;
+    color: variables.$strong-cyan;
+  }
+}

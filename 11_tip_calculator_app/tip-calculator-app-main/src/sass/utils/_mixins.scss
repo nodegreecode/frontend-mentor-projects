@@ -1,0 +1,36 @@
+/* MIXINS */
+@mixin respond-desktop-large() {
+  @media (min-width: 1400px) {
+    @content;
+  }
+}
+
+@mixin respond-desktop() {
+  @media (min-width: 1200px) {
+    @content;
+  }
+}
+
+@mixin respond-tablet-land() {
+  @media (min-width: 992px) {
+    @content;
+  }
+}
+
+@mixin respond-tablet-port() {
+  @media (min-width: 768px) {
+    @content;
+  }
+}
+
+@mixin respond-phone() {
+  @media (min-width: 576px) {
+    @content;
+  }
+}
+
+@mixin respond-phone-portrait() {
+  @media (max-width: 575px) {
+    @content;
+  }
+}

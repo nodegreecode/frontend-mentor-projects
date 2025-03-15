@@ -19,7 +19,7 @@
       href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="../dist/css/style.css" />
+    <link rel="stylesheet" href="./sass/main.scss" />
     <!--<script src="../src/js/app.js" type="module" defer></script> -->
     <script src="./js/controller.js" type="module" defer></script>
     <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
@@ -58,7 +58,10 @@
               <div class="tip-calculator__content">
                 <form action="" class="tip-calculator__form">
                   <div class="form-group">
-                    <label class="form-label" for="bill">Bill </label>
+                    <div class="label-wrapper">
+                      <label class="form-label" for="bill">Bill </label>
+                      <span class="error-message--bill">Can't be zero</span>
+                    </div>
                     <div class="input-wrapper">
                       <img
                         class="input-wrapper__dollar"
@@ -150,9 +153,12 @@
                     </div>
                   </div>
                   <div class="form-group">
-                    <label class="form-label" for="people"
-                      >Number of People</label
-                    >
+                    <div class="label-wrapper">
+                      <label class="form-label" for="people"
+                        >Number of People</label
+                      >
+                      <span class="error-message--people">Can't be zero</span>
+                    </div>
                     <div class="input-wrapper">
                       <img
                         class="input-wrapper__person"

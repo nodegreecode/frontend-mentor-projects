@@ -2,20 +2,67 @@ import View from "./View";
 
 class BillView extends View {
   _billInput = document.getElementById("bill");
-  _persons = document.getElementById("people");
+  _personsInput = document.getElementById("people");
+  _billErrorMessage = document.querySelector(".error-message--bill");
+  _personsErrorMessage = document.querySelector(".error-message--people");
   _inputData = {};
 
   constructor() {
     super();
   }
 
+  clearInputs() {
+    this._billInput.value = "";
+    this._customTipsInput.value = "";
+    this._personsInput.value = "";
+  }
+
+  _toggleError(isValid, inputElemept, errorMessageElement) {
+    if (isValid) {
+      inputElemept.classList.remove("invalid");
+      errorMessageElement?.classList.remove("error");
+    } else {
+      inputElemept.classList.add("invalid");
+      errorMessageElement?.classList.add("error");
+    }
+  }
+
+  showError(errors) {
+    for (const error in errors) {
+      if (error === "billInputIsValid") {
+        this._toggleError(
+          errors[error],
+          this._billInput,
+          this._billErrorMessage
+        );
+      } else if (error === "customTipsInputIsValid") {
+        this._toggleError(
+          errors[error],
+          this._customTipsInput,
+          this._personsErrorMessage
+        );
+      } else if (error === "personsInputIsValid") {
+        this._toggleError(
+          errors[error],
+          this._personsInput,
+          this._personsErrorMessage
+        );
+      }
+    }
+  }
+
   _getBillData(tipsValue) {
-    const bill = this._billInput.value;
-    const tips = tipsValue;
-    const persons = this._persons.value;
-    this._inputData.bill = bill;
-    this._inputData.tips = tips;
-    this._inputData.persons = persons;
+    const bill = parseFloat(this._billInput.value) || 0;
+    const tips = parseInt(tipsValue);
+    const customTips = parseInt(this._customTipsInput?.value) || 0;
+    const persons = parseInt(this._personsInput.value) || 0;
+
+    this._inputData = {
+      bill,
+      tips,
+      customTips,
+      persons,
+    };
     return this._inputData;
   }
 
@@ -28,7 +75,12 @@ class BillView extends View {
     });
   }
 
-  addHandlerBillDataCustomTips() {}
+  addHandlerBillDataCustomTips(handler) {
+    this._customTipsInput.addEventListener("input", (event) => {
+      const data = this._getBillData(0);
+      handler(data);
+    });
+  }
 }
 
 export default new BillView();

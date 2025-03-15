@@ -1,0 +1,106 @@
+@use "variables";
+@use "mixins";
+
+/* HELPERS */
+.form-group {
+  display: flex;
+  gap: 1rem;
+  flex-direction: column;
+
+  &:not(:last-child) {
+    padding-bottom: 2rem;
+  }
+}
+
+.form-radio-group {
+  display: grid;
+  grid-template-columns: repeat(2, 48%);
+  gap: 1.5rem;
+
+  @include mixins.respond-tablet-port() {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.form-input {
+  width: 100%;
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: variables.$very-dark-cyan;
+
+  text-align: right;
+
+  padding: 0.9rem;
+  border: none;
+  border-radius: 5px;
+  background-color: variables.$very-light-grayish-cyan;
+
+  &::placeholder {
+    color: variables.$grayish-cyan;
+    font-weight: 600;
+  }
+
+  &:focus {
+    outline: 2px solid variables.$strong-cyan;
+  }
+}
+
+.input-wrapper {
+  position: relative;
+  &__dollar {
+    width: 11px;
+    height: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translate(170%, 90%);
+  }
+
+  &__person {
+    width: 11px;
+    height: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translate(170%, 120%);
+  }
+}
+
+.input {
+  padding: 1rem;
+  border: none;
+  border-radius: 5px;
+}
+
+.form-label {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: variables.$dark-grayish-cyan;
+}
+
+.disabled {
+  opacity: 0.2;
+}
+
+.label-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.error-message {
+  &--bill,
+  &--people {
+    display: none;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: variables.$red;
+  }
+}
+
+.error {
+  display: block;
+}
+
+.invalid {
+  outline: 2px solid variables.$red;
+}
