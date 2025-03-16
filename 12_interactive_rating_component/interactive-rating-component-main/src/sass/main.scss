@@ -1,0 +1,172 @@
+/* VARIABLES */
+
+$orange: hsl(25, 97%, 53%);
+
+$white: hsl(0, 0%, 100%);
+$light-grey: hsl(217, 12%, 63%);
+
+$dark-blue: hsl(213, 19%, 18%);
+$very-dark-blue: hsl(216, 12%, 8%);
+
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: sans-serif;
+  line-height: 1;
+}
+
+p,
+legend {
+  font-size: 1.5rem;
+}
+
+/* MIXINS */
+// 1400, 1200, 992, 768, 576, 575
+@mixin respond-desktop-large() {
+  @media (min-width: 1400px) {
+    @content;
+  }
+}
+
+@mixin respond-desktop() {
+  @media (min-width: 1200px) {
+    @content;
+  }
+}
+
+@mixin respond-tablet-land() {
+  @media (min-width: 992px) {
+    @content;
+  }
+}
+
+@mixin respond-tablet-port() {
+  @media (min-width: 768px) {
+    @content;
+  }
+}
+
+@mixin respond-phone-land() {
+  @media (min-width: 576px) {
+    @content;
+  }
+}
+
+@mixin respond-phone-port() {
+  @media (max-width: 575px) {
+    @content;
+  }
+}
+
+/* CONTAINERS */
+section {
+  background-color: $very-dark-blue;
+  height: 100vh;
+}
+
+.container {
+  padding: 0 2rem;
+  @include respond-phone-port() {
+    max-width: 37.5rem;
+  }
+}
+
+.center-box {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* COMPONENTS */
+.rating-component {
+  background-color: $dark-blue;
+  padding: 3rem 2rem;
+  border-radius: 10px;
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
+    & fieldset {
+      border: none;
+
+      & legend {
+        line-height: 1.5;
+      }
+    }
+  }
+
+  &__thank-you-message {
+  }
+}
+
+.form {
+  &__image {
+    display: block;
+    width: 15px;
+    height: 15px;
+  }
+  &__heading {
+    font-size: 2rem;
+    color: $white;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  &__text {
+    color: $light-grey;
+    margin-bottom: 2rem;
+  }
+
+  &__rating-btn {
+  }
+}
+
+.form-group {
+  display: flex;
+  justify-content: space-around;
+}
+
+.radio-group {
+}
+
+.submit-btn {
+  background-color: $orange;
+  padding: 1.2rem;
+  border-radius: 20px;
+  border: none;
+}
+
+.thank-you-message {
+}
+
+/* HELPERS */
+.image-wrapper {
+  align-self: flex-start;
+  display: inline-block;
+  padding: 1rem;
+  border-radius: 50%;
+  background-color: rgba($color: $white, $alpha: 0.1);
+  //box-shadow: 0 0 20px rgba(0, 128, 255, 0.8);
+}
+
+/* FOOTER */
+footer {
+  background-color: $very-dark-blue;
+}
