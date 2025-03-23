@@ -1,1 +1,0 @@
-{"mappings":"AAAA;AAEA,QAAQ,GAAG,CAAC","sources":["src/js/app.js"],"sourcesContent":["\"use strict\";\r\n\r\nconsole.log(\"Hello world!\");\r\n"],"names":[],"version":3,"file":"index.8f0c9192.js.map","sourceRoot":"/__parcel_source_root/"}

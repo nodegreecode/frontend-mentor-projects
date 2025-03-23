@@ -14,6 +14,13 @@
 
     <title>Frontend Mentor | Interactive rating component</title>
 
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Overpass:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+
     <link rel="stylesheet" href="./sass/main.scss" />
     <script src="./js/app.js" defer></script>
 
@@ -22,9 +29,6 @@
       .attribution {
         font-size: 11px;
         text-align: center;
-      }
-      .attribution a {
-        color: hsl(228, 45%, 44%);
       }
     </style>
   </head>
@@ -36,17 +40,17 @@
             <!-- Rating Component-->
             <div class="rating-component">
               <!-- Rating Content -->
-              <div class="rating-component__form">
+              <div id="ratingForm" class="rating-component__form">
                 <div class="image-wrapper">
                   <img
                     class="form__image"
                     src="./assets/images/icon-star.svg"
-                    alt="star"
+                    alt="orange star icon"
                   />
                 </div>
                 <h1 class="form__heading">How did we do?</h1>
-                <form class="form__form" id="rating-form" action="">
-                  <fieldset class="form__">
+                <form class="form__form" id="form" action="#" novalidate>
+                  <fieldset class="form__set">
                     <legend class="form__text">
                       Please let us know how we did with your support request.
                       All feedback is appreciated to help us improve our
@@ -109,38 +113,39 @@
                         >
                       </div>
                     </div>
+                    <p id="submitError" class="error hidden">
+                      Please select a rating before submitting!
+                    </p>
                   </fieldset>
                   <button type="submit" class="submit-btn">SUBMIT</button>
                 </form>
               </div>
               <!-- Rating Thank You Message -->
               <div
-                class="rating-component__thank-you-message"
-                id="thank-message"
-                hidden
+                id="thankYouMessage"
+                class="rating-component__thank-you-message hidden"
               >
-                <img
-                  class="thank-you-message__image"
-                  src="./assets/images/illustration-thank-you.svg"
-                  alt=""
-                />
-                <p class="thank-you-message__selected-rating">
-                  You selected out 4 of 5
-                </p>
-                <h2 class="thank-you-message__heading">Thank you!</h2>
-                <p class="thank-you-message__text">
-                  We appreciate you taking the time to give a rating. If you
-                  ever need more support, don’t hesitate to get in touch!
-                </p>
+                <div class="thank-you-message__image-wrapper">
+                  <img
+                    class="thank-you-message__image"
+                    src="./assets/images/illustration-thank-you.svg"
+                    alt="an illustration of handy with orage bank card and white recipe"
+                  />
+                  <p class="thank-you-message__selected-rating">
+                    You selected <span id="selecteRating">4</span> out of 5
+                  </p>
+                </div>
+                <div class="thank-you-message__text-wrapper">
+                  <h2 class="thank-you-message__heading">Thank you!</h2>
+                  <p class="thank-you-message__text">
+                    We appreciate you taking the time to give a rating. If you
+                    ever need more support, don’t hesitate to get in touch!
+                  </p>
+                </div>
               </div>
             </div>
           </div>
         </div>
-        <!-- Rating state start -->
-        <!-- Rating state end -->
-        <!-- Thank you state start -->
-        <!-- Add rating here -->
-        <!-- Thank you state end -->
       </section>
     </main>
     <footer>
@@ -148,7 +153,10 @@
         Challenge by
         <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
           >Frontend Mentor</a
-        >. Coded by <a href="#">Your Name Here</a>.
+        >. Coded by
+        <a href="https://www.linkedin.com/in/anatolii-vasylenko-402014219/"
+          >Anatolii Vasylenko</a
+        >.
       </div>
     </footer>
   </body>
