@@ -1,0 +1,122 @@
+/* VARIABLES */
+/* COLORS*/
+/* FONT-WEIHTS */
+/* MIXINS */
+/* GLOBAL RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+@font-face {
+  font-family: "WorkSans";
+  src: url("../assets/fonts/static/WorkSans-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: "WorkSans";
+  src: url("../assets/fonts/static/WorkSans-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+}
+@font-face {
+  font-family: "WorkSans";
+  src: url("../assets/fonts/static/WorkSans-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+body {
+  font-family: "WorkSans", sans-serif;
+  line-height: 1;
+}
+
+.background {
+  background: url("../assets/images/background-pattern-mobile.svg"), linear-gradient(to bottom, hsl(275, 100%, 97%) 100%, transparent 0);
+  background-repeat: no-repeat;
+}
+
+.container {
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.centered-box {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.faq__section {
+  background-color: white;
+  max-width: 55rem;
+  border-radius: 10px;
+  padding: 2rem;
+}
+.faq__heading {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+.faq__image {
+  width: 25px;
+  height: 25px;
+}
+.faq__title {
+  font-size: 2.6rem;
+  font-weight: 700;
+}
+.faq__accordion {
+  width: 100%;
+}
+
+.accordion__question {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 3.2rem;
+}
+.accordion__heading {
+  font-size: 1.7rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+.accordion__icon-wrapper {
+  width: 25px;
+  height: 25px;
+  position: relative;
+}
+.accordion__icon-close, .accordion__icon-open {
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translateX(10%);
+}
+.accordion__text {
+  font-size: 1.6rem;
+  line-height: 1.5;
+}
+
+/* HELPERS */
+.accordion__icon-close {
+  opacity: 0;
+}
+
+.accordion__item[open] .accordion__icon-open {
+  opacity: 0;
+}
+
+.accordion__item[open] .accordion__icon-close {
+  opacity: 1;
+}
+
+/*# sourceMappingURL=style.css.map */
