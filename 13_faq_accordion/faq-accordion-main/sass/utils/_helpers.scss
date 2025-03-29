@@ -1,0 +1,12 @@
+/* HELPERS */
+.accordion__icon-close {
+  opacity: 0;
+}
+
+.accordion__item[open] .accordion__icon-open {
+  opacity: 0;
+}
+
+.accordion__item[open] .accordion__icon-close {
+  opacity: 1;
+}

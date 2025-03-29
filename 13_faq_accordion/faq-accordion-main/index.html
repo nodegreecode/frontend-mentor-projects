@@ -24,13 +24,14 @@
       }
       .attribution a {
         color: hsl(228, 45%, 44%);
+        text-decoration: none;
       }
     </style>
   </head>
   <body>
     <main class="background">
-      <div class="container">
-        <div class="centered-box">
+      <div class="background-image">
+        <div class="container">
           <section aria-label="Frequently asked questions" class="faq__section">
             <div class="faq__heading">
               <img
@@ -38,16 +39,27 @@
                 src="./assets/images/icon-star.svg"
                 alt="star icon"
               />
-              <h2 class="faq__title">FAQs</h2>
+              <h2 class="faq__title" aria-level="1">FAQs</h2>
             </div>
             <div class="faq__accordion">
               <!-- FAQ Item 1 -->
-              <details class="accordion__item">
-                <summary class="accordion__question">
-                  <span class="accordion__heading"
-                    >What is Frontend Mentor, and how will it help me?
+              <details
+                class="accordion__item"
+                aria-labelledby="accordion1-header"
+              >
+                <summary class="accordion__question" id="accordion1-header">
+                  <span
+                    class="accordion__heading"
+                    role="heading"
+                    aria-level="2"
+                  >
+                    What is Frontend Mentor, and how will it help me?
                   </span>
-                  <span class="accordion__icon-wrapper">
+                  <span
+                    class="accordion__icon-wrapper"
+                    aria-controls="faq1-content"
+                    role="button"
+                  >
                     <img
                       class="accordion__icon-open"
                       src="./assets/images/icon-plus.svg"
@@ -60,7 +72,7 @@
                     />
                   </span>
                 </summary>
-                <div class="accordion-content">
+                <div class="accordion__content" id="faq1-content">
                   <p class="accordion__text">
                     Frontend Mentor offers realistic coding challenges to help
                     developers improve their frontend coding skills with
@@ -70,12 +82,23 @@
                 </div>
               </details>
               <!-- FAQ Item 2 -->
-              <details class="accordion__item">
-                <summary class="accordion__question">
-                  <span class="accordion__heading"
-                    >Is Frontend Mentor free?
+              <details
+                class="accordion__item"
+                aria-labelledby="accordion2-header"
+              >
+                <summary class="accordion__question" id="accordion2-header">
+                  <span
+                    class="accordion__heading"
+                    role="heading"
+                    aria-level="2"
+                  >
+                    Is Frontend Mentor free?
                   </span>
-                  <span class="accordion__icon-wrapper">
+                  <span
+                    class="accordion__icon-wrapper"
+                    aria-controls="faq2-content"
+                    role="button"
+                  >
                     <img
                       class="accordion__icon-open"
                       src="./assets/images/icon-plus.svg"
@@ -88,7 +111,7 @@
                     />
                   </span>
                 </summary>
-                <div class="accordion-content">
+                <div class="accordion__content" id="faq2-content">
                   <p class="accordion__text">
                     Yes, Frontend Mentor offers both free and premium coding
                     challenges, with the free option providing access to a range
@@ -97,12 +120,23 @@
                 </div>
               </details>
               <!-- FAQ Item 3 -->
-              <details class="accordion__item">
-                <summary class="accordion__question">
-                  <span class="accordion__heading"
-                    >Can I use Frontend Mentor projects in my portfolio?
+              <details
+                class="accordion__item"
+                aria-labelledby="accordion3-header"
+              >
+                <summary class="accordion__question" id="accordion3-header">
+                  <span
+                    class="accordion__heading"
+                    role="heading"
+                    aria-level="2"
+                  >
+                    Can I use Frontend Mentor projects in my portfolio?
                   </span>
-                  <span class="accordion__icon-wrapper">
+                  <span
+                    class="accordion__icon-wrapper"
+                    aria-controls="faq3-content"
+                    role="button"
+                  >
                     <img
                       class="accordion__icon-open"
                       src="./assets/images/icon-plus.svg"
@@ -115,7 +149,7 @@
                     />
                   </span>
                 </summary>
-                <div class="accordion-content">
+                <div class="accordion__content" id="faq3-content">
                   <p class="accordion__text">
                     Yes, you can use projects completed on Frontend Mentor in
                     your portfolio. It's an excellent way to showcase your
@@ -124,12 +158,23 @@
                 </div>
               </details>
               <!-- FAQ Item 4 -->
-              <details class="accordion__item">
-                <summary class="accordion__question">
-                  <span class="accordion__heading">
+              <details
+                class="accordion__item"
+                aria-labelledby="accordion4-header"
+              >
+                <summary class="accordion__question" id="accordion4-header">
+                  <span
+                    class="accordion__heading"
+                    role="heading"
+                    aria-level="2"
+                  >
                     How can I get help if I'm stuck on a challenge?
                   </span>
-                  <span class="accordion__icon-wrapper">
+                  <span
+                    class="accordion__icon-wrapper"
+                    aria-controls="faq4-content"
+                    role="button"
+                  >
                     <img
                       class="accordion__icon-open"
                       src="./assets/images/icon-plus.svg"
@@ -142,7 +187,7 @@
                     />
                   </span>
                 </summary>
-                <div class="accordion-content">
+                <div class="accordion__content--pb" id="faq4-content">
                   <p class="accordion__text">
                     The best place to get help is inside Frontend Mentor's
                     Discord community. There's a help channel where you can ask
@@ -155,12 +200,16 @@
         </div>
       </div>
     </main>
-
-    <div class="attribution">
-      Challenge by
-      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
-        >Frontend Mentor</a
-      >. Coded by <a href="#">Your Name Here</a>.
-    </div>
+    <footer class="footer">
+      <div class="attribution">
+        Challenge by
+        <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+          >Frontend Mentor</a
+        >. Coded by
+        <a href="https://www.linkedin.com/in/anatolii-vasylenko-402014219/"
+          >Anatolii Vasylenko</a
+        >.
+      </div>
+    </footer>
   </body>
 </html>

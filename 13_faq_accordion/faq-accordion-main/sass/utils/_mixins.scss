@@ -1,0 +1,51 @@
+/* MIXINS */
+@mixin font-face($name, $path, $weight, $style) {
+  @font-face {
+    font-family: $name;
+    src: url("#{$path}") format("truetype");
+    font-weight: $weight;
+    font-style: $style;
+  }
+}
+
+@mixin respond-desktop-large() {
+  @media (min-width: 1400px) {
+    @content;
+  }
+}
+
+@mixin respond-desktop() {
+  @media (min-width: 1200px) {
+    @content;
+  }
+}
+
+@mixin respond-tablet-land() {
+  @media (min-width: 992px) {
+    @content;
+  }
+}
+
+@mixin respond-tablet-port() {
+  @media (min-width: 768px) {
+    @content;
+  }
+}
+
+@mixin respond-phone-land() {
+  @media (min-width: 576px) {
+    @content;
+  }
+}
+
+@mixin respond-phone-port() {
+  @media (max-width: 575px) {
+    @content;
+  }
+}
+
+@mixin respond-custom-mq-max($width) {
+  @media (max-width: $width) {
+    @content;
+  }
+}

@@ -1,0 +1,23 @@
+@use "../utils/mixins";
+
+/* FONTS */
+@include mixins.font-face(
+  "WorkSans",
+  "../assets/fonts/static/WorkSans-Bold.ttf",
+  700,
+  normal
+);
+
+@include mixins.font-face(
+  "WorkSans",
+  "../assets/fonts/static/WorkSans-SemiBold.ttf",
+  600,
+  normal
+);
+
+@include mixins.font-face(
+  "WorkSans",
+  "../assets/fonts/static/WorkSans-Regular.ttf",
+  400,
+  normal
+);

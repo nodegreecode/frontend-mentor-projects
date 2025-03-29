@@ -1,0 +1,64 @@
+@use "../utils/variables";
+@use "../utils/mixins";
+
+body {
+  height: 100%;
+  font-family: "WorkSans", sans-serif;
+  line-height: 1;
+
+  background: linear-gradient(
+    to bottom,
+    variables.$light-pink 100%,
+    transparent 0
+  );
+
+  display: grid;
+  grid-template-rows: 2 2fr 1fr;
+}
+
+.background {
+  height: 100%;
+
+  &::after {
+    display: block;
+    content: "";
+    width: 100%;
+    height: 820px;
+
+    @include mixins.respond-phone-port() {
+      height: 980px;
+    }
+  }
+}
+
+.background-image {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  background-image: url("../assets/images/background-pattern-desktop.svg");
+  background-size: cover;
+  background-position: top;
+  background-repeat: no-repeat;
+
+  @include mixins.respond-phone-port() {
+    background-image: url("../assets/images/background-pattern-mobile.svg"),
+      linear-gradient(to bottom, variables.$light-pink 100%, transparent 0);
+  }
+}
+
+.container {
+  padding: 0 2.4rem;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translate(-50%, -17%);
+
+  width: 100%;
+  max-width: 70rem;
+  min-height: 87vh;
+
+  @include mixins.respond-phone-port() {
+    transform: translate(-50%, -10%);
+    min-height: 100vh;
+  }
+}
