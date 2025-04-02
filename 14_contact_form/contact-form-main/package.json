@@ -4,9 +4,10 @@
   "description": "Contact Us form",
   "main": "index.js",
   "scripts": {
-    "sass:compile": "src/sass/main.scss:dist/css/style.css",
-    "sass:watch": "src/sass/main.scss:dist/css/style.css -w",
-    "dev-server": "live-server"
+    "compile:sass": "sass src/sass/main.scss:dist/css/style.css",
+    "watch:sass": "sass src/sass/main.scss:dist/css/style.css -w",
+    "dev-server": "live-server",
+    "start": "npm-run-all --parallel dev-server watch:sass"
   },
   "author": "Anatolii Vasylenko",
   "license": "ISC",
