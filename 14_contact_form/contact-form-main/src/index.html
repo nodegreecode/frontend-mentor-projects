@@ -26,7 +26,7 @@
               <h1 class="contact-form__heading mb-xl">Contact Us</h1>
               <form action="#" class="contact-form__form">
                 <!-- First name & Last name inputs -->
-                <div class="flex-wrapper mb-m">
+                <div class="flex-wrapper mb-xs">
                   <div class="form-group form-group--column">
                     <label class="mb-xs" for="first-name">First Name</label>
                     <input
@@ -61,7 +61,7 @@
                   </div>
                 </div>
                 <!-- Email inputs -->
-                <div class="form-group form-group--column mb-m">
+                <div class="form-group form-group--column mb-xs">
                   <label class="mb-xs" for="email">Email Address</label>
                   <input
                     class="input-padding input-border mb-xs"
@@ -77,11 +77,11 @@
                   >
                 </div>
                 <!-- Query type inputs -->
-                <fieldset class="form-group mb-m flex-wrap">
+                <fieldset class="form-group mb-s flex-wrap">
                   <legend>
                     <h2 class="secondary-heading mb-s">Query Type</h2>
                   </legend>
-                  <div class="flex-wrapper gap-s mb-s">
+                  <div class="flex-wrapper gap-s">
                     <div class="form-group gap-xs input-padding input-border">
                       <input
                         class="input-padding input-border"
@@ -92,7 +92,9 @@
                         aria-invalid="true"
                         aria-describedby="query-type-error"
                       />
-                      <label for="general-enquiry">General Enquiry</label>
+                      <label class="fs-custom-18" for="general-enquiry"
+                        >General Enquiry</label
+                      >
                     </div>
                     <div class="form-group gap-xs input-padding input-border">
                       <input
@@ -103,7 +105,9 @@
                         aria-invalid="true"
                         aria-describedby="query-type-error"
                       />
-                      <label for="support-request">Support Request</label>
+                      <label class="fs-custom-18" for="support-request"
+                        >Support Request</label
+                      >
                     </div>
                   </div>
                   <span id="query-type-error" class="error-message"
@@ -115,10 +119,10 @@
                 <div class="form-group form-group--column mb-xl">
                   <label class="mb-xs" for="message">Message</label>
                   <textarea
-                    class="contact-form__message input-border mb-xs"
+                    class="contact-form__message input-padding input-border"
                     name="message"
                     id="message"
-                    rows="7"
+                    rows="3"
                     aria-invalid="true"
                     aria-describedby="message-error"
                     required
@@ -128,7 +132,7 @@
                   >
                 </div>
                 <!-- Consent input -->
-                <div class="form-group mb-l gap-s">
+                <div class="form-group mb-xl gap-s">
                   <input type="checkbox" id="consent" name="consent" />
                   <label for="consent"
                     >I consent to being contacted by the team</label
