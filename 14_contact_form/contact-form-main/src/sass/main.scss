@@ -147,6 +147,10 @@ textarea:focus {
 
   &__form {
   }
+
+  &__message {
+    resize: none;
+  }
 }
 
 .submit-btn {
@@ -164,6 +168,30 @@ textarea:focus {
 }
 
 /* HELPERS */
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.gap-xs {
+  gap: 1.6rem;
+}
+
+.gap-s {
+  gap: 2rem;
+}
+
+.gap-m {
+  gap: 2.4rem;
+}
+
+.gap-l {
+  gap: 2.8rem;
+}
+
+.mb-xs {
+  margin-bottom: 1.6rem;
+}
+
 .mb-s {
   margin-bottom: 2rem;
 }
@@ -176,8 +204,12 @@ textarea:focus {
   margin-bottom: 3.2rem;
 }
 
+.mb-xl {
+  margin-bottom: 4rem;
+}
+
 .input-padding {
-  padding: 1.2rem 2rem;
+  padding: 1.6rem 2rem;
 }
 
 .input-border {
@@ -187,6 +219,7 @@ textarea:focus {
 
 .secondary-heading {
   font-size: 1.6rem;
+  font-weight: normal;
 }
 
 .error-message {
@@ -198,4 +231,12 @@ textarea:focus {
 .footer {
   padding: 4.8rem 0;
   background-color: $green-200-lighter;
+}
+
+.attribution {
+  font-size: 11px;
+  text-align: center;
+}
+.attribution a {
+  color: hsl(228, 45%, 44%);
 }

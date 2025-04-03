@@ -16,17 +16,6 @@
 
     <link rel="stylesheet" href="../dist/css/style.css" />
     <script src="../src/js/main.js" defer></script>
-
-    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-    <style>
-      .attribution {
-        font-size: 11px;
-        text-align: center;
-      }
-      .attribution a {
-        color: hsl(228, 45%, 44%);
-      }
-    </style>
   </head>
   <body>
     <main>
@@ -34,14 +23,14 @@
         <div class="container">
           <div class="center-box">
             <article class="contact-form__content">
-              <h1 class="contact-form__heading">Contact Us</h1>
+              <h1 class="contact-form__heading mb-xl">Contact Us</h1>
               <form action="#" class="contact-form__form">
                 <!-- First name & Last name inputs -->
-                <div class="flex-wrapper mb-s">
+                <div class="flex-wrapper mb-m">
                   <div class="form-group form-group--column">
-                    <label for="first-name">First Name</label>
+                    <label class="mb-xs" for="first-name">First Name</label>
                     <input
-                      class="input-padding input-border"
+                      class="input-padding input-border mb-xs"
                       type="text"
                       id="first-name"
                       name="first-name"
@@ -55,9 +44,9 @@
                     >
                   </div>
                   <div class="form-group form-group--column">
-                    <label for="last-name">Last Name</label>
+                    <label class="mb-xs" for="last-name">Last Name</label>
                     <input
-                      class="input-padding input-border"
+                      class="input-padding input-border mb-xs"
                       type="text"
                       id="last-name"
                       name="last-name"
@@ -72,53 +61,74 @@
                   </div>
                 </div>
                 <!-- Email inputs -->
-                <div class="form-group form-group--column mb-s">
-                  <label for="email">Email Address</label>
+                <div class="form-group form-group--column mb-m">
+                  <label class="mb-xs" for="email">Email Address</label>
                   <input
-                    class="input-padding input-border"
+                    class="input-padding input-border mb-xs"
                     type="text"
                     id="email"
                     name="email"
+                    aria-invalid="true"
+                    aria-describedby="email-error"
                     autocomplete="email"
                   />
+                  <span id="email-error" class="error-message"
+                    >Please enter a valid email address</span
+                  >
                 </div>
                 <!-- Query type inputs -->
-                <fieldset class="form-group mb-s">
-                  <legend><h2 class="secondary-heading">Query Type</h2></legend>
-                  <div class="flex-wrapper">
-                    <div class="form-group input-padding input-border">
+                <fieldset class="form-group mb-m flex-wrap">
+                  <legend>
+                    <h2 class="secondary-heading mb-s">Query Type</h2>
+                  </legend>
+                  <div class="flex-wrapper gap-s mb-s">
+                    <div class="form-group gap-xs input-padding input-border">
                       <input
                         class="input-padding input-border"
                         type="radio"
                         name="query-type"
                         id="general-enquiry"
                         value="general-enquiry"
+                        aria-invalid="true"
+                        aria-describedby="query-type-error"
                       />
                       <label for="general-enquiry">General Enquiry</label>
                     </div>
-                    <div class="form-group input-padding input-border">
+                    <div class="form-group gap-xs input-padding input-border">
                       <input
                         type="radio"
                         name="query-type"
                         id="support-request"
                         value="support-request"
+                        aria-invalid="true"
+                        aria-describedby="query-type-error"
                       />
                       <label for="support-request">Support Request</label>
                     </div>
                   </div>
+                  <span id="query-type-error" class="error-message"
+                    >Please enter a valid email address</span
+                  >
                 </fieldset>
+
                 <!-- Message area -->
-                <div class="form-group form-group--column mb-l">
-                  <label for="message">Message</label>
+                <div class="form-group form-group--column mb-xl">
+                  <label class="mb-xs" for="message">Message</label>
                   <textarea
-                    class="input-border"
+                    class="contact-form__message input-border mb-xs"
                     name="message"
                     id="message"
+                    rows="7"
+                    aria-invalid="true"
+                    aria-describedby="message-error"
                     required
                   ></textarea>
+                  <span id="message-error" class="error-message"
+                    >This field is required</span
+                  >
                 </div>
                 <!-- Consent input -->
-                <div class="form-group mb-l">
+                <div class="form-group mb-l gap-s">
                   <input type="checkbox" id="consent" name="consent" />
                   <label for="consent"
                     >I consent to being contacted by the team</label
