@@ -115,16 +115,25 @@ fieldset {
   border: none;
 }
 
-input,
-textarea {
+main :where(input, textarea) {
   font-family: "Karla", sans-serif;
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   cursor: pointer;
 }
 
 input:focus,
 textarea:focus {
   outline: 1px solid $green-600-medium;
+}
+
+label {
+  color: $grey-900-darker;
+}
+
+label:not([for="general-enquiry"]):not([for="support-request"])::after {
+  content: "*";
+  color: $green-600-medium;
+  margin-left: 1rem;
 }
 
 /* CONTAINERS */
@@ -138,11 +147,11 @@ textarea:focus {
   width: 100%;
   height: 100vh;
   display: flex;
+
   justify-content: center;
   align-items: center;
 
   @include respond-phone-port() {
-    //display: block;
     height: auto;
   }
 }
@@ -156,18 +165,49 @@ textarea:focus {
     flex-direction: row;
     gap: 2rem;
   }
+
+  & small {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    color: $red;
+    visibility: hidden;
+  }
+
+  &.error small {
+    visibility: visible;
+  }
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-column {
+  flex-direction: column;
 }
 
 .form-group {
   width: 100%;
-  display: flex;
+  position: relative;
+  padding-bottom: 2.4rem;
+  margin-bottom: 2.4rem;
 
-  &--column {
-    flex-direction: column;
+  @include respond-phone-port() {
+    padding-bottom: 1.6rem;
+    margin-bottom: 1.6rem;
   }
 
-  &--row {
-    flex-direction: row;
+  & small {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    color: $red;
+    visibility: hidden;
+  }
+
+  &.error small {
+    visibility: visible;
   }
 }
 
@@ -175,7 +215,10 @@ textarea:focus {
 .contact-form {
   &__section {
     background-color: $green-200-lighter;
-    padding: 4.8rem 0 9.6rem 0;
+
+    @include respond-phone-port() {
+      padding: 2.8rem 0 2.8rem 0;
+    }
   }
 
   &__content {
@@ -184,7 +227,6 @@ textarea:focus {
     width: 100%;
     background-color: $white;
     border-radius: 16px;
-
     padding: 4.8rem 4rem;
 
     @include respond-phone-port() {
@@ -194,14 +236,127 @@ textarea:focus {
 
   &__heading {
     font-size: 2.8rem;
+    color: $grey-900-darker;
   }
 
   &__form {
   }
 
+  &__success-message {
+    width: 100%;
+    max-width: 52rem;
+    min-width: 32rem;
+
+    background-color: $grey-900-darker;
+    margin-top: 2.8rem;
+    padding: 2.8rem 2.4rem;
+    border-radius: 15px;
+
+    @include respond-phone-port() {
+      margin-top: 0;
+    }
+  }
+}
+
+.form {
+  &__first-name-label {
+    display: block;
+  }
+
+  &__first-name {
+    display: block;
+    width: 100%;
+  }
+
+  &__last-name-label {
+    display: block;
+  }
+
+  &__last-name {
+    display: block;
+    width: 100%;
+  }
+
+  &__email-label {
+    display: block;
+  }
+
+  &__email {
+    display: block;
+    width: 100%;
+  }
+
+  &__query-type-icon {
+    position: absolute;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+  }
+
+  &__query-type {
+    transition: background-color 0.3s;
+
+    & input[type="radio"] {
+      opacity: 0;
+      z-index: 1;
+
+      & ~ .form__query-type-icon {
+        border: 1px solid $grey-500-medium;
+        border-radius: 50px;
+      }
+
+      &:checked ~ .form__query-type-icon {
+        border: none;
+        background-image: url("../../src/assets/images/icon-radio-selected.svg");
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+      }
+    }
+
+    &:has(input[type="radio"]:checked) {
+      background-color: $green-200-lighter;
+    }
+  }
+
+  &__message-label {
+    display: block;
+  }
+
   &__message {
+    display: block;
+    width: 100%;
     resize: none;
     line-height: 1.5;
+
+    @include respond-phone-port() {
+      height: calc(1em * 12 + 2px);
+    }
+  }
+
+  &__consent-icon {
+    position: absolute;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+  }
+
+  &__consent {
+    z-index: 1;
+    opacity: 0;
+
+    & ~ .form__consent-icon {
+      border: 1px solid $grey-500-medium;
+      border-radius: 3px;
+    }
+
+    &:checked ~ .form__consent-icon {
+      border: none;
+      background-image: url("../../src/assets/images/icon-checkbox-check.svg");
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
   }
 }
 
@@ -219,17 +374,49 @@ textarea:focus {
   }
 }
 
-/* HELPERS */
-.fs-custom-18 {
-  font-size: 1.8rem;
+.success-message {
+  &__heading {
+    color: $white;
+  }
+  &__text {
+    color: $grey-500-medium;
+  }
 }
 
+/* HELPERS */
+.icon-wrapper {
+  width: 20px;
+  height: 20px;
+}
+
+/* TYPOGRAPHY */
+.lh-15 {
+  line-height: 1.5;
+}
+
+.fs-custom-18 {
+  font-size: 2rem;
+}
+
+.fs-custom-13 {
+  font-size: 1.33rem;
+}
+
+/* FLEX PROPERTIES */
 .flex-wrap {
   flex-wrap: wrap;
 }
 
+.ai-center {
+  align-items: center;
+}
+
+.gap-xxs {
+  gap: 0.8rem;
+}
+
 .gap-xs {
-  gap: 1.6rem;
+  gap: 1.2rem;
 }
 
 .gap-s {
@@ -242,6 +429,24 @@ textarea:focus {
 
 .gap-l {
   gap: 2.8rem;
+}
+
+/* PADDING */
+.pb-s {
+  padding-bottom: 2.4rem;
+}
+
+.input-padding {
+  padding: 1.2rem;
+
+  &--radio {
+    padding: 1.55rem 1rem 1.55rem 2.8rem;
+  }
+}
+
+/* MARGIN */
+.mb-0 {
+  margin-bottom: 0;
 }
 
 .mb-xs {
@@ -264,23 +469,37 @@ textarea:focus {
   margin-bottom: 4rem;
 }
 
-.input-padding {
-  padding: 1.6rem 2rem;
-}
-
+/* BORDER */
 .input-border {
   border-radius: 8px;
   border: 1px solid $grey-500-medium;
+
+  &:hover {
+    border-color: $green-600-medium;
+  }
 }
 
+/* HEADING */
 .secondary-heading {
   font-size: 1.6rem;
   font-weight: normal;
+  color: $grey-900-darker;
+  margin-bottom: 1.6rem;
+
+  &::after {
+    content: "*";
+    color: $green-600-medium;
+    margin-left: 1rem;
+  }
 }
 
-.error-message {
-  color: $red;
-  display: none;
+/* POSITION */
+.p-relative {
+  position: relative;
+}
+
+.p-absolute {
+  position: absolute;
 }
 
 /* FOOTER */
