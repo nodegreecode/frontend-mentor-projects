@@ -1,0 +1,125 @@
+@use "variables";
+@use "mixins";
+
+/* HELPERS */
+.icon-wrapper {
+  width: 20px;
+  height: 20px;
+}
+
+/* TYPOGRAPHY */
+.lh-15 {
+  line-height: 1.5;
+}
+
+.fs-custom-18 {
+  font-size: 2rem;
+}
+
+.fs-custom-13 {
+  font-size: 1.33rem;
+}
+
+/* FLEX PROPERTIES */
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.ai-center {
+  align-items: center;
+}
+
+.gap-xxs {
+  gap: 0.8rem;
+}
+
+.gap-xs {
+  gap: 1.2rem;
+}
+
+.gap-s {
+  gap: 2rem;
+}
+
+.gap-m {
+  gap: 2.4rem;
+}
+
+.gap-l {
+  gap: 2.8rem;
+}
+
+/* PADDING */
+.pb-s {
+  padding-bottom: 2.4rem;
+}
+
+.input-padding {
+  padding: 1.2rem;
+
+  &--radio {
+    padding-top: 1.5rem;
+    padding-left: 2.8rem;
+    @include mixins.respond-phone-port {
+      padding: 1.55rem 1rem 1.55rem 2.8rem;
+    }
+  }
+}
+
+/* MARGIN */
+.mb-0 {
+  margin-bottom: 0;
+}
+
+.mb-xs {
+  margin-bottom: 1.2rem;
+}
+
+.mb-s {
+  margin-bottom: 2rem;
+}
+
+.mb-m {
+  margin-bottom: 2.4rem;
+}
+
+.mb-l {
+  margin-bottom: 3.2rem;
+}
+
+.mb-xl {
+  margin-bottom: 4rem;
+}
+
+/* BORDER */
+.input-border {
+  border-radius: 8px;
+  border: 1px solid variables.$grey-500-medium;
+
+  &:hover {
+    border-color: variables.$green-600-medium;
+  }
+}
+
+/* HEADING */
+.secondary-heading {
+  font-size: 1.6rem;
+  font-weight: normal;
+  color: variables.$grey-900-darker;
+  margin-bottom: 1.6rem;
+
+  &::after {
+    content: "*";
+    color: variables.$green-600-medium;
+    margin-left: 1rem;
+  }
+}
+
+/* POSITION */
+.p-relative {
+  position: relative;
+}
+
+.p-absolute {
+  position: absolute;
+}

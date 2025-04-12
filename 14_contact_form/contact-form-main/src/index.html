@@ -26,6 +26,8 @@
             <div
               id="success-message"
               class="contact-form__success-message"
+              aria-live="assertive"
+              role="alert"
               hidden
             >
               <div class="flex gap-xs mb-xs">
@@ -96,7 +98,7 @@
                   </legend>
                   <div class="flex-wrapper p-relative">
                     <div
-                      class="form__query-type form-group flex ai-center gap-m input-padding--radio input-border"
+                      class="form__query-type form-group--no-pb flex ai-center gap-m input-padding--radio input-border"
                     >
                       <input
                         type="radio"
@@ -110,7 +112,7 @@
                       <label for="general-enquiry">General Enquiry</label>
                     </div>
                     <div
-                      class="form__query-type form-group flex ai-center gap-m input-padding--radio input-border"
+                      class="form__query-type form-group--no-pb flex ai-center gap-m input-padding--radio input-border"
                     >
                       <input
                         type="radio"

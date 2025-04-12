@@ -1,0 +1,79 @@
+@use "../utils/variables";
+@use "../utils/mixins";
+
+/*
+FONT SIZE SYSTEM (px)
+    4 / 8 / 12 / 16 / 20 / 24 / 28 / 32 / 40 / 48 / 56 / 64 / 72 / 80 / 88 / 96
+*/
+
+/* FONTS */
+@include mixins.font-face(
+  "Karla",
+  "../assets/fonts/Karla-VariableFont_wght.ttf",
+  100 900,
+  normal
+);
+
+@include mixins.font-face(
+  "Karla",
+  "../assets/fonts/Karla-Italic-VariableFont_wght.ttf",
+  100 900,
+  italic
+);
+
+@include mixins.font-face(
+  "Karla",
+  "../assets/fonts/static/Karla-Regular.ttf",
+  400,
+  normal
+);
+
+@include mixins.font-face(
+  "Karla",
+  "../assets/fonts/static/Karla-Bold.ttf",
+  700,
+  normal
+);
+
+/* GLOBAL RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: "Karla", sans-serif;
+  font-weight: 400;
+  font-size: 1.6rem;
+  line-height: 1;
+}
+
+fieldset {
+  border: none;
+}
+
+main :where(input, textarea) {
+  font-family: "Karla", sans-serif;
+  font-size: 1.6rem;
+  cursor: pointer;
+}
+
+input:focus,
+textarea:focus {
+  outline: 1px solid variables.$green-600-medium;
+}
+
+label {
+  color: variables.$grey-900-darker;
+}
+
+label:not([for="general-enquiry"]):not([for="support-request"])::after {
+  content: "*";
+  color: variables.$green-600-medium;
+  margin-left: 1rem;
+}

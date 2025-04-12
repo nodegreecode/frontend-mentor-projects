@@ -1,9 +1,9 @@
+/* VARIABLES */
+/* MIXINS */
 /*
 FONT SIZE SYSTEM (px)
     4 / 8 / 12 / 16 / 20 / 24 / 28 / 32 / 40 / 48 / 56 / 64 / 72 / 80 / 88 / 96
 */
-/* VARIABLES */
-/* MIXINS */
 /* FONTS */
 @font-face {
   font-family: "Karla";
@@ -72,6 +72,128 @@ label:not([for=general-enquiry]):not([for=support-request])::after {
   margin-left: 1rem;
 }
 
+/* HELPERS */
+.icon-wrapper {
+  width: 20px;
+  height: 20px;
+}
+
+/* TYPOGRAPHY */
+.lh-15 {
+  line-height: 1.5;
+}
+
+.fs-custom-18 {
+  font-size: 2rem;
+}
+
+.fs-custom-13 {
+  font-size: 1.33rem;
+}
+
+/* FLEX PROPERTIES */
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.ai-center {
+  align-items: center;
+}
+
+.gap-xxs {
+  gap: 0.8rem;
+}
+
+.gap-xs {
+  gap: 1.2rem;
+}
+
+.gap-s {
+  gap: 2rem;
+}
+
+.gap-m {
+  gap: 2.4rem;
+}
+
+.gap-l {
+  gap: 2.8rem;
+}
+
+/* PADDING */
+.pb-s {
+  padding-bottom: 2.4rem;
+}
+
+.input-padding {
+  padding: 1.2rem;
+}
+.input-padding--radio {
+  padding-top: 1.5rem;
+  padding-left: 2.8rem;
+}
+@media (max-width: 575px) {
+  .input-padding--radio {
+    padding: 1.55rem 1rem 1.55rem 2.8rem;
+  }
+}
+
+/* MARGIN */
+.mb-0 {
+  margin-bottom: 0;
+}
+
+.mb-xs {
+  margin-bottom: 1.2rem;
+}
+
+.mb-s {
+  margin-bottom: 2rem;
+}
+
+.mb-m {
+  margin-bottom: 2.4rem;
+}
+
+.mb-l {
+  margin-bottom: 3.2rem;
+}
+
+.mb-xl {
+  margin-bottom: 4rem;
+}
+
+/* BORDER */
+.input-border {
+  border-radius: 8px;
+  border: 1px solid hsl(186, 15%, 59%);
+}
+.input-border:hover {
+  border-color: hsl(169, 82%, 27%);
+}
+
+/* HEADING */
+.secondary-heading {
+  font-size: 1.6rem;
+  font-weight: normal;
+  color: hsl(187, 24%, 22%);
+  margin-bottom: 1.6rem;
+}
+.secondary-heading::after {
+  content: "*";
+  color: hsl(169, 82%, 27%);
+  margin-left: 1rem;
+}
+
+/* POSITION */
+.p-relative {
+  position: relative;
+}
+
+.p-absolute {
+  position: absolute;
+}
+
 /* CONTAINERS */
 .container {
   max-width: 114rem;
@@ -128,6 +250,12 @@ label:not([for=general-enquiry]):not([for=support-request])::after {
   padding-bottom: 2.4rem;
   margin-bottom: 2.4rem;
 }
+.form-group--no-pb {
+  width: 100%;
+  position: relative;
+  padding-bottom: 1.5rem;
+  margin-bottom: 2.4rem;
+}
 @media (max-width: 575px) {
   .form-group {
     padding-bottom: 1.6rem;
@@ -148,6 +276,16 @@ label:not([for=general-enquiry]):not([for=support-request])::after {
 /* COMPONENTS */
 .contact-form__section {
   background-color: hsl(148, 38%, 91%);
+}
+@media (min-width: 576px) {
+  .contact-form__section {
+    padding: 12rem 0 2.8rem 0;
+  }
+}
+@media (min-width: 768px) {
+  .contact-form__section {
+    padding: 2.8rem 0 2.8rem 0;
+  }
 }
 @media (max-width: 575px) {
   .contact-form__section {
@@ -288,122 +426,6 @@ label:not([for=general-enquiry]):not([for=support-request])::after {
 }
 .success-message__text {
   color: hsl(186, 15%, 59%);
-}
-
-/* HELPERS */
-.icon-wrapper {
-  width: 20px;
-  height: 20px;
-}
-
-/* TYPOGRAPHY */
-.lh-15 {
-  line-height: 1.5;
-}
-
-.fs-custom-18 {
-  font-size: 2rem;
-}
-
-.fs-custom-13 {
-  font-size: 1.33rem;
-}
-
-/* FLEX PROPERTIES */
-.flex-wrap {
-  flex-wrap: wrap;
-}
-
-.ai-center {
-  align-items: center;
-}
-
-.gap-xxs {
-  gap: 0.8rem;
-}
-
-.gap-xs {
-  gap: 1.2rem;
-}
-
-.gap-s {
-  gap: 2rem;
-}
-
-.gap-m {
-  gap: 2.4rem;
-}
-
-.gap-l {
-  gap: 2.8rem;
-}
-
-/* PADDING */
-.pb-s {
-  padding-bottom: 2.4rem;
-}
-
-.input-padding {
-  padding: 1.2rem;
-}
-.input-padding--radio {
-  padding: 1.55rem 1rem 1.55rem 2.8rem;
-}
-
-/* MARGIN */
-.mb-0 {
-  margin-bottom: 0;
-}
-
-.mb-xs {
-  margin-bottom: 1.2rem;
-}
-
-.mb-s {
-  margin-bottom: 2rem;
-}
-
-.mb-m {
-  margin-bottom: 2.4rem;
-}
-
-.mb-l {
-  margin-bottom: 3.2rem;
-}
-
-.mb-xl {
-  margin-bottom: 4rem;
-}
-
-/* BORDER */
-.input-border {
-  border-radius: 8px;
-  border: 1px solid hsl(186, 15%, 59%);
-}
-.input-border:hover {
-  border-color: hsl(169, 82%, 27%);
-}
-
-/* HEADING */
-.secondary-heading {
-  font-size: 1.6rem;
-  font-weight: normal;
-  color: hsl(187, 24%, 22%);
-  margin-bottom: 1.6rem;
-}
-.secondary-heading::after {
-  content: "*";
-  color: hsl(169, 82%, 27%);
-  margin-left: 1rem;
-}
-
-/* POSITION */
-.p-relative {
-  position: relative;
-}
-
-.p-absolute {
-  position: absolute;
 }
 
 /* FOOTER */
