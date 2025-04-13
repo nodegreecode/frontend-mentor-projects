@@ -61,7 +61,7 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   /**
-   * Show input error message.
+   * Show form validation error message.
    *
    * @param {HTMLElement} input -  HTML input element.
    * @param {Enumerator} errorType - Enum represesnting error types.
@@ -79,7 +79,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   /**
-   * Show input success.
+   * Show success input validation message.
    *
    * @param {HTMLElement} input -  HTML input element.
    * @returns {void} This function doesnt return anything.
@@ -93,7 +93,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   /**
-   * Show success message
+   * Show success form validation message.
    *
    * @returns {void} This function doesnt return anything.
    */
@@ -103,7 +103,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   /**
-   * Reset form submission after 3s.
+   * Reset form submission after 3s automatically.
    *
    * @returns {void} This function doesnt return anything.
    */
@@ -143,7 +143,7 @@ document.addEventListener("DOMContentLoaded", () => {
    * Check if field is not empty.
    *
    * @param {HTMLInputElement} input - HTML input element.
-   * @param {Enumerator} errorType - Enum represesnting error types.
+   * @param {Enumerator} errorType - Enum representing error types.
    * @returns {boolean} - Returns true if the input value is not empty string, otherwise false.
    */
   function checkRequired(input, errorType) {
@@ -172,7 +172,7 @@ document.addEventListener("DOMContentLoaded", () => {
    *
    * @param {string} value - Email address.
    * @param {Function} validator - Function checks the email adress against regex.
-   * @param {Enumerator} errorType - Enum represesnting error types.
+   * @param {Enumerator} errorType - Enum representing error types.
    * @returns {void} This function doesnt return anything.
    */
   function checkEmail(value, validator, errorType) {
@@ -185,7 +185,7 @@ document.addEventListener("DOMContentLoaded", () => {
    * Check if query type was selected.
    *
    * @param {NodeListOf<HTMLInputElement} queryTypes - HTML input elements.
-   * @param {Enumerator} errorType - Enum represesnting error types.
+   * @param {Enumerator} errorType - Enum representing error types.
    * @returns {boolean} - Returns true if the query type is selected, otherwise false.
    */
   function checkQueryType(inputs, errorType) {
@@ -205,17 +205,19 @@ document.addEventListener("DOMContentLoaded", () => {
   /**
    * Check if consent was checked.
    *
+   * @param {HTMLInputElement} input - HTML input element.
+   * @param {Enumerator} errorType - Enum representing error types.
    * @returns {boolean} - Returns true if the query type is selected, otherwise false.
    */
-  function checkConsent() {
-    if (!consent.checked) {
+  function checkConsent(input, errorType) {
+    if (!input.checked) {
       EventBus.emmit("validation-error", {
-        field: consent,
-        message: ErrorType.REQUIRED_CONSENT,
+        field: input,
+        message: errorType,
       });
       return false;
     } else {
-      showSuccess({ field: consent });
+      showSuccess({ field: input });
       return true;
     }
   }
@@ -254,7 +256,7 @@ document.addEventListener("DOMContentLoaded", () => {
       ErrorType.REQUIRED_QUERY_TYPE
     );
     const isMessageValid = checkRequired(message, ErrorType.REQUIRED_FIELD);
-    const isConsentChecked = checkConsent();
+    const isConsentChecked = checkConsent(consent, ErrorType.REQUIRED_CONSENT);
 
     if (
       isFirstNameValid &&
