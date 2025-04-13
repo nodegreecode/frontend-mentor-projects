@@ -57,9 +57,9 @@
                       autocomplete="given-name"
                       aria-required="true"
                       aria-invalid="true"
-                      aria-describedby="error-message"
+                      aria-describedby="first-name-error-message"
                     />
-                    <small id="error-message">Error message</small>
+                    <small id="first-name-error-message">Error message</small>
                   </div>
                   <div class="form-group">
                     <label class="form__last-name-label mb-xs" for="last-name"
@@ -73,9 +73,9 @@
                       autocomplete="family-name"
                       aria-required="true"
                       aria-invalid="true"
-                      aria-describedby="error-message"
+                      aria-describedby="last-name-error-message"
                     />
-                    <small id="error-message">Error message</small>
+                    <small id="last-name-error-message">Error message</small>
                   </div>
                 </div>
                 <!-- Email inputs -->
@@ -90,10 +90,10 @@
                     name="email"
                     aria-invalid="true"
                     aria-required="true"
-                    aria-describedby="error-message"
+                    aria-describedby="email-error-message"
                     autocomplete="email"
                   />
-                  <small class="error-message">Error message</small>
+                  <small class="email-error-message">Error message</small>
                 </div>
                 <!-- Query type inputs -->
                 <fieldset class="form-group flex-wrap mb-0">
@@ -147,9 +147,9 @@
                     rows="3"
                     aria-invalid="true"
                     aria-required="true"
-                    aria-describedby="error-message"
+                    aria-describedby="message-error-message"
                   ></textarea>
-                  <small id="error-message">Error message</small>
+                  <small id="message-error-message">Error message</small>
                 </div>
                 <!-- Consent input -->
                 <div class="form-group flex gap-s ai-center pb-s mb-l">
@@ -159,14 +159,14 @@
                     id="consent"
                     aria-invalid="true"
                     aria-required="true"
-                    aria-describedby="error-message"
+                    aria-describedby="consent-error-message"
                     name="consent"
                   />
                   <span class="form__consent-icon"></span>
                   <label class="lh-15" for="consent"
                     >I consent to being contacted by the team
                   </label>
-                  <small id="error-message">Error message</small>
+                  <small id="consent-error-message">Error message</small>
                 </div>
                 <input
                   class="submit-btn"
