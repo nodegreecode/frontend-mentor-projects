@@ -15,124 +15,158 @@
     <title>Frontend Mentor | Contact form</title>
 
     <link rel="stylesheet" href="../dist/css/style.css" />
-    <script src="../src/js/main.js" defer></script>
+
+    <script src="../dist/js/bundle.min.js" defer></script>
   </head>
   <body>
     <main>
       <section class="contact-form__section">
         <div class="container">
-          <div class="center-box">
+          <div class="center-box flex-column">
+            <!-- Success Message-->
+            <div
+              id="success-message"
+              class="contact-form__success-message"
+              aria-live="assertive"
+              role="alert"
+              hidden
+            >
+              <div class="flex gap-xs mb-xs">
+                <img src="../src/assets/images/icon-success-check.svg" alt="" />
+                <h3 class="success-message__heading">Message Sent!</h3>
+              </div>
+
+              <p class="success-message__text">
+                Thanks for completing the form. We'll be in touch soon!
+              </p>
+            </div>
             <article class="contact-form__content">
               <h1 class="contact-form__heading mb-xl">Contact Us</h1>
-              <form action="#" class="contact-form__form">
+              <form id="form" action="#" class="contact-form__form">
                 <!-- First name & Last name inputs -->
-                <div class="flex-wrapper mb-m">
-                  <div class="form-group form-group--column">
-                    <label class="mb-xs" for="first-name">First Name</label>
+                <div class="flex-wrapper">
+                  <div class="form-group">
+                    <label class="form__first-name-label mb-xs" for="first-name"
+                      >First Name</label
+                    >
                     <input
-                      class="input-padding input-border mb-xs"
+                      class="form__first-name input-padding input-border"
                       type="text"
                       id="first-name"
                       name="first-name"
-                      autocomplete="first-name"
+                      autocomplete="given-name"
+                      aria-required="true"
                       aria-invalid="true"
-                      aria-describedby="firt-name-error"
-                      required
+                      aria-describedby="first-name-error-message"
                     />
-                    <span id="firt-name-error" class="error-message"
-                      >This field is required</span
-                    >
+                    <small id="first-name-error-message">Error message</small>
                   </div>
-                  <div class="form-group form-group--column">
-                    <label class="mb-xs" for="last-name">Last Name</label>
+                  <div class="form-group">
+                    <label class="form__last-name-label mb-xs" for="last-name"
+                      >Last Name</label
+                    >
                     <input
-                      class="input-padding input-border mb-xs"
+                      class="form__last-name input-padding input-border"
                       type="text"
                       id="last-name"
                       name="last-name"
-                      autocomplete="last-name"
+                      autocomplete="family-name"
+                      aria-required="true"
                       aria-invalid="true"
-                      aria-describedby="last-name-error"
-                      required
+                      aria-describedby="last-name-error-message"
                     />
-                    <span id="firt-name-error" class="error-message"
-                      >This field is required</span
-                    >
+                    <small id="last-name-error-message">Error message</small>
                   </div>
                 </div>
                 <!-- Email inputs -->
-                <div class="form-group form-group--column mb-m">
-                  <label class="mb-xs" for="email">Email Address</label>
+                <div class="form-group form-group--column">
+                  <label class="form__email-label mb-xs" for="email"
+                    >Email Address</label
+                  >
                   <input
-                    class="input-padding input-border mb-xs"
+                    class="form__email input-padding input-border"
                     type="text"
                     id="email"
                     name="email"
                     aria-invalid="true"
-                    aria-describedby="email-error"
+                    aria-required="true"
+                    aria-describedby="email-error-message"
                     autocomplete="email"
                   />
-                  <span id="email-error" class="error-message"
-                    >Please enter a valid email address</span
-                  >
+                  <small class="email-error-message">Error message</small>
                 </div>
                 <!-- Query type inputs -->
-                <fieldset class="form-group mb-m flex-wrap">
+                <fieldset class="form-group flex-wrap mb-0">
                   <legend>
-                    <h2 class="secondary-heading mb-s">Query Type</h2>
+                    <h2 class="secondary-heading">Query Type</h2>
                   </legend>
-                  <div class="flex-wrapper gap-s mb-s">
-                    <div class="form-group gap-xs input-padding input-border">
+                  <div class="flex-wrapper p-relative">
+                    <div
+                      class="form__query-type form-group--no-pb flex ai-center gap-m input-padding--radio input-border"
+                    >
                       <input
-                        class="input-padding input-border"
                         type="radio"
                         name="query-type"
                         id="general-enquiry"
                         value="general-enquiry"
+                        aria-required="true"
                         aria-invalid="true"
                         aria-describedby="query-type-error"
                       />
+                      <span class="form__query-type-icon"></span>
                       <label for="general-enquiry">General Enquiry</label>
                     </div>
-                    <div class="form-group gap-xs input-padding input-border">
+                    <div
+                      class="form__query-type form-group--no-pb flex ai-center gap-m input-padding--radio input-border"
+                    >
                       <input
                         type="radio"
                         name="query-type"
                         id="support-request"
                         value="support-request"
+                        aria-required="true"
                         aria-invalid="true"
                         aria-describedby="query-type-error"
                       />
+                      <span class="form__query-type-icon"></span>
                       <label for="support-request">Support Request</label>
                     </div>
+                    <small id="query-type-error"> Error message </small>
                   </div>
-                  <span id="query-type-error" class="error-message"
-                    >Please enter a valid email address</span
-                  >
                 </fieldset>
 
                 <!-- Message area -->
-                <div class="form-group form-group--column mb-xl">
-                  <label class="mb-xs" for="message">Message</label>
+                <div class="form-group form-group--column mb-l">
+                  <label class="form__message-label mb-xs" for="message"
+                    >Message</label
+                  >
                   <textarea
-                    class="contact-form__message input-border mb-xs"
+                    class="form__message input-padding input-border"
                     name="message"
                     id="message"
-                    rows="7"
+                    rows="3"
                     aria-invalid="true"
-                    aria-describedby="message-error"
-                    required
+                    aria-required="true"
+                    aria-describedby="message-error-message"
                   ></textarea>
-                  <span id="message-error" class="error-message"
-                    >This field is required</span
-                  >
+                  <small id="message-error-message">Error message</small>
                 </div>
                 <!-- Consent input -->
-                <div class="form-group mb-l gap-s">
-                  <input type="checkbox" id="consent" name="consent" />
-                  <label for="consent"
-                    >I consent to being contacted by the team</label
-                  >
+                <div class="form-group flex gap-s ai-center pb-s mb-l">
+                  <input
+                    class="form__consent"
+                    type="checkbox"
+                    id="consent"
+                    aria-invalid="true"
+                    aria-required="true"
+                    aria-describedby="consent-error-message"
+                    name="consent"
+                  />
+                  <span class="form__consent-icon"></span>
+                  <label class="lh-15" for="consent"
+                    >I consent to being contacted by the team
+                  </label>
+                  <small id="consent-error-message">Error message</small>
                 </div>
                 <input
                   class="submit-btn"
