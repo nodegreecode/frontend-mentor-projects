@@ -53,6 +53,18 @@ $very-dark-blue: hsl(240, 100%, 5%);
   }
 }
 
+@mixin custom-media-query-min($width) {
+  @media (min-width: $width) {
+    @content;
+  }
+}
+
+@mixin custom-media-query-max($width) {
+  @media (max-width: $width) {
+    @content;
+  }
+}
+
 /* FONTS */
 @include font-face(
   "Inter",
@@ -97,16 +109,19 @@ body {
   font-family: "Inter", sans-serif;
   font-size: 1.5rem;
   line-height: 1;
+
+  position: relative;
+
+  @include custom-media-query-min(433px) {
+    //height: 100vh;
+  }
 }
 
 /* CONTAINERS */
-
 .header-container {
   max-width: 114rem;
   margin: 0 auto;
   height: 8.5rem;
-
-  //position: relative;
 
   display: flex;
   justify-content: space-between;
@@ -114,6 +129,27 @@ body {
 
   padding: 0 1.6rem 0 1.6rem; //repeating
 }
+
+.main-container {
+  max-width: 114rem;
+  margin: 0 auto;
+
+  @include respond-phone-port() {
+    padding: 0 1.6rem 0 1.6rem;
+
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 4rem;
+  }
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+/* COMPONENTS */
+
 /* DESKTOP NAVIGATION */
 .navigation-desktop {
   @include respond-phone-port() {
@@ -126,11 +162,21 @@ body {
 }
 
 /* MOBILE NAVIGATION */
+.logo {
+  @include respond-phone-port() {
+    width: 50px;
+    height: auto;
+  }
+}
 .mobile-menu {
   &__button {
     z-index: 10;
     border: none;
     background-color: unset;
+
+    @include respond-phone-land() {
+      display: none;
+    }
   }
 
   &__menu-icon {
@@ -142,39 +188,138 @@ body {
   }
 
   &__container {
-    position: fixed;
+    position: absolute;
     top: 0;
-    // left: -100%;
     right: 0;
-    transform: translateX(50%);
+    transform: translateX(40%);
 
-    width: 70%;
-    height: 100vh;
+    width: 80%;
+    height: 100%;
+
+    z-index: 1;
 
     border: none;
     background-color: $off-white;
-    padding: 5rem;
+    padding: 2.4rem;
+    overflow: hidden;
+    box-shadow: -2px 0px 10px 200px rgba(0, 0, 0, 0.4);
+
+    @include respond-phone-land() {
+      display: none;
+    }
   }
 }
 
 .navigation-mobile {
-}
+  position: fixed;
+  margin-top: 40%;
 
-.main-container {
-  max-width: 114rem;
-  margin: 0 auto;
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 2.8rem;
+    list-style: none;
+  }
 
-  @include respond-phone-port() {
-    padding: 0 1.6rem 0 1.6rem;
+  &__item {
+  }
+
+  &__link {
+    color: $dark-grayish-blue;
+    font-size: 1.8rem;
+    text-decoration: none;
+    font-weight: 600;
+
+    &:link,
+    &:visited {
+    }
+
+    &:hover,
+    &:active {
+      color: $grayish-blue;
+    }
   }
 }
 
+/* SECTION BREAKING NEWS */
 .breaking-news {
+  &__article {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
   &__image {
     width: 100%;
-    max-width: 40rem;
+    max-width: 60rem;
     height: auto;
   }
+
+  &__title {
+    width: 100%;
+    font-size: 3.8rem;
+    font-weight: 700;
+    padding-right: 2.8rem;
+  }
+
+  &__text {
+    line-height: 1.5;
+    padding-right: 1.8rem;
+  }
+
+  &__read-more {
+    width: 50%;
+    padding: 1.5rem 2rem;
+    background-color: $soft-red;
+    text-align: center;
+
+    & a {
+      text-decoration: none;
+      color: $very-dark-blue;
+      font-size: 1.2rem;
+      text-transform: uppercase;
+      font-weight: 700;
+      letter-spacing: 5px;
+    }
+  }
+}
+
+/* SECTION NEW NEWS */
+.new-news {
+  color: $grayish-blue;
+  background-color: $very-dark-blue;
+  padding: 2.4rem;
+
+  &__title {
+    font-size: 2.8rem;
+    color: $soft-orange;
+    margin-bottom: 2.4rem;
+  }
+
+  &__article:not(:last-child) {
+    border-bottom: 1px solid $grayish-blue;
+    padding-bottom: 2.4rem;
+  }
+
+  &__article-link {
+    display: inline-block;
+    text-decoration: none;
+    margin-bottom: 1.5rem;
+  }
+
+  &__article-title {
+    color: $off-white;
+    font-weight: 800;
+  }
+
+  &__article-text {
+    line-height: 1.7;
+  }
+}
+
+/* FOOTER */
+.footer {
+  padding: 4.5rem;
 }
 
 .attribution {
@@ -183,9 +328,18 @@ body {
 }
 .attribution a {
   color: hsl(228, 45%, 44%);
+  text-decoration: none;
 }
 
 /* HELPERS */
 .hidden {
   display: none;
+}
+
+.gap-2 {
+  gap: 2rem;
+}
+
+.gap-2-4 {
+  gap: 2.4rem;
 }
