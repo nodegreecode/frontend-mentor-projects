@@ -1,0 +1,106 @@
+@use "../abstracts/_variables";
+@use "../abstracts/_mixins";
+
+/* DESKTOP NAVIGATION */
+.navigation-desktop {
+  @include mixins.respond-phone-port() {
+    display: none;
+  }
+
+  &__list {
+    display: flex;
+    gap: 5rem;
+    list-style: none;
+  }
+
+  &__link {
+    text-decoration: none;
+    &:link,
+    &:visited {
+      color: variables.$dark-grayish-blue;
+    }
+
+    &:hover,
+    &:active {
+      color: variables.$soft-red;
+    }
+  }
+}
+
+/* MOBILE NAVIGATION */
+.logo {
+  max-width: 100%;
+  @include mixins.respond-phone-port() {
+    width: 50px;
+  }
+}
+.mobile-menu {
+  &__button {
+    z-index: 10;
+    border: none;
+    background-color: unset;
+
+    @include mixins.respond-phone-land() {
+      display: none;
+    }
+  }
+
+  &__menu-icon {
+    transition: all 0.3 ease;
+  }
+
+  &__close-icon {
+    transition: all 0.3 ease;
+  }
+
+  &__container {
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translateX(40%);
+    width: 80%;
+    height: 100%;
+    z-index: 1;
+    border: none;
+    background-color: variables.$off-white;
+    padding: 2.4rem;
+    overflow: hidden;
+    box-shadow: -2px 0px 10px 200px rgba(0, 0, 0, 0.4);
+
+    &[open] {
+      display: block;
+    }
+
+    @include mixins.respond-phone-land() {
+      display: none;
+    }
+  }
+}
+
+.navigation-mobile {
+  position: fixed;
+  margin-top: 40%;
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 2.8rem;
+    list-style: none;
+  }
+
+  &__link {
+    font-size: 1.8rem;
+    text-decoration: none;
+    font-weight: 600;
+
+    &:link,
+    &:visited {
+      color: variables.$dark-grayish-blue;
+    }
+
+    &:hover,
+    &:active {
+      color: variables.$soft-red;
+    }
+  }
+}

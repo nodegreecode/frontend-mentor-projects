@@ -14,31 +14,46 @@
 
     <title>Frontend Mentor | News homepage</title>
     <link rel="stylesheet" href="../dist/css/style.css" />
-    <script src="../src/js/app.js" defer></script>
-
-    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+    <script src="../dist/js/bundle.min.js" defer></script>
   </head>
   <body>
     <!-- Site Header -->
     <header class="header-container">
-      <a href="#">
-        <img src="../src/assets/images/logo.svg" alt="" />
+      <a href="#" aria-label="go to homepage">
+        <img
+          class="logo"
+          src="../src/assets/images/logo.svg"
+          alt="company logo"
+        />
       </a>
       <!-- Navigation-->
       <!-- Desktop Navigation -->
-      <nav class="navigation-desktop">
+      <nav class="navigation-desktop" aria-label="main navigation">
         <ul class="navigation-desktop__list">
           <li class="navigation-desktop__item">
             <a class="navigation-desktop__link" href="#">Home </a>
           </li>
-          <li><a href="#">New</a></li>
-          <li><a href="#">Popular</a></li>
-          <li><a href="#">Trending</a></li>
-          <li><a href="#">Categories</a></li>
+          <li class="navigation-desktop__item">
+            <a class="navigation-desktop__link" href="#">New</a>
+          </li>
+          <li class="navigation-desktop__item">
+            <a class="navigation-desktop__link" href="#">Popular</a>
+          </li>
+          <li class="navigation-desktop__item">
+            <a class="navigation-desktop__link" href="#">Trending</a>
+          </li>
+          <li class="navigation-desktop__item">
+            <a class="navigation-desktop__link" href="#">Categories</a>
+          </li>
         </ul>
       </nav>
       <!-- Mobile Menu Button -->
-      <button id="menuButton" class="mobile-menu__button">
+      <button
+        id="menuButton"
+        class="mobile-menu__button"
+        aria-controls="mobileMenu"
+        aria-expanded="false"
+      >
         <img
           id="menuIcon"
           class="mobile-menu__menu-icon"
@@ -54,15 +69,23 @@
       </button>
       <!-- Mobile Navigation -->
       <dialog id="mobileMenu" class="mobile-menu__container">
-        <nav class="navigation-mobile">
+        <nav class="navigation-mobile" aria-label="mobile navigation">
           <ul class="navigation-mobile__list">
             <li class="navigation-mobile__item">
               <a class="navigation-mobile__link" href="#">Home </a>
             </li>
-            <li><a href="#">New</a></li>
-            <li><a href="#">Popular</a></li>
-            <li><a href="#">Trending</a></li>
-            <li><a href="#">Categories</a></li>
+            <li>
+              <a class="navigation-mobile__link" href="#">New</a>
+            </li>
+            <li>
+              <a class="navigation-mobile__link" href="#">Popular</a>
+            </li>
+            <li>
+              <a class="navigation-mobile__link" href="#">Trending</a>
+            </li>
+            <li>
+              <a class="navigation-mobile__link" href="#">Categories</a>
+            </li>
           </ul>
         </nav>
       </dialog>
@@ -71,16 +94,16 @@
     <!-- Main Content -->
     <main class="main-container">
       <!-- Section Breaking News -->
-      <section class="breaking-news">
+      <section class="breaking-news" aria-labelledby="breaking-news-title">
         <div class="grid">
           <article class="breaking-news__article">
             <picture>
               <source
-                media="(max-width: 575px)"
+                media="(max-width: 433px)"
                 srcset="../src/assets/images/image-web-3-mobile.jpg"
               />
               <source
-                media="(min-width: 576px)"
+                media="(min-width: 434px)"
                 srcset="../src/assets/images/image-web-3-desktop.jpg"
               />
               <img
@@ -90,41 +113,56 @@
               />
             </picture>
 
-            <h2>The Bright Future of Web 3.0?</h2>
-            <p>
+            <h2 id="breaking-news-title" class="breaking-news__title">
+              The Bright Future of Web 3.0?
+            </h2>
+            <p class="breaking-news__text">
               We dive into the next evolution of the web that claims to put the
               power of the platforms back into the hands of the people. But is
               it really fulfilling its promise?
             </p>
-            <a href="#"> Read more </a>
+            <div class="breaking-news__read-more">
+              <a href="#"> Read more </a>
+            </div>
           </article>
         </div>
       </section>
 
       <!-- Section New News -->
-      <section class="new-news">
-        <h2>New</h2>
-        <div class="flex-column">
-          <article>
-            <a href="">
-              <h3>Hydrogen VS Electric Cars</h3>
+      <section class="new-news" aria-labelledby="new-news-title">
+        <h2 id="new-news-title" class="new-news__title">New</h2>
+        <div class="flex-column gap-2-4">
+          <article
+            class="new-news__article"
+            aria-labelledby="hydrogen-fueled-cars"
+          >
+            <a href="#" class="new-news__article-link">
+              <h3 id="hydrogen-fueled-cars" class="new-news__article-title">
+                Hydrogen VS Electric Cars
+              </h3>
             </a>
-            <p>Will hydrogen-fueled cars ever catch up to EVs?</p>
+            <p class="new-news__article-text">
+              Will hydrogen-fueled cars ever catch up to EVs?
+            </p>
           </article>
-          <article>
-            <a href="">
-              <h3>The Downsides of AI Artistry</h3>
+          <article class="new-news__article" aria-labelledby="downsides-of-ai">
+            <a href="#" class="new-news__article-link">
+              <h3 id="downsides-of-ai" class="new-news__article-title">
+                The Downsides of AI Artistry
+              </h3>
             </a>
-            <p>
+            <p class="new-news__article-text">
               What are the possible adverse effects of on-demand AI image
               generation?
             </p>
           </article>
-          <article>
-            <a href="">
-              <h3>Is VC Funding Drying Up?</h3>
+          <article class="new-news__article" aria-labelledby="vc-funding">
+            <a href="#" class="new-news__article-link">
+              <h3 id="vc-funding" class="new-news__article-title">
+                Is VC Funding Drying Up?
+              </h3>
             </a>
-            <p>
+            <p class="new-news__article-text">
               Private funding by VC firms is down 50% YOY. We take a look at
               what that means.
             </p>
@@ -134,43 +172,63 @@
 
       <!-- Section Featured Stories -->
       <section class="featured-stories">
-        <div class="flex-row">
-          <div class="grid">
-            <article>
-              <h2>01</h2>
-              <img src="" alt="" />
-              <a href="">
-                <h3>Reviving Retro PCs</h3>
-              </a>
-              <p>What happens when old PCs are given modern upgrades?</p>
-            </article>
+        <article class="featured-stories__article">
+          <img
+            class="featured-stories__image"
+            src="../src/assets/images/image-retro-pcs.jpg"
+            alt="retro computer"
+          />
+          <div class="featured-stories__title">
+            <h2 class="featured-stories__sub-title">01</h2>
+            <a class="featured-stories__link" href="#">
+              <h3 class="featured-stories__main-title">Reviving Retro PCs</h3>
+            </a>
           </div>
-          <div class="grid">
-            <article>
-              <h2>02</h2>
-              <img src="" alt="" />
-              <a href="">
-                <h3>Top 10 Laptops of 2022</h3>
-              </a>
-              <p>Our best picks for various needs and budgets.</p>
-            </article>
+          <p class="featured-stories__text">
+            What happens when old PCs are given modern upgrades?
+          </p>
+        </article>
+
+        <article class="featured-stories__article">
+          <img
+            class="featured-stories__image"
+            src="./assets/images/image-top-laptops.jpg"
+            alt="laptops keyboard"
+          />
+          <div class="featured-stories__title">
+            <h2 class="featured-stories__sub-title">02</h2>
+            <a class="featured-stories__link" href="#">
+              <h3 class="featured-stories__main-title">
+                Top 10 Laptops of 2022
+              </h3>
+            </a>
           </div>
-          <div class="grid">
-            <article>
-              <h2>03</h2>
-              <img src="" alt="" />
-              <a href="">
-                <h3>The Growth of Gaming</h3>
-              </a>
-              <p>How the pandemic has sparked fresh opportunities.</p>
-            </article>
+          <p class="featured-stories__text">
+            Our best picks for various needs and budgets.
+          </p>
+        </article>
+
+        <article class="featured-stories__article">
+          <img
+            class="featured-stories__image"
+            src="../src/assets/images/image-gaming-growth.jpg"
+            alt="white ps4 controller"
+          />
+          <div class="featured-stories__title">
+            <h2 class="featured-stories__sub-title">03</h2>
+            <a class="featured-stories__link" href="#">
+              <h3 class="featured-stories__main-title">The Growth of Gaming</h3>
+            </a>
           </div>
-        </div>
+          <p class="featured-stories__text">
+            How the pandemic has sparked fresh opportunities.
+          </p>
+        </article>
       </section>
     </main>
 
     <!-- Footer -->
-    <footer>
+    <footer class="footer">
       <div class="attribution">
         Challenge by
         <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
