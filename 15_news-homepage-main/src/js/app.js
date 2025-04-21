@@ -10,7 +10,9 @@ menuButton.addEventListener("click", function () {
 
   if (!mobileMenu.open) {
     mobileMenu.show();
+    this.setAttribute("aria-expanded", true);
   } else {
     mobileMenu.close();
+    this.setAttribute("aria-expanded", false);
   }
 });

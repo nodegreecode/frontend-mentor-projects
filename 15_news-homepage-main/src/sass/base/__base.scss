@@ -1,0 +1,24 @@
+/* GLOBAL RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  min-height: 100vh;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  font-size: 1.5rem;
+  line-height: 1;
+  position: relative;
+  min-height: 100vh;
+}
+
+a:focus,
+button:focus {
+  outline: 3px solid blue;
+}

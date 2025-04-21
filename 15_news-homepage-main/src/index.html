@@ -14,31 +14,46 @@
 
     <title>Frontend Mentor | News homepage</title>
     <link rel="stylesheet" href="../dist/css/style.css" />
-    <script src="../src/js/app.js" defer></script>
-
-    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+    <script src="../dist/js/bundle.min.js" defer></script>
   </head>
   <body>
     <!-- Site Header -->
     <header class="header-container">
-      <a href="#">
-        <img class="logo" src="../src/assets/images/logo.svg" alt="" />
+      <a href="#" aria-label="go to homepage">
+        <img
+          class="logo"
+          src="../src/assets/images/logo.svg"
+          alt="company logo"
+        />
       </a>
       <!-- Navigation-->
       <!-- Desktop Navigation -->
-      <nav class="navigation-desktop">
+      <nav class="navigation-desktop" aria-label="main navigation">
         <ul class="navigation-desktop__list">
           <li class="navigation-desktop__item">
             <a class="navigation-desktop__link" href="#">Home </a>
           </li>
-          <li><a href="#">New</a></li>
-          <li><a href="#">Popular</a></li>
-          <li><a href="#">Trending</a></li>
-          <li><a href="#">Categories</a></li>
+          <li class="navigation-desktop__item">
+            <a class="navigation-desktop__link" href="#">New</a>
+          </li>
+          <li class="navigation-desktop__item">
+            <a class="navigation-desktop__link" href="#">Popular</a>
+          </li>
+          <li class="navigation-desktop__item">
+            <a class="navigation-desktop__link" href="#">Trending</a>
+          </li>
+          <li class="navigation-desktop__item">
+            <a class="navigation-desktop__link" href="#">Categories</a>
+          </li>
         </ul>
       </nav>
       <!-- Mobile Menu Button -->
-      <button id="menuButton" class="mobile-menu__button">
+      <button
+        id="menuButton"
+        class="mobile-menu__button"
+        aria-controls="mobileMenu"
+        aria-expanded="false"
+      >
         <img
           id="menuIcon"
           class="mobile-menu__menu-icon"
@@ -54,7 +69,7 @@
       </button>
       <!-- Mobile Navigation -->
       <dialog id="mobileMenu" class="mobile-menu__container">
-        <nav class="navigation-mobile">
+        <nav class="navigation-mobile" aria-label="mobile navigation">
           <ul class="navigation-mobile__list">
             <li class="navigation-mobile__item">
               <a class="navigation-mobile__link" href="#">Home </a>
@@ -157,38 +172,58 @@
 
       <!-- Section Featured Stories -->
       <section class="featured-stories">
-        <div class="flex-row">
-          <div class="grid">
-            <article>
-              <h2>01</h2>
-              <img src="" alt="" />
-              <a href="">
-                <h3>Reviving Retro PCs</h3>
-              </a>
-              <p>What happens when old PCs are given modern upgrades?</p>
-            </article>
+        <article class="featured-stories__article">
+          <img
+            class="featured-stories__image"
+            src="../src/assets/images/image-retro-pcs.jpg"
+            alt="retro computer"
+          />
+          <div class="featured-stories__title">
+            <h2 class="featured-stories__sub-title">01</h2>
+            <a class="featured-stories__link" href="#">
+              <h3 class="featured-stories__main-title">Reviving Retro PCs</h3>
+            </a>
           </div>
-          <div class="grid">
-            <article>
-              <h2>02</h2>
-              <img src="" alt="" />
-              <a href="">
-                <h3>Top 10 Laptops of 2022</h3>
-              </a>
-              <p>Our best picks for various needs and budgets.</p>
-            </article>
+          <p class="featured-stories__text">
+            What happens when old PCs are given modern upgrades?
+          </p>
+        </article>
+
+        <article class="featured-stories__article">
+          <img
+            class="featured-stories__image"
+            src="./assets/images/image-top-laptops.jpg"
+            alt="laptops keyboard"
+          />
+          <div class="featured-stories__title">
+            <h2 class="featured-stories__sub-title">02</h2>
+            <a class="featured-stories__link" href="#">
+              <h3 class="featured-stories__main-title">
+                Top 10 Laptops of 2022
+              </h3>
+            </a>
           </div>
-          <div class="grid">
-            <article>
-              <h2>03</h2>
-              <img src="" alt="" />
-              <a href="">
-                <h3>The Growth of Gaming</h3>
-              </a>
-              <p>How the pandemic has sparked fresh opportunities.</p>
-            </article>
+          <p class="featured-stories__text">
+            Our best picks for various needs and budgets.
+          </p>
+        </article>
+
+        <article class="featured-stories__article">
+          <img
+            class="featured-stories__image"
+            src="../src/assets/images/image-gaming-growth.jpg"
+            alt="white ps4 controller"
+          />
+          <div class="featured-stories__title">
+            <h2 class="featured-stories__sub-title">03</h2>
+            <a class="featured-stories__link" href="#">
+              <h3 class="featured-stories__main-title">The Growth of Gaming</h3>
+            </a>
           </div>
-        </div>
+          <p class="featured-stories__text">
+            How the pandemic has sparked fresh opportunities.
+          </p>
+        </article>
       </section>
     </main>
 
