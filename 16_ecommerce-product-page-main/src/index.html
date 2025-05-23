@@ -13,30 +13,401 @@
     />
 
     <title>Frontend Mentor | E-commerce product page</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="../dist/css/style.css" />
-
-    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-    <style>
-      .attribution {
-        font-size: 11px;
-        text-align: center;
-      }
-      .attribution a {
-        color: hsl(228, 45%, 44%);
-      }
-    </style>
+    <script src="../src/js/app.js" defer></script>
   </head>
   <body>
-    Collections Men Women About Contact Sneaker Company Fall Limited Edition
-    Sneakers These low-profile sneakers are your perfect casual wear companion.
-    Featuring a durable rubber outer sole, they’ll withstand everything the
-    weather can offer. $125.00 50% $250.00 0 Add to cart
+    <div class="container">
+      <!-- Header -->
+      <header class="header">
+        <div class="flex-item-wrapper gap-60-desktop gap-16-mobil">
+          <!-- Mobile Menu Open Button-->
+          <button
+            id="mobileMenuOpenBtn"
+            class="mobile-menu__button"
+            aria-controls="mobileMenu"
+            aria-expanded="false"
+          >
+            <img
+              id="menuIcon"
+              class="mobile-menu__menu-icon"
+              src="../src/images/icon-menu.svg"
+              alt="menu icon"
+            />
+          </button>
+          <div class="custom-backdrop__wrapper">
+            <!-- Mobile Navigation -->
+            <dialog id="mobileMenu" class="mobile-menu">
+              <nav class="navigation-mobile" aria-label="mobile navigation">
+                <!-- Mobile Menu Close Button-->
+                <button
+                  id="mobileMenuCloseBtn"
+                  class="mobile-menu__button"
+                  aria-controls="mobileMenu"
+                  aria-expanded="false"
+                >
+                  <img
+                    id="closeIcon"
+                    class="mobile-menu__close-icon"
+                    src="../src/images/icon-close.svg"
+                    alt="close icon"
+                  />
+                </button>
+                <ul class="navigation-mobile__list">
+                  <li class="navigation-mobile__item">
+                    <a href="#" class="navigation-mobile__link">Collections</a>
+                  </li>
+                  <li class="navigation-mobile__item">
+                    <a href="#" class="navigation-mobile__link">Men</a>
+                  </li>
+                  <li class="navigation-mobile__item">
+                    <a href="#" class="navigation-mobile__link">Women</a>
+                  </li>
+                  <li class="navigation-mobile__item">
+                    <a href="#" class="navigation-mobile__link">About</a>
+                  </li>
+                  <li class="navigation-mobile__item">
+                    <a href="#" class="navigation-mobile__link">Contact</a>
+                  </li>
+                </ul>
+              </nav>
+            </dialog>
+            <div class="custom-backdrop__container">
+              <div class="custom-backdrop__backdrop"></div>
+            </div>
+          </div>
 
-    <div class="attribution">
-      Challenge by
-      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
-        >Frontend Mentor</a
-      >. Coded by <a href="#">Your Name Here</a>.
+          <!-- Logo -->
+          <a href="#" class="logo">
+            <img
+              src="../src/images/logo.svg"
+              alt="company logo"
+              class="logo__image"
+            />
+          </a>
+
+          <!-- Desktop Navigation -->
+          <nav class="navigation-desktop" aria-label="main navigation">
+            <ul class="navigation-desktop__list">
+              <li class="navigation-desktop__item">
+                <a href="#" class="navigation-desktop__link">Collections</a>
+              </li>
+              <li class="navigation-desktop__item">
+                <a href="#" class="navigation-desktop__link">Men</a>
+              </li>
+              <li class="navigation-desktop__item">
+                <a href="#" class="navigation-desktop__link">Women</a>
+              </li>
+              <li class="navigation-desktop__item">
+                <a href="#" class="navigation-desktop__link">About</a>
+              </li>
+              <li class="navigation-desktop__item">
+                <a href="#" class="navigation-desktop__link">Contact</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+        <!-- Cart Button -->
+        <div class="flex-item-wrapper gap-32-desktop gap-24-mobil relativ">
+          <button id="shoppingCartButton" class="shopping-cart__button">
+            <img src="../src/images/icon-cart.svg" alt="" />
+          </button>
+          <!-- Shopping Cart -->
+          <aside
+            id="shoppingCart"
+            class="shopping-cart"
+            aria-labelledby="cart-heading"
+            hidden
+          >
+            <div class="padding-wrapper-24 border-btm-s">
+              <h2 id="cart-heading" class="shopping-cart__heading">Cart</h2>
+            </div>
+
+            <div class="padding-wrapper-24-24-24-32">
+              <ul class="shopping-cart__items-list">
+                <li class="shopping-cart__item">
+                  <div class="shopping-cart__image-box">
+                    <img src=".//images/image-product-1-thumbnail.jpg" alt="" />
+                  </div>
+
+                  <h3 class="shopping-cart__item-title">
+                    Fall limited Edition Sneakers
+                  </h3>
+                  <p class="shopping-cart__item-price">
+                    $125.00 x 3
+                    <span class="shopping-cart__item-total-price">$375</span>
+                  </p>
+
+                  <div class="shopping-cart__action">
+                    <button>
+                      <img src=".//images/icon-delete.svg" alt="" />
+                    </button>
+                  </div>
+                </li>
+                <!-- Additional cart items -->
+              </ul>
+              <a href="#" class="shopping-cart__checkout-button">Checkout</a>
+            </div>
+          </aside>
+          <!-- Avatar-->
+          <div class="avatar">
+            <img
+              class="avatar__image"
+              src="../src/images/image-avatar.png"
+              alt=""
+            />
+          </div>
+        </div>
+      </header>
+      <!-- Main -->
+      <main>
+        <!-- Product Section -->
+        <section class="product-section">
+          <!-- Product Card -->
+          <article class="product-card">
+            <!-- Slider Container -->
+            <div class="slider-container">
+              <!-- Image Box - Grid/Flex Container -->
+              <div id="slides" class="product-card__image-box">
+                <div class="image-box__current-image">
+                  <button
+                    id="lightboxTrigger"
+                    class="image-box__lightbox-trigger"
+                  >
+                    <img
+                      id="currentProductImage"
+                      src="../src/images/image-product-1.jpg"
+                      alt=""
+                    />
+                  </button>
+                </div>
+                <div class="image-box__image selected">
+                  <picture>
+                    <source
+                      media="(min-width: 721px)"
+                      srcset="../src/images/image-product-1-thumbnail.jpg"
+                    />
+                    <source
+                      media="(max-width: 720px)"
+                      srcset="../src/images/image-product-1.jpg"
+                    />
+                    <img
+                      src="../src/images/image-product-1-thumbnail.jpg"
+                      alt=""
+                    />
+                  </picture>
+                  <div class="overlay"></div>
+                </div>
+                <div class="image-box__image">
+                  <picture>
+                    <source
+                      media="(min-width: 721px)"
+                      srcset="../src/images/image-product-2-thumbnail.jpg"
+                    />
+                    <source
+                      media="(max-width: 720px)"
+                      srcset="../src/images/image-product-2.jpg"
+                    />
+                    <img
+                      src="../src/images/image-product-2-thumbnail.jpg"
+                      alt="next button"
+                    />
+                  </picture>
+                </div>
+                <div class="image-box__image">
+                  <picture>
+                    <source
+                      media="(min-width: 721px)"
+                      srcset="../src/images/image-product-3-thumbnail.jpg"
+                    />
+                    <source
+                      media="(max-width: 720px)"
+                      srcset="../src/images/image-product-3.jpg"
+                    />
+                    <img
+                      src="../src/images/image-product-3-thumbnail.jpg"
+                      alt=""
+                    />
+                  </picture>
+                </div>
+                <div class="image-box__image">
+                  <picture>
+                    <source
+                      media="(min-width: 721px)"
+                      srcset="../src/images/image-product-4-thumbnail.jpg"
+                    />
+                    <source
+                      media="(max-width: 720px)"
+                      srcset="../src/images/image-product-4.jpg"
+                    />
+                    <img
+                      src="../src/images/image-product-4-thumbnail.jpg"
+                      alt=""
+                    />
+                  </picture>
+                </div>
+              </div>
+              <!-- Navigation Arrows -->
+              <button id="leftArrow" class="slider-arrow left-arrow">
+                <img
+                  src="../src/images/icon-previous.svg"
+                  alt="previous button"
+                />
+              </button>
+              <button id="rightArrow" class="slider-arrow right-arrow">
+                <img src="../src/images/icon-next.svg" alt="" />
+              </button>
+            </div>
+
+            <!-- Details Box - Flex Container?! -->
+            <div class="product-card__details-box">
+              <p class="details-box__brand-name">Sneaker Company</p>
+              <h1 class="details-box__heading">
+                Fall Limited Edition Sneakers
+              </h1>
+              <p class="details-box__description">
+                These low-profile sneakers are your perfect casual wear
+                companion. Featuring a durable rubber outer sole, they’ll
+                withstand everything the weather can offer.
+              </p>
+              <div
+                class="details-box__price-container flex-container gap-12-desktop mb-1"
+              >
+                <div>
+                  <p class="details-box__new-price">$125.00</p>
+                  <span class="details-box__discount">50%</span>
+                </div>
+                <p class="details-box__old-price">$250.00</p>
+              </div>
+
+              <div
+                class="flex-container gap-24-desktop justify-content-center flex-wrap-mobile"
+              >
+                <div
+                  id="productQuantityWrapper"
+                  class="details-box__product-quantity-wrapper flex-container"
+                >
+                  <button
+                    id="decreaseQuantity"
+                    class="details-box__product-quantity-button"
+                    type="button"
+                  >
+                    <img
+                      class="details-box__minus-icon"
+                      src="../src/images/icon-minus.svg"
+                      alt=""
+                    />
+                  </button>
+                  <input
+                    id="productQuanity"
+                    class="details-box__product-quantity"
+                    type="number"
+                    placeholder="0"
+                    min="0"
+                    max="100"
+                  />
+                  <button
+                    id="increaseQuantity"
+                    class="details-box__product-quantity-button"
+                    type="button"
+                  >
+                    <img
+                      class="details-box__plus-icon"
+                      src="../src/images/icon-plus.svg"
+                      alt=""
+                    />
+                  </button>
+                </div>
+
+                <button class="details-box__add-button" type="button">
+                  <img
+                    class="details-box__cart-icon"
+                    src="../src/images/icon-cart.svg"
+                    alt=""
+                  />
+                  Add to cart
+                </button>
+              </div>
+            </div>
+          </article>
+          <!-- Lightbox Container -->
+          <dialog id="lightboxModal" class="lightbox">
+            <div class="lightbox__container">
+              <!-- Close Button -->
+              <button id="lightboxCloseButton" class="lightbox__close-button">
+                x
+              </button>
+              <!-- Main Lightbox Content -->
+              <div class="lightbox__content">
+                <figure class="lightbox__figure">
+                  <img
+                    class="lightbox__image"
+                    src=".//images/image-product-1.jpg"
+                    alt=""
+                  />
+                </figure>
+                <!-- Navigation arrows (for multi-image lightboxes) -->
+                <buttom
+                  class="lightbox__navigation-arrow lightbox__previous"
+                  aria-label="Previous image"
+                  ><img src="../src/images/icon-previous.svg" alt=""
+                /></buttom>
+                <buttom
+                  class="lightbox__navigation-arrow lightbox__next"
+                  aria-label="Next image"
+                  ><img src="../src/images/icon-next.svg" alt=""
+                /></buttom>
+              </div>
+              <!-- Thumbnail navigation -->
+              <div class="lightbox__thumbnails">
+                <button class="lightbox__thumbnail active" aria-current="true">
+                  <img
+                    class="lightbox__thumbnail-image"
+                    src="../src/images/image-product-1-thumbnail.jpg"
+                    alt=""
+                  />
+                </button>
+                <button class="lightbox__thumbnail">
+                  <img
+                    class="lightbox__thumbnail-image"
+                    src="../src/images/image-product-2-thumbnail.jpg"
+                    alt=""
+                  />
+                </button>
+                <button class="lightbox__thumbnail">
+                  <img
+                    class="lightbox__thumbnail-image"
+                    src="../src/images/image-product-3-thumbnail.jpg"
+                    alt=""
+                  />
+                </button>
+                <button class="lightbox__thumbnail">
+                  <img
+                    class="lightbox__thumbnail-image"
+                    src="../src/images/image-product-4-thumbnail.jpg"
+                    alt=""
+                  />
+                </button>
+              </div>
+            </div>
+          </dialog>
+        </section>
+      </main>
+      <!-- Footer -->
+      <footer class="footer">
+        <div class="attribution">
+          Challenge by
+          <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+            >Frontend Mentor</a
+          >. Coded by <a href="#">Anatolii Vasylenko</a>.
+        </div>
+      </footer>
     </div>
   </body>
 </html>
