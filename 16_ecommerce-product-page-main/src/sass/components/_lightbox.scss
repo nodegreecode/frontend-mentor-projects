@@ -1,0 +1,132 @@
+@use "../utils/variables";
+@use "../utils/mixins";
+
+/* LIGHTBOX */
+.lightbox {
+  max-width: min(90vw, 520px);
+  max-height: min(80vh, 800px);
+
+  border: none;
+  background-color: transparent;
+
+  margin: 0 auto;
+  place-self: center;
+
+  position: fixed;
+  top: -6%;
+
+  overflow: visible;
+
+  &::backdrop {
+    background-color: variables.$black-lightbox;
+  }
+
+  &__container {
+    position: relative;
+  }
+
+  &__close-button {
+    width: 20px;
+    height: auto;
+    background: transparent;
+    border: none;
+
+    font-size: 2.4rem;
+    font-weight: 700;
+    color: variables.$orange;
+
+    position: absolute;
+    z-index: 10;
+    top: 0;
+    right: 0;
+
+    transform: translateY(-150%);
+  }
+
+  &__content {
+    width: 100%;
+    height: auto;
+    position: relative;
+
+    margin-bottom: 2.8rem;
+  }
+
+  &__image {
+    width: 100%;
+    border-radius: 12px;
+  }
+
+  &__navigation-arrow {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+
+    padding: 1rem;
+    border: none;
+    border-radius: 100%;
+    background: variables.$white;
+    box-shadow: 0 0 10px 0 rgba($color: #000000, $alpha: 0.2);
+  }
+
+  &__previous {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translate(-50%, -50%);
+
+    cursor: pointer;
+  }
+
+  &__next {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translate(50%, -50%);
+
+    cursor: pointer;
+  }
+
+  &__thumbnails {
+    width: 100%;
+    height: 90px;
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+  }
+
+  &__thumbnail {
+    position: relative;
+    border: none;
+    border-radius: 12px;
+    display: inline-block;
+    background: transparent;
+    overflow: hidden;
+
+    &:hover {
+      cursor: pointer;
+      &:not(.selected) {
+        &::after {
+          content: "";
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          top: 0;
+          left: 0;
+          background-color: hsl(0, 0%, 100%);
+          opacity: 0.7;
+        }
+      }
+    }
+
+    &.selected {
+      box-shadow: 0 0 0 2px variables.$orange;
+    }
+  }
+
+  &__thumbnail-image {
+    width: 90px;
+    height: auto;
+    border-radius: 12px;
+  }
+}

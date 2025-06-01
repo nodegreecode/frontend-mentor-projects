@@ -1,194 +1,63 @@
-const mobileMenOpenButton = document.getElementById("mobileMenuOpenBtn");
-const mobileMenCloseButton = document.getElementById("mobileMenuCloseBtn");
+import { createEventBus } from "./lib/eventBus.js";
+import { ProductGallery } from "./modules/productGallery.js";
+import { Helper } from "./lib/helpers.js";
+import { MobileMenu } from "./modules/mobileMenu.js";
+import { Lightbox } from "./modules/lightbox.js";
+import { Cart } from "./modules/cart.js";
 
-const menuIcon = document.getElementById("menuIcon");
-const closeIcon = document.getElementById("closeIcon");
-const mobileMenu = document.getElementById("mobileMenu");
+document.addEventListener("DOMContentLoaded", () => {
+  /* Initialize all modules */
+  const EventBus = createEventBus();
+  const cart = Cart(EventBus);
+  const mobileMenu = MobileMenu(EventBus, cart);
+  const productGallery = ProductGallery(EventBus, mobileMenu);
+  const lightbox = Lightbox(EventBus);
+  const helper = Helper(EventBus, productGallery, lightbox);
 
-const slides = document.getElementById("slides");
-const previousPicture = document.getElementById("leftArrow");
-const nextPicture = document.getElementById("rightArrow");
-const slideCount = document.querySelectorAll(".image-box__image").length;
-let currentIndex = 0;
+  /* Subscribe to the events */
+  EventBus.subscribe("renderProduct", cart.renderProduct);
 
-const imageContainers = document.querySelectorAll(".image-box__image");
-const currentImage = document.getElementById("currentProductImage");
+  EventBus.subscribe("addToCart", cart.addItemToCart);
 
-/* Product Quantity */
-const increaseButtont = document.getElementById("increaseQuantity");
-const decreaseButton = document.getElementById("decreaseQuantity");
-const productQuantityWrapper = document.getElementById(
-  "productQuantityWrapper"
-);
-const productQuantityInput = document.getElementById("productQuanity");
+  EventBus.subscribe("removeFromCart", cart.removeItemFromCart);
 
-/* Shopping Cart */
-const shoppingCartButton = document.getElementById("shoppingCartButton");
-const shoppingCart = document.getElementById("shoppingCart");
+  EventBus.subscribe("toggleShoppingCart", cart.openShoppingCart);
 
-/* Lightbox */
-const lightboxTrigger = document.getElementById("lightboxTrigger");
-const lightboxContainer = document.getElementById("lightboxModal");
-const lightboxContainerCloseButton = document.getElementById(
-  "lightboxCloseButton"
-);
+  EventBus.subscribe("changeQuantity", cart.changeProductQuantity);
 
-/* Lightbox Logic */
+  EventBus.subscribe("openMobileMenu", mobileMenu.openMobileMenu);
 
-function handleLightBoxOpen() {
-  if (!lightboxContainer.open) {
-    lightboxContainer.showModal();
-  }
-}
+  EventBus.subscribe("closeMobileMenu", mobileMenu.closeMobileMenu);
 
-function handleLightBoxClose() {
-  if (lightboxContainer.open) {
-    lightboxContainer.close();
-  }
-}
+  EventBus.subscribe("productImageSelect", productGallery.handleProductImage);
 
-/* Shopping Cart Logic */
-function toggleShoppingCart() {
-  console.log(shoppingCart);
-  shoppingCart.hidden = !shoppingCart.hidden;
-}
+  EventBus.subscribe("previousPicture", productGallery.goToSlide);
 
-/* Product Quantity Logic */
-function updateButtons() {
-  decreaseButton.disabled =
-    parseInt(productQuantityInput.value) <= productQuantityInput.min;
-  increaseButtont.disabled =
-    parseInt(productQuantityInput.value) >= productQuantityInput.max;
-}
+  EventBus.subscribe("nextPicture", productGallery.goToSlide);
 
-function handleProductQuantity() {
-  decreaseButton.addEventListener("click", () => {
-    const newValue = parseInt(productQuantityInput.value) - 1;
-    if (newValue >= productQuantityInput.min) {
-      productQuantityInput.value = newValue;
-      updateButtons();
-    }
-  });
-  increaseButtont.addEventListener("click", () => {
-    const newValue = parseInt(productQuantityInput.value || 0) + 1;
-    if (newValue <= productQuantityInput.max) {
-      productQuantityInput.value = newValue;
-      updateButtons();
-    }
-  });
-}
+  EventBus.subscribe("handleMobileView", helper.handleMobileView);
 
-/* Selecting Product Images Logic */
-function deselectProductImage(images) {
-  images.forEach((image) => {
-    image.classList.remove("selected");
-    image.querySelector(".overlay")?.remove();
-  });
-}
+  EventBus.subscribe("resizing", helper.resizeObserver);
 
-function handleMobileView(images, i) {
-  if (window.innerWidth === 720 || window.innerWidth < 720) {
-    deselectProductImage(images);
-  } else if (window.innerWidth === 721 || window.innerWidth > 721) {
-    goToSlide(i);
-  }
-}
+  EventBus.subscribe("openLightBox", lightbox.openLightBox);
 
-function selectProductImage(image) {
-  deselectProductImage(imageContainers);
-  image.classList.add("selected");
-  const overlay = document.createElement("div");
-  overlay.classList.add("overlay");
-  image.appendChild(overlay);
+  EventBus.subscribe("closeLightBox", lightbox.closeLightBox);
 
-  const imagePath = image
-    .querySelector("source:nth-of-type(2)")
-    ?.getAttribute("srcset");
-  console.log(imagePath);
-  currentImage.setAttribute("src", imagePath);
-}
-
-/*function handleProductImage() {
-  imageContainers.forEach((imageContainer) =>
-    imageContainer.addEventListener("click", () => {
-      selectProductImage(imageContainer);
-    })
+  EventBus.subscribe(
+    "selectLightboxPreviousProductImage",
+    lightbox.selectPreviousProductImage
   );
-}*/
 
-let currentImageListeners = [];
+  EventBus.subscribe(
+    "selectLightboxNextProductImage",
+    lightbox.selectNextProductImage
+  );
 
-function removeImageListeners() {
-  currentImageListeners.forEach(({ element, handler }) => {
-    element.removeEventListener("click", handler);
-  });
-  currentImageListeners = [];
-}
+  EventBus.subscribe("selectProductImage", lightbox.selectProductImage);
 
-function handleProductImageNew() {
-  removeImageListeners();
+  EventBus.publish("resizing");
 
-  if (window.matchMedia("(min-width: 720px)").matches) {
-    currentImageListeners = Array.from(imageContainers).map(
-      (imageContainer) => {
-        const handler = () => selectProductImage(imageContainer);
-        imageContainer.addEventListener("click", handler);
-        return { element: imageContainer, handler };
-      }
-    );
-  }
-}
+  EventBus.publish("selectProductImage");
 
-function goToSlide(index) {
-  if (index < 0) {
-    index = slideCount - 1;
-  } else if (index >= slideCount) {
-    index = 0;
-  }
-
-  currentIndex = index;
-  slides.style.transform = `translateX(-${currentIndex * 100}%)`;
-}
-
-/* Mobile Menu Logic */
-function handleOpenMobileMenu() {
-  mobileMenu.showModal();
-}
-
-function handleCloseMobileMenu() {
-  mobileMenu.close();
-}
-
-/* Init Function */
-function init() {
-  shoppingCartButton.addEventListener("click", toggleShoppingCart);
-
-  handleProductQuantity();
-
-  lightboxTrigger.addEventListener("click", handleLightBoxOpen);
-  lightboxContainerCloseButton.addEventListener("click", handleLightBoxClose);
-
-  //handleProductImage();
-  //window.addEventListener("resize", () => handleMobileView(imageContainers, 0));
-  const resizeObserver = new ResizeObserver(() => {
-    handleProductImageNew();
-    handleMobileView(imageContainers, 0);
-  });
-  resizeObserver.observe(document.body);
-
-  mobileMenOpenButton.addEventListener("click", handleOpenMobileMenu);
-  mobileMenCloseButton.addEventListener("click", handleCloseMobileMenu);
-
-  previousPicture.addEventListener("click", function (e) {
-    e.preventDefault();
-    goToSlide(currentIndex - 1);
-  });
-
-  nextPicture.addEventListener("click", function (e) {
-    e.preventDefault();
-    goToSlide(currentIndex + 1);
-  });
-}
-
-/* App Initialization */
-init();
+  EventBus.publish("renderProduct");
+});

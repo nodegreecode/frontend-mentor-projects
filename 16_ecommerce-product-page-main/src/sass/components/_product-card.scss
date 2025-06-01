@@ -1,0 +1,57 @@
+@use "../utils/variables";
+@use "../utils/mixins";
+
+/* PRODUCT CARD */
+.product-card {
+  display: flex;
+
+  @include mixins.respond-phone-land() {
+    gap: 1rem;
+  }
+
+  @include mixins.respond-tablet-port() {
+    gap: 2.4rem;
+  }
+
+  @include mixins.respond-tablet-land() {
+    gap: 5rem;
+  }
+
+  @include mixins.respond-desktop() {
+    gap: 10rem;
+  }
+
+  @include mixins.custom-media-query-max(720px) {
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  &__image-box {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+
+    @include mixins.custom-media-query-max(720px) {
+      width: 100%;
+      display: flex;
+      gap: 0;
+
+      transition: transform 0.5s ease;
+    }
+  }
+
+  &__details-box {
+    padding-top: 4rem;
+
+    @include mixins.respond-tablet-port() {
+    }
+
+    @include mixins.custom-media-query-max(1200px) {
+      padding-top: 1rem;
+    }
+
+    @include mixins.custom-media-query-max(720px) {
+      padding: 1rem 2rem;
+    }
+  }
+}

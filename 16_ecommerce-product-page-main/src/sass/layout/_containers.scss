@@ -1,0 +1,21 @@
+@use "../utils/mixins";
+
+/* CONTAINERS */
+.container {
+  max-width: 114rem;
+  margin: 0 auto;
+
+  @include mixins.custom-media-query-min(721px) {
+    padding: 0 1rem;
+  }
+}
+
+.flex-item-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flex-container {
+  display: flex;
+}

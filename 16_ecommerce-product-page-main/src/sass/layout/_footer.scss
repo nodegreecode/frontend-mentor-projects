@@ -1,0 +1,23 @@
+@use "../utils/variables";
+@use "../utils/mixins";
+
+/* FOOTER */
+.footer {
+  padding: 5rem;
+  border-top: 1px solid variables.$grayish-blue;
+
+  @include mixins.custom-media-query-max(720px) {
+    padding: 2.4rem;
+    background-color: variables.$light-grayish-blue;
+  }
+
+  & .attribution {
+    font-size: 11px;
+    text-align: center;
+
+    & a {
+      text-decoration: none;
+      color: hsl(228, 45%, 44%);
+    }
+  }
+}

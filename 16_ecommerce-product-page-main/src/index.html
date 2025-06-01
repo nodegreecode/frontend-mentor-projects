@@ -20,7 +20,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="../dist/css/style.css" />
-    <script src="../src/js/app.js" defer></script>
+    <script type="module" src="../src/js/app.js" defer></script>
   </head>
   <body>
     <div class="container">
@@ -116,7 +116,10 @@
         <!-- Cart Button -->
         <div class="flex-item-wrapper gap-32-desktop gap-24-mobil relativ">
           <button id="shoppingCartButton" class="shopping-cart__button">
-            <img src="../src/images/icon-cart.svg" alt="" />
+            <span id="itemCount" class="shopping-cart__item-count hidden"
+              >3</span
+            >
+            <img src="../src/images/icon-cart.svg" alt="cart icon" />
           </button>
           <!-- Shopping Cart -->
           <aside
@@ -129,38 +132,20 @@
               <h2 id="cart-heading" class="shopping-cart__heading">Cart</h2>
             </div>
 
-            <div class="padding-wrapper-24-24-24-32">
-              <ul class="shopping-cart__items-list">
-                <li class="shopping-cart__item">
-                  <div class="shopping-cart__image-box">
-                    <img src=".//images/image-product-1-thumbnail.jpg" alt="" />
-                  </div>
-
-                  <h3 class="shopping-cart__item-title">
-                    Fall limited Edition Sneakers
-                  </h3>
-                  <p class="shopping-cart__item-price">
-                    $125.00 x 3
-                    <span class="shopping-cart__item-total-price">$375</span>
-                  </p>
-
-                  <div class="shopping-cart__action">
-                    <button>
-                      <img src=".//images/icon-delete.svg" alt="" />
-                    </button>
-                  </div>
-                </li>
-                <!-- Additional cart items -->
+            <div
+              class="shopping-cart__items-container padding-wrapper-24-24-24-32"
+            >
+              <ul id="item-list" class="shopping-cart__items-list">
+                <!-- Add cart items -->
               </ul>
-              <a href="#" class="shopping-cart__checkout-button">Checkout</a>
             </div>
           </aside>
           <!-- Avatar-->
-          <div class="avatar">
+          <div class="avatar" aria-label="User avatar" tabindex="0">
             <img
               class="avatar__image"
               src="../src/images/image-avatar.png"
-              alt=""
+              alt="A man wearing sunglasses with curly dark hair"
             />
           </div>
         </div>
@@ -179,15 +164,21 @@
                   <button
                     id="lightboxTrigger"
                     class="image-box__lightbox-trigger"
+                    aria-label="Current product image"
+                    tabindex="0"
                   >
                     <img
                       id="currentProductImage"
                       src="../src/images/image-product-1.jpg"
-                      alt=""
+                      alt="White beige sneakers on an orange background"
                     />
                   </button>
                 </div>
-                <div class="image-box__image selected">
+                <div
+                  class="image-box__image selected"
+                  aria-label="Choose product image"
+                  tabindex="0"
+                >
                   <picture>
                     <source
                       media="(min-width: 721px)"
@@ -199,12 +190,16 @@
                     />
                     <img
                       src="../src/images/image-product-1-thumbnail.jpg"
-                      alt=""
+                      alt="Preview picture of white beige sneakers on an orange background"
                     />
                   </picture>
                   <div class="overlay"></div>
                 </div>
-                <div class="image-box__image">
+                <div
+                  class="image-box__image"
+                  aria-label="Choose product image"
+                  tabindex="0"
+                >
                   <picture>
                     <source
                       media="(min-width: 721px)"
@@ -216,11 +211,15 @@
                     />
                     <img
                       src="../src/images/image-product-2-thumbnail.jpg"
-                      alt="next button"
+                      alt="Preview picture of white beige sneakers on an orange background"
                     />
                   </picture>
                 </div>
-                <div class="image-box__image">
+                <div
+                  class="image-box__image"
+                  aria-label="Choose product image"
+                  tabindex="0"
+                >
                   <picture>
                     <source
                       media="(min-width: 721px)"
@@ -232,11 +231,15 @@
                     />
                     <img
                       src="../src/images/image-product-3-thumbnail.jpg"
-                      alt=""
+                      alt="Preview picture of white beige sneakers on an orange background"
                     />
                   </picture>
                 </div>
-                <div class="image-box__image">
+                <div
+                  class="image-box__image"
+                  aria-label="Choose product image"
+                  tabindex="0"
+                >
                   <picture>
                     <source
                       media="(min-width: 721px)"
@@ -248,7 +251,7 @@
                     />
                     <img
                       src="../src/images/image-product-4-thumbnail.jpg"
-                      alt=""
+                      alt="Preview picture of white beige sneakers on an orange background"
                     />
                   </picture>
                 </div>
@@ -257,11 +260,14 @@
               <button id="leftArrow" class="slider-arrow left-arrow">
                 <img
                   src="../src/images/icon-previous.svg"
-                  alt="previous button"
+                  alt="Previous arrow button"
                 />
               </button>
               <button id="rightArrow" class="slider-arrow right-arrow">
-                <img src="../src/images/icon-next.svg" alt="" />
+                <img
+                  src="../src/images/icon-next.svg"
+                  alt="Next arrow button"
+                />
               </button>
             </div>
 
@@ -276,7 +282,7 @@
                 companion. Featuring a durable rubber outer sole, they’ll
                 withstand everything the weather can offer.
               </p>
-              <div
+              <!-- <div
                 class="details-box__price-container flex-container gap-12-desktop mb-1"
               >
                 <div>
@@ -284,8 +290,7 @@
                   <span class="details-box__discount">50%</span>
                 </div>
                 <p class="details-box__old-price">$250.00</p>
-              </div>
-
+              </div>-->
               <div
                 class="flex-container gap-24-desktop justify-content-center flex-wrap-mobile"
               >
@@ -301,7 +306,7 @@
                     <img
                       class="details-box__minus-icon"
                       src="../src/images/icon-minus.svg"
-                      alt=""
+                      alt="Minus icon"
                     />
                   </button>
                   <input
@@ -320,16 +325,19 @@
                     <img
                       class="details-box__plus-icon"
                       src="../src/images/icon-plus.svg"
-                      alt=""
+                      alt="Plus icon"
                     />
                   </button>
                 </div>
-
-                <button class="details-box__add-button" type="button">
+                <button
+                  id="addToCartButton"
+                  class="details-box__add-button"
+                  type="button"
+                >
                   <img
                     class="details-box__cart-icon"
                     src="../src/images/icon-cart.svg"
-                    alt=""
+                    alt="Cart icon"
                   />
                   Add to cart
                 </button>
@@ -340,58 +348,76 @@
           <dialog id="lightboxModal" class="lightbox">
             <div class="lightbox__container">
               <!-- Close Button -->
-              <button id="lightboxCloseButton" class="lightbox__close-button">
+              <button
+                id="lightboxCloseButton"
+                class="lightbox__close-button"
+                aria-label="Close lightbox"
+                tabindex="0"
+              >
                 x
               </button>
               <!-- Main Lightbox Content -->
               <div class="lightbox__content">
                 <figure class="lightbox__figure">
                   <img
+                    id="lighboxCurrentImage"
                     class="lightbox__image"
                     src=".//images/image-product-1.jpg"
-                    alt=""
+                    alt="Lightbox current image of the product"
                   />
                 </figure>
                 <!-- Navigation arrows (for multi-image lightboxes) -->
                 <buttom
+                  id="lightboxPrevious"
                   class="lightbox__navigation-arrow lightbox__previous"
-                  aria-label="Previous image"
-                  ><img src="../src/images/icon-previous.svg" alt=""
+                  aria-label="Previous product picture"
+                  tabindex="0"
+                  ><img
+                    src="../src/images/icon-previous.svg"
+                    alt="Lightbox previous picture button"
                 /></buttom>
                 <buttom
+                  id="ligthboxNext"
                   class="lightbox__navigation-arrow lightbox__next"
-                  aria-label="Next image"
-                  ><img src="../src/images/icon-next.svg" alt=""
+                  aria-label="Next product picture"
+                  tabindex="0"
+                  ><img
+                    src="../src/images/icon-next.svg"
+                    alt="Lightbox next picture button"
                 /></buttom>
               </div>
               <!-- Thumbnail navigation -->
               <div class="lightbox__thumbnails">
-                <button class="lightbox__thumbnail active" aria-current="true">
+                <button
+                  class="lightbox__thumbnail selected"
+                  aria-current="true"
+                >
                   <img
                     class="lightbox__thumbnail-image"
                     src="../src/images/image-product-1-thumbnail.jpg"
-                    alt=""
+                    alt="Preview picture of white beige sneakers on an orange background"
                   />
+                  <div class="overlay"></div>
                 </button>
                 <button class="lightbox__thumbnail">
                   <img
                     class="lightbox__thumbnail-image"
                     src="../src/images/image-product-2-thumbnail.jpg"
-                    alt=""
+                    alt="Preview picture of white beige sneakers on an orange background"
                   />
                 </button>
                 <button class="lightbox__thumbnail">
                   <img
                     class="lightbox__thumbnail-image"
                     src="../src/images/image-product-3-thumbnail.jpg"
-                    alt=""
+                    alt="Preview picture of white beige sneakers on an orange background"
                   />
                 </button>
                 <button class="lightbox__thumbnail">
                   <img
                     class="lightbox__thumbnail-image"
                     src="../src/images/image-product-4-thumbnail.jpg"
-                    alt=""
+                    alt="Preview picture of white beige sneakers on an orange background"
                   />
                 </button>
               </div>

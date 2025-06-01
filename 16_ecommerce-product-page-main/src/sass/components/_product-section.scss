@@ -1,0 +1,16 @@
+@use "../utils/variables";
+@use "../utils/mixins";
+
+/* MAIN COMPONENTS */
+.product-section {
+  padding: 8.2rem 0;
+
+  @include mixins.custom-media-query-min(721px) {
+    padding-left: 5rem; //?!
+    padding-right: 5rem;
+  }
+
+  @include mixins.custom-media-query-max(720px) {
+    padding-top: 2.6rem;
+  }
+}

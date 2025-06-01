@@ -1,0 +1,49 @@
+@use "../utils/variables";
+@use "../utils/mixins";
+
+/* IMAGE BOX*/
+.image-box {
+  &__current-image {
+    width: 100%;
+    grid-column: 1/5;
+
+    @include mixins.custom-media-query-max(720px) {
+      visibility: hidden;
+    }
+
+    & img {
+      width: 100%;
+      border-radius: 12px;
+    }
+  }
+
+  &__lightbox-trigger {
+    background: none;
+    border: none;
+    outline: none;
+    display: inline-block;
+    cursor: pointer;
+  }
+
+  &__image {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    @include mixins.custom-media-query-max(720px) {
+      min-width: 100%;
+      border-radius: unset;
+    }
+
+    & img {
+      width: 100%;
+      @include mixins.custom-media-query-min(721px) {
+        display: block;
+      }
+    }
+
+    &.selected {
+      border: 2px solid variables.$orange;
+      background-color: variables.$white;
+    }
+  }
+}
