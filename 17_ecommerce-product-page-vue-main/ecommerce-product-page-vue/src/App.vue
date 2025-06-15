@@ -31,23 +31,23 @@ export default {
         discount: 0.5,
         productImages: [
           {
-            thumb: "/src/assets/images/image-product-1-thumbnail.jpg",
-            full: "/src/assets/images/image-product-1.jpg",
+            thumb: "/images/image-product-1-thumbnail.jpg",
+            full: "/images/image-product-1.jpg",
             alt: "Preview picture of white beige sneakers on an orange background",
           },
           {
-            thumb: "/src/assets/images/image-product-2-thumbnail.jpg",
-            full: "/src/assets/images/image-product-2.jpg",
+            thumb: "/images/image-product-2-thumbnail.jpg",
+            full: "/images/image-product-2.jpg",
             alt: "Preview picture of white beige sneakers on an orange background",
           },
           {
-            thumb: "/src/assets/images/image-product-3-thumbnail.jpg",
-            full: "/src//assets/images/image-product-3.jpg",
+            thumb: "/images/image-product-3-thumbnail.jpg",
+            full: "/images/image-product-3.jpg",
             alt: "Preview picture of white beige sneakers on an orange background",
           },
           {
-            thumb: "/src/assets/images/image-product-4-thumbnail.jpg",
-            full: "/src/assets/images/image-product-4.jpg",
+            thumb: "/images/image-product-4-thumbnail.jpg",
+            full: "/images/image-product-4.jpg",
             alt: "Preview picture of white beige sneakers on an orange background",
           },
         ],
