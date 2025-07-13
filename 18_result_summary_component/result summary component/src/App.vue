@@ -17,7 +17,7 @@ import { ref, provide, onMounted } from "vue";
 const resultData = ref(null);
 
 onMounted(async () => {
-  const response = await fetch("../src/assets/data.json");
+  const response = await fetch("/data.json");
   resultData.value = await response.json();
 });
 
