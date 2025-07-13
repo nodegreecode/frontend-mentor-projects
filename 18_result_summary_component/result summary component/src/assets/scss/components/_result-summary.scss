@@ -1,0 +1,15 @@
+@use "../utils/variables";
+@use "../utils/mixins";
+
+.result-summary {
+  max-width: 155rem;
+  height: 105rem;
+
+  background-color: variables.$white;
+
+  border-radius: 20px;
+
+  @include mixins.response-mobile() {
+    height: auto;
+  }
+}

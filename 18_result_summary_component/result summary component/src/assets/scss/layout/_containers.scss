@@ -1,0 +1,32 @@
+@use "../utils/mixins";
+
+.container {
+  max-width: 114rem;
+  margin: 0 auto;
+  padding: 2rem;
+
+  @include mixins.response-mobile() {
+    padding: 0;
+  }
+}
+
+.container-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+
+  @include mixins.response-mobile() {
+    height: auto;
+  }
+}
+
+.flex-container {
+  display: flex;
+}
+
+.flex-column-mobile {
+  @include mixins.response-mobile() {
+    flex-direction: column;
+  }
+}

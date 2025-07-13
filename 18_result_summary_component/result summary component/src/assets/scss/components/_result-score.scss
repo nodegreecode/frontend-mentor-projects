@@ -1,0 +1,86 @@
+@use "../utils/variables";
+@use "../utils/mixins";
+
+.result-score {
+  width: 77.5rem;
+  flex: 1;
+  padding: 10rem;
+
+  color: variables.$white;
+  border-radius: 20px;
+
+  @include mixins.response-mobile() {
+    width: auto;
+    border-radius: 0 0 20px 20px;
+  }
+
+  text-align: center;
+  background: linear-gradient(
+    0deg,
+    variables.$light-royal-blue-background,
+    variables.$light-slate-blue-background
+  );
+
+  &__title {
+    color: variables.$light-lavender;
+    margin-bottom: 7.5rem;
+  }
+
+  &__circle {
+    width: 37.5rem;
+    height: 37.5rem;
+    background: linear-gradient(
+      0deg,
+      variables.$persian-blue-circle,
+      variables.$violet-blue-circle
+    );
+    border-radius: 100%;
+
+    margin: 0 auto 7.5rem auto;
+
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+    overflow: hidden;
+  }
+
+  &__total-points {
+    font-size: 14rem;
+    font-weight: 600;
+
+    @include mixins.response-mobile() {
+      font-size: 16rem;
+    }
+  }
+
+  &__of-points {
+    position: absolute;
+    bottom: 5%;
+    transform: translateY(-50%);
+
+    color: variables.$light-lavender;
+
+    @include mixins.response-mobile() {
+      font-size: 3.5rem;
+    }
+  }
+
+  &__result {
+    margin-bottom: 2.5rem;
+
+    @include mixins.response-mobile() {
+      font-size: 5.2rem;
+    }
+  }
+
+  &__result-details {
+    color: variables.$light-lavender;
+
+    @include mixins.response-mobile() {
+      font-size: 3.5rem;
+      padding: 0 5rem;
+    }
+  }
+}

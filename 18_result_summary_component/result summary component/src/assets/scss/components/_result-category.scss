@@ -1,0 +1,110 @@
+@use "../utils/variables";
+@use "sass:color";
+@use "../utils/mixins";
+
+.result-category {
+  width: 77.5rem;
+  flex: 1;
+  padding: 10rem;
+
+  &__title {
+    margin-bottom: 30px;
+  }
+
+  @include mixins.response-mobile() {
+    width: auto;
+  }
+}
+
+.summary-item {
+  border-radius: 10px;
+  align-items: center;
+  padding: 2.5rem;
+
+  &--reaction {
+    background-color: color.scale(variables.$light-red, $lightness: 90%);
+  }
+
+  &--memory {
+    background-color: color.scale(variables.$orangey-yellow, $lightness: 90%);
+  }
+
+  &--verbal {
+    background-color: color.scale(variables.$green-teal, $lightness: 90%);
+  }
+
+  &--visual {
+    background-color: color.scale(variables.$cobalt-blue, $lightness: 90%);
+  }
+
+  &__container {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+
+    font-size: 3.5rem;
+    margin-bottom: 8rem;
+  }
+
+  &__title {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+  }
+
+  &__icon {
+    width: 4rem;
+    height: 4rem;
+    display: inline-block;
+  }
+
+  &__name {
+    font-weight: 600;
+
+    &--reaction {
+      color: variables.$light-red;
+    }
+
+    &--memory {
+      color: variables.$orangey-yellow;
+    }
+
+    &--verbal {
+      color: variables.$green-teal;
+    }
+
+    &--visual {
+      color: variables.$cobalt-blue;
+    }
+  }
+
+  &__scores {
+    margin-left: auto;
+  }
+
+  &__score {
+    font-weight: 600;
+  }
+
+  &__max {
+    color: color.scale(variables.$dark-gray-blue, $lightness: 60%);
+    font-weight: 600;
+  }
+
+  &__button {
+    width: 100%;
+    border: none;
+    background: variables.$dark-gray-blue;
+    color: variables.$white;
+    padding: 3.75rem;
+    border-radius: 20px;
+
+    transition: background 0.3s ease;
+
+    &:hover {
+      background: variables.$light-royal-blue-background;
+    }
+  }
+}

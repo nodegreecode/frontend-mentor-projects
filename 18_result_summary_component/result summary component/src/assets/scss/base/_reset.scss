@@ -1,0 +1,16 @@
+@use "../utils/mixins";
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 25%;
+}
+
+body {
+  font-family: "HankenGrotesk", sans-serif;
+  font-size: clamp(3rem, mixins.scale(18), 4.5rem);
+  line-height: 6rem;
+}

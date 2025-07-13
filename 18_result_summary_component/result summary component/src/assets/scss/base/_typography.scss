@@ -1,0 +1,24 @@
+@use "../utils/mixins";
+
+@include mixins.font-face(
+  "HankenGrotesk",
+  "../fonts/HankenGrotesk-VariableFont_wght.ttf",
+  100 900,
+  normal
+);
+
+@include mixins.font-face(
+  "HankenGrotesk",
+  "../assets/fonts/static/HankenGrotesk-Medium.ttf",
+  500,
+  normal
+);
+
+@include mixins.font-face("HankenGrotesk", "./HankenGrotesk-Bold.ttf", 600, normal);
+
+@include mixins.font-face(
+  "HankenGrotesk",
+  "../assets/fonts/static/HankenGrotesk-ExtraBold.ttf",
+  800,
+  normal
+);

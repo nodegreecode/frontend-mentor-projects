@@ -1,0 +1,28 @@
+//
+
+@function scale($value, $base: 1440) {
+  @return calc(#{$value} * 100vw / #{$base});
+}
+
+//
+@mixin font-face($fontFamily, $sourcePath, $fontWeight, $fontStyle) {
+  @font-face {
+    font-family: $fontFamily;
+    src: url("#{$sourcePath}") format("truetype");
+    font-weight: $fontWeight;
+    font-style: $fontStyle;
+  }
+}
+
+//
+@mixin response-mobile() {
+  @media (max-width: 640px) {
+    @content;
+  }
+}
+
+@mixin response-mobile-s() {
+  @media (max-width: 420px) {
+    @content;
+  }
+}

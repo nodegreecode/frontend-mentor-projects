@@ -1,0 +1,18 @@
+@use "../utils/variables";
+@use "../utils/mixins";
+
+.footer {
+  background-color: variables.$light-lavender;
+}
+
+.attribution {
+  font-size: 2.75rem;
+  text-align: center;
+
+  @include mixins.response-mobile() {
+    padding: 4rem;
+  }
+}
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
