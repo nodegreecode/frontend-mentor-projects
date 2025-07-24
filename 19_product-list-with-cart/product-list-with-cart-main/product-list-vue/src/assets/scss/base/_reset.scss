@@ -1,0 +1,49 @@
+:where(:root, :host) {
+  line-height: 1.5;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+  tab-size: 4;
+}
+
+:where(*, *::before, *::after) {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:where(body, h1, h2, h3, h4, p) {
+  margin: 0;
+}
+
+:where(ul) {
+  list-style: none;
+  padding: 0;
+}
+
+:where(a) {
+  text-decoration: none;
+  color: inherit;
+}
+
+:where(button, input) {
+  font-family: inherit;
+  font-size: 100%;
+  line-height: inherit;
+  color: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+:where(html) {
+  font-size: 100%; //16px
+}
+
+:where(body) {
+  font-size: 1rem;
+  font-family: "Red Hat Text", sans-serif;
+}
+
+//temp
+:where(img) {
+  width: 200px;
+}

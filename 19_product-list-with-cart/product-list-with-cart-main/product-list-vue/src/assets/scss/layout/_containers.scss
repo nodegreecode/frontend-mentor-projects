@@ -1,0 +1,21 @@
+@use "../utils/mixins";
+
+.container {
+  max-width: 71.25rem;
+  margin: 0 auto;
+  padding: 0.6rem;
+
+  display: flex;
+  gap: 2rem;
+
+  @include mixins.respond-tablet() {
+    flex-direction: column;
+    padding: 1.5rem;
+  }
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+}

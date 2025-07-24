@@ -1,0 +1,50 @@
+@use "../utils/variables";
+@use "sass:color";
+
+.add-to-cart-btn {
+  width: 65%;
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  justify-content: center;
+
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, 50%);
+
+  padding: 0.6rem 0.9rem;
+  border: 1.5px solid variables.$rose-400;
+  background-color: color.scale(variables.$rose-100, $lightness: 90%);
+  border-radius: 25px;
+
+  font-size: 0.8rem;
+  font-weight: variables.$fw-700;
+  color: variables.$rose-900;
+
+  transition: all 0.3s ease;
+
+  &__icon {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+  }
+
+  &:hover {
+    cursor: pointer;
+    color: color.scale(variables.$red, $lightness: 15%);
+    border-color: color.scale(variables.$red, $lightness: 15%);
+  }
+
+  &.selected {
+    color: transparent; // temp
+    background-color: color.scale(variables.$red, $lightness: 15%);
+    border: none;
+  }
+}
+//temp
+.add-to-cart-btn.selected {
+  & .add-to-cart-btn__icon {
+    display: none;
+  }
+}

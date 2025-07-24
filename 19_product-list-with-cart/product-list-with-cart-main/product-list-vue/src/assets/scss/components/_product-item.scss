@@ -1,0 +1,42 @@
+@use "../utils/variables";
+@use "sass:color";
+
+.product-item {
+  &__image-wrapper {
+    display: inline-block;
+    position: relative;
+    border-radius: 8px;
+  }
+
+  &__image {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px;
+  }
+
+  &__category {
+    display: inline-block;
+    margin-top: 1.5rem;
+
+    font-size: 0.8rem;
+    font-weight: variables.$fw-600;
+    color: variables.$rose-400;
+  }
+
+  &__name {
+    font-size: 1rem;
+    color: variables.$rose-900;
+  }
+
+  &__price {
+    display: block;
+    color: color.scale(variables.$red, $lightness: 15%);
+  }
+}
+
+.product-item.selected {
+  & .product-item__image-wrapper {
+    border: 2px solid variables.$red;
+  }
+}

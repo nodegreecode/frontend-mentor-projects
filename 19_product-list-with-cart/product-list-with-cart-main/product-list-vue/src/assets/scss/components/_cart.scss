@@ -1,0 +1,93 @@
+@use "../utils/mixins";
+@use "../utils/variables";
+
+.cart {
+  width: 350px;
+
+  background-color: #fff;
+  align-self: baseline;
+  border-radius: 10px;
+
+  padding: 1rem;
+
+  @include mixins.respond-tablet {
+    width: 100%;
+  }
+
+  &__title {
+    color: variables.$red;
+    margin-bottom: 1.5rem;
+  }
+
+  &__items {
+  }
+
+  &__empty-message {
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+
+  &__empty-image {
+    width: 130px;
+  }
+
+  &__empty-text {
+    color: variables.$rose-400;
+    font-weight: variables.$fw-700;
+  }
+
+  &__item {
+    width: 100%;
+    display: flex;
+    align-items: center;
+
+    padding-bottom: 1rem;
+    border-bottom: 1px solid variables.$rose-100;
+
+    &:not(:first-child) {
+      padding-top: 1rem;
+    }
+  }
+
+  &__order-total {
+    padding: 1.2rem 0;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__order-total-text {
+    color: variables.$rose-900;
+  }
+
+  &__order-total-sum {
+    font-size: 1.4rem;
+    color: variables.$rose-900;
+    font-weight: variables.$fw-700;
+  }
+
+  &__carbon-neutral-message {
+    width: 100%;
+
+    margin-bottom: 1.5rem;
+    padding: 0.9rem;
+    border-radius: 10px;
+    background-color: variables.$rose-50;
+
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+
+  &__carbon-neutral-icon {
+    width: 18px;
+  }
+
+  &__carbon-neutral-text {
+    font-size: 0.9rem;
+    color: variables.$rose-900;
+  }
+
+  &__carbon-neutral-carbon {
+    color: variables.$rose-900;
+  }
+}

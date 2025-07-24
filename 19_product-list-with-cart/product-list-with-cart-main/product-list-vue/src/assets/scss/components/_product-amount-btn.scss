@@ -1,0 +1,60 @@
+@use "../utils/variables";
+@use "sass:color";
+
+.product-amount-btn {
+  width: 65%;
+  display: flex;
+  gap: 0.2rem;
+  align-items: center;
+  justify-content: space-between;
+  background-color: color.scale(variables.$red, $lightness: 15%);
+
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, 50%);
+
+  padding: 0.6rem 0.9rem;
+  border-radius: 25px;
+  border: 1px solid variables.$red;
+
+  font-size: 0.8rem;
+  font-weight: variables.$fw-700;
+  color: variables.$rose-100;
+
+  &:hover {
+    background-color: variables.$red;
+  }
+
+  & button {
+    display: flex;
+
+    padding: 0.1rem;
+
+    background-color: color.scale(variables.$red, $lightness: 15%);
+    border-radius: 50%;
+    border: 2px solid variables.$rose-100;
+
+    &:hover {
+      cursor: pointer;
+      background-color: variables.$rose-100;
+
+      & img {
+        filter: invert(48%) sepia(84%) saturate(3275%) hue-rotate(4deg) brightness(104%)
+          contrast(102%);
+      }
+    }
+  }
+
+  & img {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+  }
+
+  &__decrement-icon {
+  }
+
+  &__increment-icon {
+  }
+}

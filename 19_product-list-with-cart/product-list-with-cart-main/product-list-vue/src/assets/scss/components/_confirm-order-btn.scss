@@ -1,0 +1,15 @@
+@use "../utils/variables";
+@use "sass:color";
+
+.confirm-order-btn {
+  width: 100%;
+  background-color: color.scale(variables.$red, $lightness: 15%);
+  border: none;
+  border-radius: 30px;
+  padding: 0.8rem;
+  color: #fff;
+
+  &:hover {
+    background-color: variables.$red;
+  }
+}

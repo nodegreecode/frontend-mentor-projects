@@ -1,0 +1,60 @@
+@use "../utils/variables";
+
+.item {
+  &__details {
+  }
+
+  &__name {
+    font-size: 0.8rem;
+    color: variables.$rose-900;
+    margin-bottom: 0.5rem;
+  }
+
+  &__quantity {
+    font-size: 0.9rem;
+    color: variables.$red;
+    font-weight: variables.$fw-700;
+  }
+
+  &__price {
+    font-size: 0.9rem;
+    color: variables.$rose-400;
+    font-weight: variables.$fw-400;
+    margin-left: 0.8rem;
+  }
+
+  &__total {
+    font-size: 0.9rem;
+    color: variables.$rose-400;
+    font-weight: variables.$fw-700;
+    margin-left: 0.5rem;
+  }
+
+  &__remove-btn {
+    padding: 2px;
+    background-color: #fff;
+    border-radius: 50%;
+    border: 2px solid variables.$rose-300;
+
+    margin-left: auto;
+
+    transition: border-color 0.3s ease;
+
+    &:hover {
+      border-color: variables.$rose-900;
+      cursor: pointer;
+
+      & img {
+        filter: brightness(0) saturate(100%);
+      }
+    }
+
+    & img {
+      display: block;
+      width: 10px;
+      height: 10px;
+
+      transition: filter 0.3s ease;
+    }
+  }
+}
