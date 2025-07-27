@@ -1,0 +1,72 @@
+@use "../utils/variables";
+
+.order-confirmation {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  max-width: 550px;
+  width: 100%;
+
+  border: none;
+  border-radius: 12px;
+  padding: 2rem;
+
+  &::backdrop {
+    background-color: variables.$rose-900;
+    opacity: 0.3;
+    //backdrop-filter: blur(5px);
+    //-webkit-backdrop-filter: blur(5px);
+  }
+
+  &__header {
+    margin-bottom: 1.5rem;
+  }
+
+  &__confirm-icon {
+    width: 40px;
+  }
+
+  &__heading {
+  }
+
+  &__text {
+  }
+
+  &__section {
+    padding: 0 1rem;
+  }
+
+  &__items {
+  }
+
+  &__item {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+
+    padding: 1rem 0;
+    border-bottom: 1px solid variables.$rose-100;
+  }
+
+  &__item-thumbnail {
+    width: 50px;
+    height: 50px;
+  }
+
+  &__item-details {
+  }
+
+  &__item-total {
+    margin-left: auto;
+    font-weight: variables.$fw-700;
+  }
+
+  &__order-total {
+    padding: 1.5rem 0;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+  }
+}
