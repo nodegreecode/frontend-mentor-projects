@@ -2,18 +2,6 @@
  * Performs actions on cart items
  * Changes cart state
  *
- * empty
- * items
- * productCount = products.length()
- * orderTotal
- *
- * actions
- * addToCart
- * removeFromCart
- *
- * getters
- *
- * totalItems
  *
  */
 
@@ -79,8 +67,22 @@ export const useCartStore = defineStore("cart", {
     isItemInCart(state) {
       return (name) => state.items.some((item) => item.name === name);
     },
-    getAllItemsInCart(state) {
+    getAllItemsUpdated(state) {
+      return () =>
+        state.items.map((item) => ({
+          ...item,
+          total: item.price * item.quantity,
+        }));
+    },
+    orderTotal(state) {
+      return () => state.items.reduce((totalSum, item) => totalSum + item.price * item.quantity, 0);
+    },
+    /*getAllItemsInCart(state) {
       return () => state.items;
+    },*/
+    totalItemsQuantity(state) {
+      return () =>
+        state.items.reduce((totalItemsQuantity, item) => (totalItemsQuantity += item.quantity), 0);
     },
   },
 });

@@ -52,14 +52,15 @@ const cartStore = useCartStore();
 const {
   addToCart,
   isItemInCart,
-  getAllItemsInCart,
+  getAllItemsUpdated,
   increaseProductQuantity,
   decreaseProductQuantity,
 } = cartStore;
+
 const isInCart = computed(() => isItemInCart(props.item.name));
 
 const poductQuantity = computed(() => {
-  const itemsInCart = getAllItemsInCart();
+  const itemsInCart = getAllItemsUpdated();
   const actualItem = itemsInCart.find((item) => item.name === props.item.name);
   return actualItem.quantity;
 });

@@ -11,7 +11,7 @@
     </header>
     <section class="order-confirmation__section">
       <ul class="order-confirmation__items">
-        <li class="order-confirmation__item" v-for="item in items" :key="item.nam">
+        <li class="order-confirmation__item" v-for="item in updatedItems" :key="item.nam">
           <img class="order-confirmation__item-thumbnail" :src="item.image.thumbnail" alt="" />
           <div class="order-confirmation__item-details">
             <h3 class="item__name">{{ item.name }}</h3>
@@ -62,7 +62,7 @@
       </ul>
       <div class="order-confirmation__order-total">
         <span class="cart__order-total-text">Order Total:</span>
-        <span class="cart__order-total-sum">$28.00</span>
+        <span class="cart__order-total-sum">${{ totalOrderPrice }}</span>
       </div>
       <button class="confirm-order-btn" @click="closeDialog">Start New Order</button>
     </section>
@@ -74,15 +74,17 @@ import { ref, onMounted, watch, computed } from "vue";
 
 import { useCartStore } from "@/stores/cart";
 
-const cartStore = useCartStore;
+const cartStore = useCartStore();
 
-const { isDialogOpen, closeDialog, getAllItemsInCart } = cartStore();
+const { isDialogOpen, closeDialog, getAllItemsUpdated, orderTotal } = cartStore;
 
 const dialog = ref(null);
 
 const isOpen = computed(() => isDialogOpen());
 
-const items = computed(() => getAllItemsInCart());
+const updatedItems = computed(() => getAllItemsUpdated());
+
+const totalOrderPrice = computed(() => orderTotal());
 
 watch(isOpen, (newValue) => {
   if (newValue) {
