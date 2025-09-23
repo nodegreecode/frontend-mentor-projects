@@ -2,6 +2,7 @@
   <section class="products">
     <h1 class="products__title">Desserts</h1>
     <ul class="grid-container">
+      <!-- if cart.products.contains(item) item.classList.add("selected") -->
       <ProductItem v-for="item in items" :item="item" v-bind:key="item.name" />
       <!-- 
       <li>
@@ -190,9 +191,18 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
-import data from "@/data/data.json";
+import { onMounted, computed } from "vue";
 import ProductItem from "./ProductItem.vue";
+import { useProductsStore } from "@/stores/products";
 
-const items = ref([...data]);
+const productsStore = useProductsStore();
+const { loadData } = productsStore;
+
+onMounted(() => {
+  if (!productsStore.products.length) {
+    loadData();
+  }
+});
+
+const items = computed(() => productsStore.allProducts);
 </script>
