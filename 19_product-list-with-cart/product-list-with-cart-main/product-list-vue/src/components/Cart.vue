@@ -23,17 +23,19 @@
         </button>
       </li>
     </ul>
-    <div class="cart__order-total">
+    <div class="cart__order-total" v-if="totalItemsInCart > 0">
       <span class="cart__order-total-text">Order Total:</span>
       <span class="cart__order-total-sum">{{ totalOrderPrice }}</span>
     </div>
-    <div class="cart__carbon-neutral-message">
+    <div class="cart__carbon-neutral-message" v-if="totalItemsInCart > 0">
       <img class="cart__carbon-neutral-icon" src="/icons/icon-carbon-neutral.svg" alt="" />
       <p class="cart__carbon-neutral-text">
         This is a <strong class="cart__carbon-neutral-carbon">carbon-neutral</strong> delivery
       </p>
     </div>
-    <button class="confirm-order-btn" @click="openDialog">Confirm Order</button>
+    <button class="confirm-order-btn" @click="openDialog" v-if="totalItemsInCart > 0">
+      Confirm Order
+    </button>
   </aside>
 </template>
 

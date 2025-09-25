@@ -9,9 +9,7 @@ export const useCartStore = defineStore("cart", {
 
   actions: {
     openDialog() {
-      if (this.items.length > 0) {
-        this.isOpen = true;
-      }
+      this.isOpen = true;
     },
     closeDialog() {
       this.isOpen = false;
