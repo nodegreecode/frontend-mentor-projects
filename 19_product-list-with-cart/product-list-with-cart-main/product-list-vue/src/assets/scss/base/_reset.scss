@@ -35,15 +35,10 @@
 }
 
 :where(html) {
-  font-size: 100%; //16px
+  font-size: 100%;
 }
 
 :where(body) {
   font-size: 1rem;
   font-family: "Red Hat Text", sans-serif;
-}
-
-//temp
-:where(img) {
-  width: 200px;
 }

@@ -22,8 +22,7 @@ main {
   }
 }
 
-main,
-footer {
+main {
   background-color: variables.$rose-50;
 }
 </style>

@@ -37,7 +37,7 @@
   }
 
   &.selected {
-    color: transparent; // temp
+    // color: transparent; // temp
     background-color: color.scale(variables.$red, $lightness: 15%);
     border: none;
   }

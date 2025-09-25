@@ -2,10 +2,20 @@
   <li>
     <article ref="productWrapper" class="product-item" :class="{ selected: isInCart }">
       <div class="product-item__image-wrapper">
-        <img class="product-item__image" :src="item.image.desktop" alt="" />
+        <picture>
+          <source media="(min-width: 905px)" :srcset="item.image.desktop" />
+          <source media="(min-width: 376px)" :srcset="item.image.tablet" />
+          <img
+            class="product-item__image"
+            :src="item.image.mobile"
+            :alt="item.name"
+            loading="lazy"
+          />
+        </picture>
+
         <!-- Add to Cart Button -->
         <button class="add-to-cart-btn" @click="addToCart(item, productWrapper)">
-          <img class="add-to-cart-btn__icon" src="/src/assets/icons/icon-add-to-cart.svg" alt="" />
+          <img class="add-to-cart-btn__icon" src="/icons/icon-add-to-cart.svg" alt="" />
           Add to Cart
         </button>
         <!-- Product Quantity Button -->
@@ -13,7 +23,7 @@
           <button @click="decreaseProductQuantity(item.name)">
             <img
               class="product-amount-btn__decrement-icon"
-              src="/src/assets/icons/icon-decrement-quantity.svg"
+              src="/icons/icon-decrement-quantity.svg"
               alt=""
             />
           </button>
@@ -21,7 +31,7 @@
           <button @click="increaseProductQuantity(item.name)">
             <img
               class="product-amount-btn__increment-icon"
-              src="/src/assets/icons/icon-increment-quantity.svg"
+              src="/icons/icon-increment-quantity.svg"
               alt=""
             />
           </button>
@@ -30,14 +40,13 @@
 
       <span class="product-item__category">{{ item.category }}</span>
       <h3 class="product-item__name">{{ item.name }}</h3>
-      <strong class="product-item__price">{{ item.price }}</strong>
+      <strong class="product-item__price">{{ item.formattedPrice }}</strong>
     </article>
   </li>
 </template>
 
 <script setup>
-import { computed, ref, watch } from "vue";
-import { storeToRefs } from "pinia";
+import { computed, ref } from "vue";
 import { useCartStore } from "@/stores/cart";
 
 const props = defineProps({

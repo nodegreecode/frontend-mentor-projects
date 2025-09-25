@@ -1,11 +1,5 @@
-/**
- * Performs actions on cart items
- * Changes cart state
- *
- *
- */
-
 import { defineStore } from "pinia";
+import { formatter } from "../utils/currency-formatter";
 
 export const useCartStore = defineStore("cart", {
   state: () => ({
@@ -15,24 +9,24 @@ export const useCartStore = defineStore("cart", {
 
   actions: {
     openDialog() {
-      this.isOpen = true;
+      if (this.items.length > 0) {
+        this.isOpen = true;
+      }
     },
     closeDialog() {
       this.isOpen = false;
     },
-    addToCart(product, container) {
+    addToCart(product) {
       const item = this.items.find((i) => i.name == product.name);
       if (item) {
         item.quantity++;
       } else {
         this.items.push({ ...product, quantity: 1, selected: true });
-        //container.classList.add("selected");
       }
     },
 
     removeFromCart(itemName) {
       this.items = this.items.filter((item) => item.name !== itemName);
-      // remove 'selected' class from container
     },
 
     increaseProductQuantity(itemName) {
@@ -51,11 +45,6 @@ export const useCartStore = defineStore("cart", {
   },
 
   getters: {
-    /*
-    totalItems(state) {
-      return state.items.reduce((sum, item) => sum + item.price, 0);
-    },*/
-
     isDialogOpen(state) {
       return () => state.isOpen;
     },
@@ -71,15 +60,16 @@ export const useCartStore = defineStore("cart", {
       return () =>
         state.items.map((item) => ({
           ...item,
-          total: item.price * item.quantity,
+          total: formatter.format(item.price * item.quantity),
         }));
     },
     orderTotal(state) {
       return () => state.items.reduce((totalSum, item) => totalSum + item.price * item.quantity, 0);
     },
-    /*getAllItemsInCart(state) {
-      return () => state.items;
-    },*/
+
+    formattedOrderTotal(state) {
+      return () => formatter.format(this.orderTotal(state));
+    },
     totalItemsQuantity(state) {
       return () =>
         state.items.reduce((totalItemsQuantity, item) => (totalItemsQuantity += item.quantity), 0);

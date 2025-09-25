@@ -1,10 +1,5 @@
-/**
- * Loads products data from data.json
- *
- * Performs access to products details
- */
 import { defineStore } from "pinia";
-//import productsData from "@/data/data.json";
+import { formatter } from "../utils/currency-formatter";
 
 export const useProductsStore = defineStore("products", {
   state: () => ({
@@ -28,7 +23,10 @@ export const useProductsStore = defineStore("products", {
 
   getters: {
     allProducts(state) {
-      return state.products;
+      return state.products.map((item) => ({
+        ...item,
+        formattedPrice: formatter.format(item.price),
+      }));
     },
   },
 });

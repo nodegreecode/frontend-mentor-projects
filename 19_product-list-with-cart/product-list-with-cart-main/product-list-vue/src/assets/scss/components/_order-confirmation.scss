@@ -1,4 +1,5 @@
 @use "../utils/variables";
+@use "../utils/mixins";
 
 .order-confirmation {
   position: fixed;
@@ -9,6 +10,14 @@
   max-width: 550px;
   width: 100%;
 
+  @include mixins.respond-mobile() {
+    height: 90vh;
+    top: unset;
+    bottom: 0;
+    transform: translate(-50%, 0);
+    overflow-y: auto;
+  }
+
   border: none;
   border-radius: 12px;
   padding: 2rem;
@@ -16,8 +25,6 @@
   &::backdrop {
     background-color: variables.$rose-900;
     opacity: 0.3;
-    //backdrop-filter: blur(5px);
-    //-webkit-backdrop-filter: blur(5px);
   }
 
   &__header {
@@ -29,16 +36,16 @@
   }
 
   &__heading {
-  }
-
-  &__text {
+    &--mobile {
+      display: none;
+      @include mixins.respond-mobile() {
+        display: block;
+      }
+    }
   }
 
   &__section {
     padding: 0 1rem;
-  }
-
-  &__items {
   }
 
   &__item {
@@ -53,9 +60,6 @@
   &__item-thumbnail {
     width: 50px;
     height: 50px;
-  }
-
-  &__item-details {
   }
 
   &__item-total {

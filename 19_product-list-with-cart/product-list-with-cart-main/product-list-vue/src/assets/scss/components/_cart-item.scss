@@ -1,9 +1,6 @@
 @use "../utils/variables";
 
 .item {
-  &__details {
-  }
-
   &__name {
     font-size: 0.8rem;
     color: variables.$rose-900;
