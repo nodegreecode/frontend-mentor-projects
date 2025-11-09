@@ -1,0 +1,201 @@
+@use "../../styles/variables" as *;
+
+.mg-calculator {
+  width: 100%;
+  max-width: 960px;
+  background-color: #fff;
+
+  &__input-area {
+    width: 100%;
+    height: auto;
+    flex: 1;
+    background-color: #fff;
+
+    padding: 2rem;
+  }
+
+  &__controls {
+    & > h2 {
+      font-size: 1.5rem;
+    }
+    & > button {
+      color: $slate-500;
+    }
+  }
+
+  &__form {
+    margin-top: 2rem;
+
+    & input {
+    }
+  }
+
+  &__results {
+    flex: 1;
+    background-color: $slate-900;
+    border-radius: 0 1.25rem 1.25rem 4rem;
+    padding: 2rem;
+
+    @media (max-width: 768px) {
+      border-radius: 0;
+    }
+  }
+}
+
+.results {
+  &__empty-image {
+    width: 50%;
+    max-width: 150px;
+    height: auto;
+  }
+
+  &__title {
+    color: $white;
+  }
+
+  &__info-text {
+    color: $slate-300;
+    margin-bottom: 2.4rem;
+  }
+
+  &__container {
+    max-width: 450px;
+    width: 100%;
+    height: 230px;
+    position: relative;
+  }
+
+  &__box {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: $slate-1000;
+    z-index: 1;
+
+    color: $slate-300;
+  }
+
+  &__box-top {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-top: -3px;
+    background-color: $lime;
+    z-index: 0;
+  }
+
+  &__monthly-repayments {
+    width: 100%;
+
+    background-color: $slate-1000;
+
+    border-bottom: 1px solid $slate-700;
+
+    & > p {
+      font-size: 2.6rem;
+      color: $lime;
+    }
+  }
+
+  &__total-repay {
+    width: 100%;
+
+    background-color: $slate-1000;
+
+    & > span {
+      display: inline-block;
+      margin-top: 1.5rem;
+    }
+
+    & > p {
+      color: $white;
+    }
+  }
+}
+
+.form-group {
+  height: 2.375rem;
+  border: 1px solid $slate-700;
+  overflow: hidden;
+
+  &:has(input:focus) {
+    border: 1px solid $lime;
+    & span {
+      background-color: $lime;
+    }
+  }
+
+  &:hover {
+    border: 1px solid $slate-900;
+    cursor: pointer;
+
+    & input {
+      cursor: inherit;
+    }
+  }
+
+  &:has(input[type="radio"]:checked) {
+    background-color: rgba($lime, 0.25);
+    border: 1px solid $lime;
+  }
+
+  &__icon {
+    font-size: 1rem;
+    background-color: hsl(202, 86%, 94%);
+
+    &--left {
+      height: 100%;
+    }
+  }
+
+  &__input {
+    font-size: 1rem;
+    padding: 0.9rem;
+
+    outline: none;
+
+    &--left {
+      height: 100%;
+    }
+  }
+
+  &--double {
+    margin-bottom: 2rem;
+  }
+}
+
+.button {
+  border: 1px solid transparent;
+  padding: 0 2rem 0 2rem;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: hsl(61, 70%, 52%);
+  cursor: pointer;
+  transition: border-color 0.25s;
+
+  & > img {
+    width: 1rem;
+    height: auto;
+  }
+}
+.button:hover {
+  background-color: rgba($lime, 0.25);
+}
+.button:focus,
+.button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+.error {
+  border: 1px solid $red;
+  & span {
+    background-color: $red;
+    color: $white;
+  }
+}
+
+.error-message {
+  font-size: 0.75rem;
+  color: $red;
+}
