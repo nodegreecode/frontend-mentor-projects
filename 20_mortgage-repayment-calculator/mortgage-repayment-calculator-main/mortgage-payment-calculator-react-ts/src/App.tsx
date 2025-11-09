@@ -19,10 +19,10 @@ function App() {
     t: number,
     r: number,
     type: string,
-    interestOnly: string
+    interestOnly: string,
   ) {
     console.log(
-      `Calculating repayments...${a} ${t} ${r} ${type} ${interestOnly}`
+      `Calculating repayments...${a} ${t} ${r} ${type} ${interestOnly}`,
     );
 
     // 1. M - total monthly mortgage payment
@@ -50,12 +50,26 @@ function App() {
     setIsCalculated(true);
   }
 
+  function handleClearResult() {
+    setMonthlyRepayments(0);
+    setTotalRepayOverTerm(0);
+    setIsCalculated(false);
+  }
+
   return (
     <>
       <Page
         card={
           <Card
-            children={<MortgageCalculator onCalculate={handleOnCalculate} isCalculationDone={isCalculated} />}
+            children={
+              <MortgageCalculator
+                onCalculate={handleOnCalculate}
+                mounthlyRepay={monthlyRepayments}
+                totalRepay={totalRepayOverTerm}
+                onClearAll={handleClearResult}
+                isCalculationDone={isCalculated}
+              />
+            }
           />
         }
         footer={<Footer />}

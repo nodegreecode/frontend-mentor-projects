@@ -8,9 +8,12 @@ interface MortgageCalculatorPorps {
     term: number,
     rate: number,
     type: string,
-    interestOnly: string
+    interestOnly: string,
   ) => void;
-  isCalculationDone: boolean
+  onClearAll: () => void;
+  isCalculationDone: boolean;
+  mounthlyRepay: number;
+  totalRepay: number;
 }
 
 export type MortgageFormData = {
@@ -21,7 +24,13 @@ export type MortgageFormData = {
   interestOnly: string;
 };
 
-function MortgageCalculator({ onCalculate, isCalculationDone }: MortgageCalculatorPorps) {
+function MortgageCalculator({
+  onCalculate,
+  mounthlyRepay,
+  totalRepay,
+  onClearAll,
+  isCalculationDone,
+}: MortgageCalculatorPorps) {
   const amountRef = useRef<HTMLInputElement>(null);
   const termRef = useRef<HTMLInputElement>(null);
   const interestRateRef = useRef<HTMLInputElement>(null);
@@ -49,7 +58,7 @@ function MortgageCalculator({ onCalculate, isCalculationDone }: MortgageCalculat
         formData.term,
         formData.interestRate,
         formData.type,
-        formData.interestOnly
+        formData.interestOnly,
       );
     }
   }
@@ -60,6 +69,7 @@ function MortgageCalculator({ onCalculate, isCalculationDone }: MortgageCalculat
     interestRateRef.current!.value = "";
     if (typeRef.current) typeRef.current.checked = false;
     if (interestOnlyRef.current) interestOnlyRef.current.checked = false;
+    onClearAll();
   }
 
   return (
@@ -225,7 +235,6 @@ function MortgageCalculator({ onCalculate, isCalculationDone }: MortgageCalculat
             </p>
           </div>
         )}
-
         {isCalculationDone && (
           <div>
             <h3 className={`fs-5 fw-bold mb-3 ${styles["results__title"]}`}>
@@ -244,13 +253,13 @@ function MortgageCalculator({ onCalculate, isCalculationDone }: MortgageCalculat
               >
                 <div className={`${styles["results__monthly-repayments"]}`}>
                   <span className="small">Your monthly repayments</span>
-                  <p className="fw-bold"> &pound;1,797.74</p>
+                  <p className="fw-bold">&pound;{mounthlyRepay}</p>
                 </div>
                 <div className={`${styles["results__total-repay"]}`}>
                   <span className="small">
                     Total you'll repay over the term
                   </span>
-                  <p className="fs-5"> &pound;539,322.94</p>
+                  <p className="fs-5"> &pound;{totalRepay}</p>
                 </div>
               </div>
               <div
