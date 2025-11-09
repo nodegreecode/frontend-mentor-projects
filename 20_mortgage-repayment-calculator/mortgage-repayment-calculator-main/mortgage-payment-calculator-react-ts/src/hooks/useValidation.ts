@@ -11,12 +11,7 @@ type ValidationRule =
 
 const validationRules: Record<FormFields, ValidationRule[]> = {
   amount: [{ type: "IsRequired", message: "The field is required" }],
-  term: [
-    { type: "IsRequired", message: "The field is required" },
-    { type: "IsNumber", message: "Mortgage term must be a number" },
-    { type: "Min", value: 1, message: "Mortgage term must be at least 1 year" },
-    { type: "Max", value: 50, message: "Mortgage term cannot exceed 50 years" },
-  ],
+  term: [{ type: "IsRequired", message: "The field is required" }],
   interestRate: [{ type: "IsRequired", message: "The field is required" }],
 };
 

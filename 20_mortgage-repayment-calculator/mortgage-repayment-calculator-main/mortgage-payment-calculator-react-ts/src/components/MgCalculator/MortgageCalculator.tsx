@@ -125,11 +125,12 @@ function MortgageCalculator({ onCalculate }: MortgageCalculatorPorps) {
                   years
                 </span>
               </div>
-              {Object.keys(errors).length > 0 && (
-                <span className={styles["error-message"]}>
-                  {errors.term[0]}
-                </span>
-              )}
+              {errors.term?.length > 0 &&
+                errors.term.map((message, i) => (
+                  <span className={styles["error-message"]} key={i}>
+                    {message}
+                  </span>
+                ))}
             </div>
             <div>
               <label htmlFor="" className="mb-2 small">
@@ -151,11 +152,12 @@ function MortgageCalculator({ onCalculate }: MortgageCalculatorPorps) {
                   %
                 </span>
               </div>
-              {Object.keys(errors).length > 0 && (
-                <span className={styles["error-message"]}>
-                  {errors.interestRate[0]}
-                </span>
-              )}
+              {errors.interestRate?.length > 0 &&
+                errors.interestRate.map((message, i) => (
+                  <span className={styles["error-message"]} key={i}>
+                    {message}
+                  </span>
+                ))}
             </div>
           </div>
           <div className={styles["form-group--double"]}>
