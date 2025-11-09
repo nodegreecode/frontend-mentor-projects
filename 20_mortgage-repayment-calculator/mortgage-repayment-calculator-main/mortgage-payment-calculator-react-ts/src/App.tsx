@@ -12,6 +12,8 @@ function App() {
 
   const [totalRepayOverTerm, setTotalRepayOverTerm] = useState(0);
 
+  const [isCalculated, setIsCalculated] = useState(false);
+
   function handleOnCalculate(
     a: number,
     t: number,
@@ -44,6 +46,8 @@ function App() {
 
     const totalRepay = monthlyPayment * totalNumberOfPayments;
     setTotalRepayOverTerm(totalRepay);
+
+    setIsCalculated(true);
   }
 
   return (
@@ -51,7 +55,7 @@ function App() {
       <Page
         card={
           <Card
-            children={<MortgageCalculator onCalculate={handleOnCalculate} />}
+            children={<MortgageCalculator onCalculate={handleOnCalculate} isCalculationDone={isCalculated} />}
           />
         }
         footer={<Footer />}

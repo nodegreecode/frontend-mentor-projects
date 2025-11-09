@@ -10,6 +10,7 @@ interface MortgageCalculatorPorps {
     type: string,
     interestOnly: string
   ) => void;
+  isCalculationDone: boolean
 }
 
 export type MortgageFormData = {
@@ -20,7 +21,7 @@ export type MortgageFormData = {
   interestOnly: string;
 };
 
-function MortgageCalculator({ onCalculate }: MortgageCalculatorPorps) {
+function MortgageCalculator({ onCalculate, isCalculationDone }: MortgageCalculatorPorps) {
   const amountRef = useRef<HTMLInputElement>(null);
   const termRef = useRef<HTMLInputElement>(null);
   const interestRateRef = useRef<HTMLInputElement>(null);
@@ -204,7 +205,7 @@ function MortgageCalculator({ onCalculate }: MortgageCalculatorPorps) {
         </form>
       </section>
       <section className={styles["mg-calculator__results"]}>
-        {true && (
+        {!isCalculationDone && (
           <div className="d-flex flex-column h-100 justify-content-center align-items-center">
             <img
               className={`mb-3 ${styles["results__empty-image"]}`}
@@ -223,7 +224,7 @@ function MortgageCalculator({ onCalculate }: MortgageCalculatorPorps) {
           </div>
         )}
 
-        {false && (
+        {isCalculationDone && (
           <div>
             <h3 className={`fs-5 fw-bold mb-3 ${styles["results__title"]}`}>
               Your results
