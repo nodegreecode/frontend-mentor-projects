@@ -1,4 +1,3 @@
-import styles from "./Page.module.scss";
 import { type ReactNode } from "react";
 
 type PageProps = {
@@ -12,10 +11,8 @@ function Page({ card, footer }: PageProps) {
       {card && (
         <main>
           <section>
-            <div className={`d-flex align-items-center ${styles.page}`}>
-              <div className={`container ${styles["custom-container"]}`}>
-                {card}
-              </div>
+            <div className="d-flex justify-content-center align-items-center px-sm-5 min-vh-100">
+              {card}
             </div>
           </section>
         </main>

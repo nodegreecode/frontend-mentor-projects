@@ -1,16 +1,10 @@
 @use "../../styles/variables" as *;
 
 .mg-calculator {
-  width: 100%;
-  max-width: 960px;
   background-color: #fff;
 
   &__input-area {
-    width: 100%;
-    height: auto;
-    flex: 1;
     background-color: #fff;
-
     padding: 2rem;
   }
 
@@ -35,7 +29,6 @@
     background-color: $slate-900;
     border-radius: 0 1.25rem 1.25rem 4rem;
     padding: 2rem;
-
     @media (max-width: 768px) {
       border-radius: 0;
     }
@@ -71,7 +64,6 @@
     right: 0;
     background-color: $slate-1000;
     z-index: 1;
-
     color: $slate-300;
   }
 
@@ -86,9 +78,7 @@
 
   &__monthly-repayments {
     width: 100%;
-
     background-color: $slate-1000;
-
     border-bottom: 1px solid $slate-700;
 
     & > p {
@@ -99,7 +89,6 @@
 
   &__total-repay {
     width: 100%;
-
     background-color: $slate-1000;
 
     & > span {
@@ -151,7 +140,6 @@
   &__input {
     font-size: 1rem;
     padding: 0.9rem;
-
     outline: none;
 
     &--left {
@@ -173,6 +161,10 @@
   background-color: hsl(61, 70%, 52%);
   cursor: pointer;
   transition: border-color 0.25s;
+
+  @media (max-width: 768px){
+    width: 100%;
+  }
 
   & > img {
     width: 1rem;

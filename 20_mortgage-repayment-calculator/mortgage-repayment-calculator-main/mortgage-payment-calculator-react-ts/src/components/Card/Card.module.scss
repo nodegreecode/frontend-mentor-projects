@@ -1,14 +1,11 @@
 @use "../../styles/variables" as *;
 
-.card {
+.custom-card {
+  width: 100%;
+  max-width: 840px;
   border-radius: 1.25rem;
   overflow: hidden;
-
-  @media (max-width: 768px) {
-    border-radius: 0;
-  }
-
-  @media (max-width: 500px) {
-    width: 100% !important;
+  @media (max-width: 576px) {
+    border-radius: unset;
   }
 }

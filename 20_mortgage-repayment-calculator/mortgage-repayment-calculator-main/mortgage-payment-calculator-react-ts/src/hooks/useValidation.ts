@@ -23,7 +23,7 @@ export function useValidation() {
   const validateField = useCallback(
     <K extends keyof MortgageFormData>(
       field: K,
-      value: MortgageFormData[K]
+      value: MortgageFormData[K],
     ): string[] => {
       const rules =
         validationRules[field as keyof typeof validationRules] || [];
@@ -61,7 +61,7 @@ export function useValidation() {
 
       return fieldsErrors;
     },
-    []
+    [],
   );
 
   const validateForm = useCallback(
@@ -80,11 +80,16 @@ export function useValidation() {
 
       return Object.keys(formErrors).length === 0;
     },
-    [validateField]
+    [validateField],
   );
+
+  const resetErrors = () => {
+    setErrors({} as ValidationErrors);
+  };
 
   return {
     errors,
     validateForm,
+    resetErrors,
   };
 }

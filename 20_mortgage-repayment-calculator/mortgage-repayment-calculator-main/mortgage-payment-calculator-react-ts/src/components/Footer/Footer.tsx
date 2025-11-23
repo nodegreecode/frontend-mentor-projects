@@ -2,7 +2,7 @@ import styles from "./Footer.module.scss";
 
 function Footer() {
   return (
-    <div className={styles.attribution}>
+    <div className={`${styles.attribution} pt-2 pb-2`}>
       Challenge by{" "}
       <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>.
       Coded by{" "}

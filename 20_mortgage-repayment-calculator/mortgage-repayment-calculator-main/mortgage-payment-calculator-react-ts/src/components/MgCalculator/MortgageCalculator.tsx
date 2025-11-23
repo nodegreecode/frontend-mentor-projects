@@ -1,6 +1,7 @@
 import styles from "./MortgageCalculator.module.scss";
-import { useRef, type FormEvent } from "react";
+import { useRef, type FormEvent, useState } from "react";
 import { useValidation } from "../../hooks/useValidation";
+import { formatters } from "../../utils/formatters";
 
 interface MortgageCalculatorPorps {
   onCalculate: (
@@ -8,7 +9,6 @@ interface MortgageCalculatorPorps {
     term: number,
     rate: number,
     type: string,
-    interestOnly: string,
   ) => void;
   onClearAll: () => void;
   isCalculationDone: boolean;
@@ -21,7 +21,6 @@ export type MortgageFormData = {
   term: number;
   interestRate: number;
   type: string;
-  interestOnly: string;
 };
 
 function MortgageCalculator({
@@ -34,10 +33,10 @@ function MortgageCalculator({
   const amountRef = useRef<HTMLInputElement>(null);
   const termRef = useRef<HTMLInputElement>(null);
   const interestRateRef = useRef<HTMLInputElement>(null);
-  const typeRef = useRef<HTMLInputElement>(null);
-  const interestOnlyRef = useRef<HTMLInputElement>(null);
 
-  const { errors, validateForm } = useValidation();
+  const [mortgageType, setMotgageType] = useState<string>("repayment");
+
+  const { errors, validateForm, resetErrors } = useValidation();
 
   function handleSubmit(event: FormEvent) {
     event.preventDefault();
@@ -46,8 +45,7 @@ function MortgageCalculator({
       amount: +amountRef.current!.value,
       term: +termRef.current!.value,
       interestRate: +interestRateRef.current!.value,
-      type: typeRef.current!.value,
-      interestOnly: interestOnlyRef.current!.value,
+      type: mortgageType,
     };
 
     const isValid = validateForm(formData);
@@ -57,8 +55,7 @@ function MortgageCalculator({
         formData.amount,
         formData.term,
         formData.interestRate,
-        formData.type,
-        formData.interestOnly,
+        mortgageType,
       );
     }
   }
@@ -67,16 +64,16 @@ function MortgageCalculator({
     amountRef.current!.value = "";
     termRef.current!.value = "";
     interestRateRef.current!.value = "";
-    if (typeRef.current) typeRef.current.checked = false;
-    if (interestOnlyRef.current) interestOnlyRef.current.checked = false;
+    setMotgageType("repayment");
     onClearAll();
+    resetErrors();
   }
 
   return (
-    <div
-      className={`d-flex flex-column flex-md-row ${styles["mg-calculator"]}`}
-    >
-      <section className={styles["mg-calculator__input-area"]}>
+    <div className={`row ${styles["mg-calculator"]}`}>
+      <section
+        className={`col-12 col-md-6 ${styles["mg-calculator__input-area"]}`}
+      >
         <div
           className={`d-flex flex-lg-row flex-column justify-content-lg-between justify-content-start align-items-lg-center align-items-start  ${styles["mg-calculator__controls"]}`}
         >
@@ -178,10 +175,10 @@ function MortgageCalculator({
             >
               <input
                 type="radio"
-                id=""
                 name="mortgage-type"
                 value="repayment"
-                ref={typeRef}
+                checked={mortgageType === "repayment"}
+                onChange={(e) => setMotgageType(e.target.value)}
                 className="ms-3"
               />
               <label htmlFor="" className="ms-3 fw-bold">
@@ -195,28 +192,27 @@ function MortgageCalculator({
                 type="radio"
                 name="mortgage-type"
                 value="interest"
-                ref={interestOnlyRef}
+                checked={mortgageType === "interest"}
+                onChange={(e) => setMotgageType(e.target.value)}
                 className="ms-3"
               />
               <label htmlFor="" className="ms-3 fw-bold">
                 Interest Only
               </label>
             </div>
-            {/*Object.keys(errors).length > 0 && (
-              <span className={styles["error-message"]}>
-                {errors.mortgageType[0]}
-              </span>
-            )*/}
           </div>
           <button
-            className={`d-flex gap-2 py-2 rounded-5 fw-bold ${styles.button}`}
+            type="submit"
+            className={`d-flex gap-2 justify-content-center py-2 rounded-5 fw-bold ${styles.button}`}
           >
             <img src="/images/icon-calculator.svg" alt="Calculator icon" />
             Calculate Repayments
           </button>
         </form>
       </section>
-      <section className={styles["mg-calculator__results"]}>
+      <section
+        className={`col-12 col-md-6 ${styles["mg-calculator__results"]}`}
+      >
         {!isCalculationDone && (
           <div className="d-flex flex-column h-100 justify-content-center align-items-center">
             <img
@@ -253,13 +249,25 @@ function MortgageCalculator({
               >
                 <div className={`${styles["results__monthly-repayments"]}`}>
                   <span className="small">Your monthly repayments</span>
-                  <p className="fw-bold">&pound;{mounthlyRepay}</p>
+                  <p className="fw-bold">
+                    {formatters.currencyFormatter(
+                      mounthlyRepay,
+                      "gb-GB",
+                      "GBP",
+                    )}
+                  </p>
                 </div>
                 <div className={`${styles["results__total-repay"]}`}>
                   <span className="small">
                     Total you'll repay over the term
                   </span>
-                  <p className="fs-5"> &pound;{totalRepay}</p>
+                  <p className="fs-5">
+                    {" "}
+                    {new Intl.NumberFormat("gb-GB", {
+                      style: "currency",
+                      currency: "GBP",
+                    }).format(totalRepay)}
+                  </p>
                 </div>
               </div>
               <div
@@ -274,21 +282,3 @@ function MortgageCalculator({
 }
 
 export default MortgageCalculator;
-
-/**
- *
- * card mg-calculator
- *    mg-calculator__input-area
- *      mg-calculator__controls
- *          mg-calculator__title
- *          mg-calculator__clear-btn
- *      mg-calulator__form
- *          form-goups
- *          form-groups
- *          form-groups
- *      mg-calculator__results
- *          results__titel
- *          results__info-text
- *          results__monthly-repayments
- *          results__total-repay
- */
