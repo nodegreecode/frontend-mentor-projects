@@ -78,7 +78,11 @@ function MortgageCalculator({
           className={`d-flex flex-lg-row flex-column justify-content-lg-between justify-content-start align-items-lg-center align-items-start  ${styles["mg-calculator__controls"]}`}
         >
           <h2 className="fw-bold mb-0">Mortgage Calculator</h2>
-          <button className="btn btn-link p-0" onClick={handleClearAll}>
+          <button
+            className="btn btn-link p-0"
+            type="button"
+            onClick={handleClearAll}
+          >
             <span className="small text-end"> Clear All</span>
           </button>
         </div>
@@ -100,6 +104,7 @@ function MortgageCalculator({
               <input
                 id="amount"
                 type="text"
+                name="amount"
                 className={`col-11 border-0 ${styles["form-group__input"]} ${styles["form-group__input--left"]}`}
                 ref={amountRef}
               />
@@ -124,6 +129,7 @@ function MortgageCalculator({
                 <input
                   id="term"
                   type="text"
+                  name="term"
                   className={`col-8 border-0 ${styles["form-group__input"]} ${styles["form-group__input--left"]}`}
                   ref={termRef}
                 />
@@ -141,7 +147,7 @@ function MortgageCalculator({
                 ))}
             </div>
             <div>
-              <label htmlFor="" className="mb-2 small">
+              <label htmlFor="interestRate" className="mb-2 small">
                 Interest Rate
               </label>
               <div
@@ -151,6 +157,8 @@ function MortgageCalculator({
               >
                 <input
                   type="text"
+                  id="interestRate"
+                  name="interestRate"
                   className={`col-9 border-0 ${styles["form-group__input"]} ${styles["form-group__input--left"]}`}
                   ref={interestRateRef}
                 />
@@ -176,12 +184,13 @@ function MortgageCalculator({
               <input
                 type="radio"
                 name="mortgage-type"
+                id="repayment"
                 value="repayment"
                 checked={mortgageType === "repayment"}
                 onChange={(e) => setMotgageType(e.target.value)}
                 className="ms-3"
               />
-              <label htmlFor="" className="ms-3 fw-bold">
+              <label htmlFor="repayment" className="ms-3 fw-bold">
                 Repayment
               </label>
             </div>
@@ -191,12 +200,13 @@ function MortgageCalculator({
               <input
                 type="radio"
                 name="mortgage-type"
+                id="interest"
                 value="interest"
                 checked={mortgageType === "interest"}
                 onChange={(e) => setMotgageType(e.target.value)}
                 className="ms-3"
               />
-              <label htmlFor="" className="ms-3 fw-bold">
+              <label htmlFor="interest" className="ms-3 fw-bold">
                 Interest Only
               </label>
             </div>
