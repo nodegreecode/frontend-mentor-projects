@@ -227,7 +227,7 @@ function MortgageCalculator({
           <div className="d-flex flex-column h-100 justify-content-center align-items-center">
             <img
               className={`mb-3 ${styles["results__empty-image"]}`}
-              src="../../assets/illustration-empty.svg"
+              src="/images/illustration-empty.svg"
               alt="Illustration of calculator with pen and papers"
             />
             <h3 className={`fs-5 fw-bold mb-3 ${styles["results__title"]}`}>
