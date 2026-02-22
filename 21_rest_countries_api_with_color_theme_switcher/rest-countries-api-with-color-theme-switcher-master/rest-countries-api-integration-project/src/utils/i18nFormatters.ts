@@ -1,0 +1,1 @@
+export const formatPopulation = (value: number, locale: string) => new Intl.NumberFormat(locale).format(value);
