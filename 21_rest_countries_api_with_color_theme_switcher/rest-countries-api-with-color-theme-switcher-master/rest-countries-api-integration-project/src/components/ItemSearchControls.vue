@@ -7,7 +7,7 @@ import {storeToRefs} from "pinia";
 
 const countriesStore = useCountriesStore();
 const {loadCountriesByRegion, loadCountryByName} = countriesStore;
-const {getDarkMode} =  storeToRefs(countriesStore);
+const {getDarkMode} = storeToRefs(countriesStore);
 const open = ref(false);
 let filterTag = ref("Filter by Region");
 
@@ -17,20 +17,22 @@ const toggle = () => {
 const searchCountry = (event: Event) => {
   event.preventDefault();
   filterTag.value = "Filter by Region";
-  const inputValue: string = event.target!.value;
+  const target = event.target as HTMLInputElement;
+  const inputValue: string = target.value;
   loadCountryByName(inputValue);
 };
 const selectRegion = (nameValue: Event) => {
-const region: CountriesRegions =  nameValue.target!.name;
+  const target = nameValue.target as HTMLInputElement;
+  const region: CountriesRegions = target.name as CountriesRegions;
   open.value = !open.value;
   filterTag.value = region;
   loadCountriesByRegion(region);
 }
-const darkInputStyle = computed(()=>
-    getDarkMode.value === 'dark' ? 'force-light-input': ''
+const darkInputStyle = computed(() =>
+    getDarkMode.value === 'dark' ? 'force-light-input' : ''
 );
-const darkButtonStyle = computed(()=>
-    getDarkMode.value === 'dark' ? 'force-dark-text': ''
+const darkButtonStyle = computed(() =>
+    getDarkMode.value === 'dark' ? 'force-dark-text' : ''
 );
 
 </script>
@@ -48,7 +50,8 @@ const darkButtonStyle = computed(()=>
             <path d="m21 21-4.35-4.35"/>
           </svg>
           <label class="visually-hidden" for="search">Search for a country</label>
-          <input @keyup.enter="searchCountry($event)" id="search" class="border-0 item-search-input" :class="darkInputStyle" type="text"
+          <input @keyup.enter="searchCountry($event)" id="search" class="border-0 item-search-input"
+                 :class="darkInputStyle" type="text"
                  placeholder="Search for a country...">
         </div>
       </div>
@@ -61,19 +64,29 @@ const darkButtonStyle = computed(()=>
           </button>
           <ul class="dropdown-menu w-100 bg-white" :class="{show: open}">
             <li>
-              <button class="dropdown-item" :class="darkButtonStyle" type="button" name="Africa" @click="selectRegion($event)">Africa</button>
+              <button class="dropdown-item" :class="darkButtonStyle" type="button" name="Africa"
+                      @click="selectRegion($event)">Africa
+              </button>
             </li>
             <li>
-              <button class="dropdown-item" :class="darkButtonStyle" type="button" name="Americas" @click="selectRegion($event)">Americas</button>
+              <button class="dropdown-item" :class="darkButtonStyle" type="button" name="Americas"
+                      @click="selectRegion($event)">Americas
+              </button>
             </li>
             <li>
-              <button class="dropdown-item" :class="darkButtonStyle" type="button" name="Asia" @click="selectRegion($event)">Asia</button>
+              <button class="dropdown-item" :class="darkButtonStyle" type="button" name="Asia"
+                      @click="selectRegion($event)">Asia
+              </button>
             </li>
             <li>
-              <button class="dropdown-item" :class="darkButtonStyle" type="button" name="Europe" @click="selectRegion($event)">Europe</button>
+              <button class="dropdown-item" :class="darkButtonStyle" type="button" name="Europe"
+                      @click="selectRegion($event)">Europe
+              </button>
             </li>
             <li>
-              <button class="dropdown-item" :class="darkButtonStyle" type="button" name="Oceania" @click="selectRegion($event)">Oceania</button>
+              <button class="dropdown-item" :class="darkButtonStyle" type="button" name="Oceania"
+                      @click="selectRegion($event)">Oceania
+              </button>
             </li>
           </ul>
         </div>
@@ -84,6 +97,7 @@ const darkButtonStyle = computed(()=>
 
 <style scoped lang="scss">
 @use '../styles/variables';
+
 .item-search-input {
   width: 100%;
   font-size: variables.$font-size-homepage-items;
